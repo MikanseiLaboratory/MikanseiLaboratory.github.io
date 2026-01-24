@@ -697,7 +697,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Log initialization
-  console.log('%c未完成成果物研究所', 'color: #00ff00; font-size: 20px; font-family: monospace;');
+  console.log('%c未完成成果物研究所 (aka. 未成研)', 'color: #00ff00; font-size: 20px; font-family: monospace;');
   console.log('%cIncomplete-Outputs-Lab Landing Page Initialized', 'color: #00ff00; font-family: monospace;');
   console.log('%cNon-profit Technical Community', 'color: #cccccc; font-family: monospace;');
 });
