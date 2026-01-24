@@ -79,6 +79,38 @@
   box-shadow:
     0 0 20px rgba(0, 255, 0, 0.2),
     inset 0 0 15px rgba(0, 255, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Project Card 3D Hover Effect */
+.project-card {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) rotateX(2deg);
+}
+
+/* Member Card Effect */
+.member-card {
+  transition: all 0.5s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 255, 0, 0.6);
+}
+
+/* GitHub Icon Hover Effect */
+a[title="View on GitHub"] svg {
+  transition: all 0.3s ease;
+}
+
+a[title="View on GitHub"]:hover svg {
+  transform: rotate(360deg) scale(1.2);
+  filter: drop-shadow(0 0 8px var(--terminal-green));
 }
 
 /* Waveform Monitor Styling */
@@ -230,6 +262,74 @@
   }
 }
 
+/* Enhanced Glitch for Title */
+.glitch-title {
+  position: relative;
+  animation: title-glitch 5s infinite;
+}
+
+@keyframes title-glitch {
+  0%, 90%, 100% {
+    transform: translate(0);
+    text-shadow:
+      0 0 5px var(--terminal-green),
+      0 0 10px var(--terminal-green),
+      0 0 15px var(--terminal-green),
+      0 0 20px var(--terminal-green);
+  }
+  91% {
+    transform: translate(-3px, 2px);
+    text-shadow:
+      2px 0 var(--terminal-green),
+      -2px 0 #ff00ff,
+      0 0 20px var(--terminal-green);
+  }
+  92% {
+    transform: translate(2px, -2px);
+    text-shadow:
+      -2px 0 var(--terminal-green),
+      2px 0 #00ffff,
+      0 0 20px var(--terminal-green);
+  }
+  93% {
+    transform: translate(0);
+    text-shadow:
+      0 0 5px var(--terminal-green),
+      0 0 10px var(--terminal-green),
+      0 0 15px var(--terminal-green),
+      0 0 20px var(--terminal-green);
+  }
+}
+
+/* Fade In Animation */
+.fade-in-element {
+  opacity: 0;
+  animation: fade-in 1s ease forwards;
+}
+
+.fade-in-element:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.fade-in-element:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.fade-in-element:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Packet Glitch Display */
 .packet-glitch {
   font-family: 'IBM Plex Mono', monospace;
@@ -271,6 +371,73 @@
   .waveform-monitor path,
   .pcb-circuit .trace {
     stroke-width: 1.5;
+  }
+}
+
+/* Coming Soon Display */
+.coming-soon-display {
+  background: #000000;
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.coming-soon-display::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 255, 0, 0.1) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.coming-soon-display span {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    text-shadow:
+      0 0 10px var(--terminal-green),
+      0 0 20px var(--terminal-green),
+      0 0 30px var(--terminal-green);
+  }
+  50% {
+    opacity: 0.7;
+    text-shadow:
+      0 0 5px var(--terminal-green),
+      0 0 10px var(--terminal-green),
+      0 0 15px var(--terminal-green);
+  }
+}
+
+/* Capability Item Animation */
+.capability-item {
+  opacity: 0;
+  animation: slide-in-left 0.6s ease forwards;
+}
+
+.capability-item:nth-child(1) { animation-delay: 0.1s; }
+.capability-item:nth-child(2) { animation-delay: 0.2s; }
+.capability-item:nth-child(3) { animation-delay: 0.3s; }
+.capability-item:nth-child(4) { animation-delay: 0.4s; }
+.capability-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

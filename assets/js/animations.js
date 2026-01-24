@@ -6,6 +6,7 @@
 // Animation State
 let animationInstances = [];
 let glitchInterval = null;
+let scrollAnimationsInitialized = false;
 
 /**
  * Create background waveform animations
@@ -343,6 +344,259 @@ function enhanceScanline() {
 }
 
 /**
+ * Create hero entrance animation
+ */
+function createHeroEntrance() {
+  const header = document.getElementById('hero-header');
+  if (!header) return;
+
+  const title = header.querySelector('h1');
+  const subtitles = header.querySelectorAll('p');
+  const githubLink = header.querySelector('a[href*="github.com"]');
+
+  // Title dramatic entrance
+  anime({
+    targets: title,
+    opacity: [0, 1],
+    translateY: [-50, 0],
+    scale: [0.8, 1],
+    duration: 1500,
+    easing: 'easeOutElastic(1, .8)',
+  });
+
+  // Staggered subtitle entrance
+  anime({
+    targets: subtitles,
+    opacity: [0, 1],
+    translateX: [-30, 0],
+    duration: 1000,
+    delay: anime.stagger(200, {start: 500}),
+    easing: 'easeOutQuad'
+  });
+
+  // GitHub link entrance
+  if (githubLink) {
+    anime({
+      targets: githubLink.parentElement,
+      opacity: [0, 1],
+      translateY: [20, 0],
+      duration: 800,
+      delay: 1200,
+      easing: 'easeOutQuad'
+    });
+  }
+}
+
+/**
+ * Create project cards entrance animation
+ */
+function createProjectCardsAnimation() {
+  const cards = document.querySelectorAll('.project-card');
+
+  anime({
+    targets: cards,
+    opacity: [0, 1],
+    translateY: [50, 0],
+    rotateX: [10, 0],
+    duration: 1200,
+    delay: anime.stagger(200, {start: 300}),
+    easing: 'easeOutExpo'
+  });
+
+  // Add hover effect enhancement with anime.js
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      anime({
+        targets: card,
+        scale: 1.02,
+        boxShadow: [
+          '0 0 10px rgba(0, 255, 0, 0.1)',
+          '0 0 30px rgba(0, 255, 0, 0.3)'
+        ],
+        duration: 300,
+        easing: 'easeOutQuad'
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      anime({
+        targets: card,
+        scale: 1,
+        boxShadow: [
+          '0 0 30px rgba(0, 255, 0, 0.3)',
+          '0 0 10px rgba(0, 255, 0, 0.1)'
+        ],
+        duration: 300,
+        easing: 'easeOutQuad'
+      });
+    });
+  });
+
+  // Animate GitHub icons
+  const githubIcons = document.querySelectorAll('a[title="View on GitHub"] svg');
+  anime({
+    targets: githubIcons,
+    rotate: [0, 360],
+    duration: 2000,
+    delay: anime.stagger(300, {start: 1500}),
+    easing: 'easeInOutQuad',
+    complete: function() {
+      // Add subtle pulse animation after initial rotation
+      anime({
+        targets: githubIcons,
+        scale: [1, 1.1, 1],
+        duration: 2000,
+        delay: anime.stagger(500),
+        easing: 'easeInOutQuad',
+        loop: true
+      });
+    }
+  });
+}
+
+/**
+ * Create members section animation
+ */
+function createMembersAnimation() {
+  const memberCards = document.querySelectorAll('.member-card');
+
+  anime({
+    targets: memberCards,
+    opacity: [0, 1],
+    scale: [0.8, 1],
+    rotate: [-5, 0],
+    duration: 800,
+    delay: anime.stagger(150),
+    easing: 'easeOutBack'
+  });
+}
+
+/**
+ * Create capabilities animation
+ */
+function createCapabilitiesAnimation() {
+  const items = document.querySelectorAll('.capability-item');
+
+  anime({
+    targets: items,
+    opacity: [0, 1],
+    translateX: [-50, 0],
+    duration: 600,
+    delay: anime.stagger(100, {start: 200}),
+    easing: 'easeOutQuad'
+  });
+
+  // Add pulse effect to arrow symbols
+  items.forEach(item => {
+    const arrow = item.querySelector('span:first-child');
+    anime({
+      targets: arrow,
+      scale: [1, 1.2, 1],
+      duration: 2000,
+      delay: anime.random(0, 1000),
+      easing: 'easeInOutQuad',
+      loop: true
+    });
+  });
+}
+
+/**
+ * Create COMING SOON animation
+ */
+function createComingSoonAnimation() {
+  const comingSoon = document.querySelectorAll('.coming-soon-display span');
+
+  comingSoon.forEach(element => {
+    // Typing effect
+    const text = element.textContent;
+    element.textContent = '';
+    element.style.opacity = 1;
+
+    let charIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (charIndex < text.length) {
+        element.textContent += text[charIndex];
+        charIndex++;
+
+        // Random glitch effect during typing
+        if (Math.random() < 0.1) {
+          anime({
+            targets: element,
+            translateX: [
+              {value: -2, duration: 50},
+              {value: 2, duration: 50},
+              {value: 0, duration: 50}
+            ],
+            easing: 'easeInOutQuad'
+          });
+        }
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 100);
+
+    // Continuous pulse after typing
+    setTimeout(() => {
+      anime({
+        targets: element,
+        scale: [1, 1.05, 1],
+        duration: 2000,
+        easing: 'easeInOutQuad',
+        loop: true
+      });
+    }, text.length * 100 + 500);
+  });
+}
+
+/**
+ * Create scroll-triggered animations
+ */
+function createScrollAnimations() {
+  if (scrollAnimationsInitialized) return;
+  scrollAnimationsInitialized = true;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = entry.target;
+
+        // Animate based on section
+        if (target.id === 'members') {
+          createMembersAnimation();
+        } else if (target.id === 'capabilities') {
+          createCapabilitiesAnimation();
+        }
+
+        // Unobserve after animation
+        observer.unobserve(target);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  // Observe sections
+  const sections = document.querySelectorAll('#members, #capabilities');
+  sections.forEach(section => observer.observe(section));
+}
+
+/**
+ * Create dramatic background pulse
+ */
+function createBackgroundPulse() {
+  const background = document.getElementById('background-visual');
+  if (!background) return;
+
+  anime({
+    targets: background,
+    opacity: [0.15, 0.25, 0.15],
+    duration: 8000,
+    easing: 'easeInOutQuad',
+    loop: true
+  });
+}
+
+/**
  * Initialize all animations
  */
 function initAnimations() {
@@ -360,10 +614,27 @@ function initAnimations() {
 
   // Create animations
   createBackgroundWaveforms();
+  createBackgroundPulse();
   createProjectWaveforms();
   createPCBCircuitAnimation();
   createPacketGlitch();
   enhanceScanline();
+
+  // Hero entrance
+  createHeroEntrance();
+
+  // Project cards with stagger
+  setTimeout(() => {
+    createProjectCardsAnimation();
+  }, 800);
+
+  // Coming Soon animation
+  setTimeout(() => {
+    createComingSoonAnimation();
+  }, 1500);
+
+  // Scroll-triggered animations
+  createScrollAnimations();
 }
 
 /**

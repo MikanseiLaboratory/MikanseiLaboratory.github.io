@@ -16,26 +16,25 @@ const PROJECTS = [
   {
     name: 'obs-sync',
     fullName: 'Distributed OBS Synchronization System',
-    status: '[ PHASE: PRODUCTION ]',
-    concept: '運用ミスを許さない「静寂の同期」',
+    status: '[ PHASE: UNDER DEVELOPMENT ]',
     description: '中〜大規模配信現場における、マルチインスタンスOBSの完全同期ソリューション。マスター/スレーブ構成による設定値のリアルタイム・ミラーリング。スレーブ側での予期せぬ変更を即座に検知し、インシデントを未然に防ぐ。',
     techStack: ['Rust', 'React', 'Tauri', 'WebSocket', 'obs-websocket'],
-    type: 'software'
+    type: 'software',
+    githubUrl: 'https://github.com/Incomplete-Outputs-Lab/obs-sync'
   },
   {
     name: 'stream-monitor',
     fullName: 'Broadcast Statistics Analyzer',
-    status: '[ PHASE: ACTIVE ]',
-    concept: '熱狂を、パケットから解析する',
+    status: '[ PHASE: UNDER DEVELOPMENT ]',
     description: '配信データと視聴者体験を数値化する、エッジ動作型のアナリティクスエンジン。マルチビュー監視と並行し、コメント密度や視聴者情報をAPI経由で集積。DuckDB を採用したエッジDBにより、数百万件の統計データから盛り上がりの瞬間を即座に抽出。',
     techStack: ['Rust', 'React', 'Tauri', 'DuckDB', 'Webhooks'],
-    type: 'software'
+    type: 'software',
+    githubUrl: 'https://github.com/Incomplete-Outputs-Lab/stream-monitor'
   },
   {
     name: 'vMix-Control-Series',
     fullName: 'Embedded Interface Units',
     status: '[ PHASE: R&D ]',
-    concept: 'ソフトウェアの柔軟性に、ハードウェアの確信を',
     description: 'Raspberry Pi 5 / Pico をベースとした、放送用ソフトウェア vMix 専用のハードウェア・コントローラー群。Embassy (Rust for embedded) を活用し、超低遅延なレスポンスを実現。基板設計からファームウェアまで一貫した自社開発。',
     techStack: ['Rust (Embassy)', 'Raspberry Pi 5/Pico', 'KiCad', 'NDI SDK'],
     type: 'hardware',
@@ -45,6 +44,19 @@ const PROJECTS = [
       { name: 'VMSwitch', desc: 'スイッチングの触感に特化した実用モデル' },
       { name: 'VMDeluxe', desc: 'NDIによるPRV/PGMモニタリング機能を統合した最上位機' }
     ]
+  }
+];
+
+// Member Definitions
+const MEMBERS = [
+  {
+    name: '未成 (Misei)',
+    role: 'Founder / Lead Architect',
+    focus: ['Rust', 'Embedded Systems (Embassy)', 'Desktop Application', 'Distributed Systems', 'StreamDeck Plugins'],
+    description: '未完成成果物研究所の主宰。配信現場の「不確実性」をコードで制御することに執着する。マイコンを用いたハードウェアからクラウドオーケストレーションまで、放送に関連する技術の全レイヤーを横断的に設計。',
+    socials: {
+      x: 'https://x.com/miseinul'
+    }
   }
 ];
 
