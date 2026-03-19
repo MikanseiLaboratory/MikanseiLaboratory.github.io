@@ -41,6 +41,15 @@ const PROJECTS = [
     githubUrl: 'https://github.com/Incomplete-Outputs-Lab/bi-kanpe'
   },
   {
+    name: 'vmix-utility',
+    fullName: 'vMix Management Utility',
+    status: '[ PHASE: ACTIVE ]',
+    description: 'vMix接続と操作を管理するデスクトップアプリケーション。Tauri（Rust + React）で構築。',
+    techStack: ['Rust', 'React', 'Tauri', 'TypeScript'],
+    type: 'software',
+    githubUrl: 'https://github.com/Incomplete-Outputs-Lab/vmix-utility'
+  },
+  {
     name: 'Iryx',
     fullName: 'IP control panels for broadcast software',
     status: '[ PHASE: R&D ]',
@@ -70,7 +79,7 @@ const MEMBERS = [
   {
     name: 'Shugo "Flowing" Kawamura',
     role: 'vmix-utility 開発者',
-    focus: ['Backend', 'Frontend', 'Hardware', 'Desktop Application'],
+    focus: ['Backend', 'Frontend', 'Hardware', 'Desktop Application', 'StreamDeck Plugins'],
     description: 'vmix-utility の開発者。バックエンド、フロントエンド、ハードウェア開発からデスクトップアプリの開発まで幅広く手がける。',
     socials: {
       github: 'https://github.com/FlowingSPDG/'
