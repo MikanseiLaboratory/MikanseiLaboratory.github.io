@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iryx — vMix Control panel | 製品 | 未完成成果物研究所</title>
+    <meta
+      name="description"
+      content="Iryx は vMix 向けの専用コントロールパネル。トランジション制御・リプレイ用途モデルを開発中。概要と利用イメージ。"
+    />
+    <meta property="og:title" content="Iryx — vMix Control panel | 未完成成果物研究所" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+    <site-header data-current="products"></site-header>
+
+    <main id="main" class="mx-auto max-w-3xl px-4 py-12 md:py-16">
+      <nav class="text-sm text-zinc-500" aria-label="パンくずリスト">
+        <a href="/index.html" class="text-cyan-400/90 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded">ホーム</a>
+        <span class="mx-2" aria-hidden="true">/</span>
+        <a href="/products.html" class="text-cyan-400/90 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded">製品</a>
+        <span class="mx-2" aria-hidden="true">/</span>
+        <span class="text-zinc-400">Iryx</span>
+      </nav>
+
+      <header class="mt-8">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Product</p>
+        <h1 class="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">Iryx — vMix Control panel</h1>
+        <p class="mt-4 text-zinc-400">vMix 専用の物理コントロールパネル（開発中）</p>
+      </header>
+
+      <div class="mt-12 space-y-12 text-base leading-relaxed text-zinc-400 md:text-lg">
+        <section aria-labelledby="iryx-overview">
+          <h2 id="iryx-overview" class="text-lg font-semibold text-white">概要</h2>
+          <p class="mt-4">
+            Iryx は、番組本番で vMix を操作するオペレーター向けに設計した専用パネルです。画面とキーボードだけに頼らず、トランジションやリプレイなど、負荷の高い操作を身体の動きに合わせて扱えることを目指しています。現在、トランジション制御を主としたモデルと、スポーツ・競技配信を想定したリプレイ用モデルを並行して開発しています。
+          </p>
+        </section>
+
+        <section aria-labelledby="iryx-use">
+          <h2 id="iryx-use" class="text-lg font-semibold text-white">主な用途・利用例</h2>
+          <ul class="mt-4 list-disc space-y-3 pl-5 marker:text-cyan-500/80">
+            <li>トーク・バラエティ番組などで、カメラ切替とトランジションを素早く連続操作する構成</li>
+            <li>esports・スポーツ中継で、リプレイの呼び出しや再生タイミングを手元でコントロールする構成</li>
+            <li>複数オペレーターが分担する現場で、vMix 担当の操作負荷を下げるための専用デバイスとしての導入</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="iryx-links">
+          <h2 id="iryx-links" class="text-lg font-semibold text-white">ドキュメント・リポジトリ</h2>
+          <p class="mt-4">
+            <a
+              href="https://github.com/Incomplete-Outputs-Lab/iryx-manuals"
+              class="inline-flex text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Iryx マニュアル（GitHub: iryx-manuals）</a
+            >
+          </p>
+        </section>
+      </div>
+
+      <p class="mt-14">
+        <a
+          href="/products.html"
+          class="text-sm font-medium text-zinc-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+          >← 製品一覧へ</a
+        >
+      </p>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>

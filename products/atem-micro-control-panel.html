@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATEM Micro Control Panel | 製品 | 未完成成果物研究所</title>
+    <meta
+      name="description"
+      content="Blackmagic Design ATEM 向けの専用コントロールパネル（開発中）。概要と想定される利用シーン。"
+    />
+    <meta property="og:title" content="ATEM Micro Control Panel | 未完成成果物研究所" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/src/main.ts"></script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+    <site-header data-current="products"></site-header>
+
+    <main id="main" class="mx-auto max-w-3xl px-4 py-12 md:py-16">
+      <nav class="text-sm text-zinc-500" aria-label="パンくずリスト">
+        <a href="/index.html" class="text-cyan-400/90 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded">ホーム</a>
+        <span class="mx-2" aria-hidden="true">/</span>
+        <a href="/products.html" class="text-cyan-400/90 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded">製品</a>
+        <span class="mx-2" aria-hidden="true">/</span>
+        <span class="text-zinc-400">ATEM Micro Control Panel</span>
+      </nav>
+
+      <header class="mt-8">
+        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Product</p>
+        <h1 class="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">ATEM Micro Control Panel</h1>
+        <p class="mt-4 text-zinc-400">Blackmagic Design ATEM 向けの専用コントロールパネル（開発中）</p>
+      </header>
+
+      <div class="mt-12 space-y-12 text-base leading-relaxed text-zinc-400 md:text-lg">
+        <section aria-labelledby="atem-overview">
+          <h2 id="atem-overview" class="text-lg font-semibold text-white">概要</h2>
+          <p class="mt-4">
+            ATEM MiniシリーズやATEM Televisionシリーズのスイッチャー運用を想定し、入力切替やよく使う操作を手元に集約する物理パネルです。ソフトウェアの画面遷移を最小化し、本番中の視線移動と操作ミスを減らすことを目的に開発を進めています。仕様・インタフェースは開発に伴い変更される場合があります。
+          </p>
+        </section>
+
+        <section aria-labelledby="atem-use">
+          <h2 id="atem-use" class="text-lg font-semibold text-white">主な用途・利用例</h2>
+          <ul class="mt-4 list-disc space-y-3 pl-5 marker:text-cyan-500/80">
+            <li>小型スタジオや会議室でのワンオペ・少人数オペレーションで、ATEM の切替を素早く行う構成</li>
+            <li>ロケーション中継やモバイル配信で、ノート PC 画面に頼りすぎない運用をしたい場合</li>
+            <li>既存の ATEM ソフトウェアパネルと併用し、担当者ごとに操作系を分ける構成</li>
+          </ul>
+        </section>
+      </div>
+
+      <p class="mt-14">
+        <a
+          href="/products.html"
+          class="text-sm font-medium text-zinc-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+          >← 製品一覧へ</a
+        >
+      </p>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>
