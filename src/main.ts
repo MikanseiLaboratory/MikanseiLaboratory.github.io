@@ -9,14 +9,14 @@ type PageId =
   | "contact";
 
 const NAV: { id: PageId; href: string; label: string }[] = [
-  { id: "home", href: "index.html", label: "ホーム" },
-  { id: "products", href: "products.html", label: "製品" },
-  { id: "projects", href: "projects.html", label: "プロジェクト" },
-  { id: "research", href: "research.html", label: "研究" },
-  { id: "members", href: "members.html", label: "メンバー" },
-  { id: "partners", href: "partners.html", label: "パートナー" },
-  { id: "technology", href: "technology.html", label: "技術" },
-  { id: "contact", href: "contact.html", label: "お問い合わせ" },
+  { id: "home", href: "/index.html", label: "ホーム" },
+  { id: "products", href: "/products.html", label: "製品" },
+  { id: "projects", href: "/projects.html", label: "プロジェクト" },
+  { id: "research", href: "/research.html", label: "研究" },
+  { id: "members", href: "/members.html", label: "メンバー" },
+  { id: "partners", href: "/partners.html", label: "パートナー" },
+  { id: "technology", href: "/technology.html", label: "技術" },
+  { id: "contact", href: "/contact.html", label: "お問い合わせ" },
 ];
 
 function navLinkClass(current: PageId, id: PageId): string {
@@ -41,7 +41,7 @@ class SiteHeader extends HTMLElement {
     this.innerHTML = `
       <header class="fixed top-0 z-50 w-full border-b border-zinc-800/80 bg-zinc-950/90 backdrop-blur-md">
         <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:py-4">
-          <a href="index.html" class="group flex flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 rounded-md">
+          <a href="/index.html" class="group flex flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 rounded-md">
             <span class="text-sm font-semibold tracking-tight text-white group-hover:text-cyan-200 transition-colors">未完成成果物研究所</span>
             <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Incomplete Outputs Lab</span>
           </a>
