@@ -43,7 +43,7 @@ class SiteHeader extends HTMLElement {
         <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 md:py-4">
           <a href="/index.html" class="group flex flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 rounded-md">
             <span class="text-sm font-semibold tracking-tight text-white group-hover:text-cyan-200 transition-colors">未完成成果物研究所</span>
-            <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Incomplete Outputs Lab</span>
+            <span class="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Mikansei Laboratory</span>
           </a>
           <button
             type="button"
@@ -112,7 +112,7 @@ class SiteFooter extends HTMLElement {
             <p class="text-sm font-semibold text-white">未完成成果物研究所</p>
             <p class="mt-1 text-xs text-zinc-500">配信プロダクション向けツール・ハードウェアの研究開発コミュニティ</p>
           </div>
-          <p class="text-xs text-zinc-500">© ${new Date().getFullYear()} Incomplete Outputs Lab</p>
+          <p class="text-xs text-zinc-500">© ${new Date().getFullYear()} Mikansei Laboratory</p>
         </div>
       </footer>
     `;

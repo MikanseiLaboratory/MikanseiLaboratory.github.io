@@ -1,8 +1,10 @@
-# 未完成成果物研究所 Landing Page
+# Mikansei Laboratory（未完成成果物研究所）Landing Page
 
-未完成成果物研究所のランディングページです。
+Mikansei Laboratory（未完成成果物研究所）のランディングページです。
 
-公開 URL: [https://incomplete-outputs-lab.github.io/](https://incomplete-outputs-lab.github.io/)
+GitHub 組織: [https://github.com/MikanseiLaboratory](https://github.com/MikanseiLaboratory)
+
+公開 URL: [https://mikanseilaboratory.github.io/](https://mikanseilaboratory.github.io/)
 
 ## 技術スタック
 
