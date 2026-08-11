@@ -1,6 +1,5 @@
 type PageId =
   | "home"
-  | "omt-tools"
   | "products"
   | "projects"
   | "research"
@@ -11,7 +10,6 @@ type PageId =
 
 const NAV: { id: PageId; href: string; label: string }[] = [
   { id: "home", href: "/index.html", label: "ホーム" },
-  { id: "omt-tools", href: "/omt-tools.html", label: "OMT Tools" },
   { id: "products", href: "/products.html", label: "製品" },
   { id: "projects", href: "/projects.html", label: "プロジェクト" },
   { id: "research", href: "/research.html", label: "リサーチ" },
