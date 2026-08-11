@@ -48,6 +48,7 @@ export default defineConfig({
         partners: resolve(root, "partners.html"),
         technology: resolve(root, "technology.html"),
         contact: resolve(root, "contact.html"),
+        omtTools: resolve(root, "omt-tools.html"),
         productIryx: resolve(root, "products/iryx.html"),
         productAtemMicro: resolve(root, "products/atem-micro-control-panel.html"),
         projectVmixUtility: resolve(root, "projects/vmix-utility.html"),
