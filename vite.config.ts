@@ -41,7 +41,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(root, "index.html"),
-        omtTools: resolve(root, "omt-tools.html"),
+        projectOmtTools: resolve(root, "projects/omt-tools.html"),
         projectVmixUtility: resolve(root, "projects/vmix-utility.html"),
       },
     },

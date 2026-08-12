@@ -7,12 +7,12 @@
     <title>未完成成果物研究所 | Mikansei Laboratory</title>
     <meta
       name="description"
-      content="配信の現場で使うソフトと機材を作っているコミュニティ。OMT Tools、vMix、ATEM、NDI まわり。"
+      content="未完成成果物研究所は、配信プロダクション向けツールとハードウェア機材の研究開発を行う技術者コミュニティです。OMT Tools、vmix-utility などのOSSを開発・保守しています。"
     />
     <meta property="og:title" content="未完成成果物研究所 | Mikansei Laboratory" />
     <meta
       property="og:description"
-      content="配信の現場で使うソフトと機材を作っているコミュニティ。"
+      content="未完成成果物研究所は、配信プロダクション向けツールとハードウェア機材の研究開発を行う技術者コミュニティです。OMT Tools、vmix-utility などのOSSを開発・保守しています。"
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
@@ -43,7 +43,7 @@
           </h1>
           <p class="mt-3 font-mono text-xs uppercase tracking-[0.28em] text-zinc-500 md:text-sm">Mikansei Laboratory</p>
           <p class="mt-8 max-w-xl text-base leading-relaxed text-zinc-300 md:text-lg">
-            配信の現場で使うソフトと、手元の機材を作っているコミュニティです。
+            OMT Tools、vMix、ATEM、NDI など、配信プロダクション向けのツールとハードウェア機材を開発しています。
           </p>
           <div class="mt-10 flex flex-wrap gap-3">
             <a
@@ -52,7 +52,7 @@
               >Projects</a
             >
             <a
-              href="/omt-tools.html"
+              href="/projects/omt-tools.html"
               class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-zinc-100 backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
               >OMT Tools</a
             >
@@ -80,28 +80,19 @@
           <p class="lab-title">未完成成果物研究所について</p>
           <div class="lab-copy space-y-4">
             <p>
-              完成品を売る会社ではない。配信用のツールとハードウェアを、収録の合間に直して、翌日の卓に戻す。名前の「未完成」は、その途中経過を出す、という意味でもある。
+              未完成成果物研究所は、配信プロダクション向けツールおよびハードウェア機材の研究開発を行う技術者コミュニティです。
             </p>
             <p>
-              2026年時点で、メンバーは放送・配信・ITの仕事が本業だ。研究所の作業は空き時間で回している。
+              「完成」の一歩手前にある、荒削りながらも本質的な課題解決を目的としています。2026年現在、全メンバーが放送・配信・IT業界の第一線で活動するプロフェッショナルであり、本業の傍ら、技術的探求と現場の最適化を目的として参画しています。
             </p>
           </div>
-          <div class="mt-8 grid gap-4 md:grid-cols-2">
-            <article class="lab-card p-6 md:p-7">
-              <h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan-400/90">Our approach</h3>
-              <p class="mt-3 text-lg font-semibold text-white">考え方</p>
-              <p class="mt-3 text-sm leading-relaxed text-zinc-400 md:text-base">
-                机上の理想だけだと、収録の当日に使えない。今のやり方に合わせるだけでも、手数は減らない。荒くても、明日の番組でボタンを減らせるものを出す。
-              </p>
-            </article>
-            <article class="lab-card p-6 md:p-7">
-              <h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan-400/90">What we do</h3>
-              <p class="mt-3 text-lg font-semibold text-white">やっていること</p>
-              <p class="mt-3 text-sm leading-relaxed text-zinc-400 md:text-base">
-                vMix や ATEM の周辺ソフト、専用パネル、Stream Deck と Companion のプラグイン。NDI・OMT・SRT の実装も書く。ゲームの API をテロップや HUD に載せる仕事も受ける。
-              </p>
-            </article>
-          </div>
+          <article class="lab-card mt-8 p-6 md:p-7">
+            <h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan-400/90">What we do</h3>
+            <p class="mt-3 text-lg font-semibold text-white">やっていること</p>
+            <p class="mt-3 text-sm leading-relaxed text-zinc-400 md:text-base">
+              vMixやTriCaster、ATEMの周辺ソフトや専用パネル、StreamDeckプラグイン、NDI・OMT・SRT関連のソフトウェアを開発しています。ゲームのAPIと連動したグラフィックシステムやテロップシステムの開発も行っています。
+            </p>
+          </article>
         </div>
       </section>
 
@@ -109,17 +100,16 @@
         <div class="lab-panel py-20 md:py-16">
           <h2 id="tech-heading" class="lab-kicker">Technology</h2>
           <p class="lab-title">技術スタック</p>
-          <p class="lab-copy">本業で触っている機材と、自分たちで書いている伝送・言語の一覧です。</p>
+          <p class="lab-copy">本業で触っている機材と、採用している技術スタック・言語の一覧です。</p>
           <div class="mt-8 grid gap-4 lg:grid-cols-3">
             <article class="media-frame">
-              <img src="/images/tech-gear.jpg" alt="放送用スイッチャーとコントロールサーフェス" width="1536" height="1024" loading="lazy" decoding="async" class="aspect-[16/9] h-40 w-full object-cover" />
+              <img src="/images/tech-gear.jpg" alt="放送用スイッチャーとコントロールパネル" width="1536" height="1024" loading="lazy" decoding="async" class="aspect-[16/9] h-40 w-full object-cover" />
               <div class="p-5">
-                <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">プロダクション機材</h3>
-                <p class="mt-2 text-sm leading-relaxed text-zinc-400">スイッチャー、リプレイ、制作ソフト。外部制御の仕様は、ここからツールに落ちる。</p>
+                <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">機材</h3>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">スイッチャー、リプレイや制作ソフトなど。</p>
                 <ul class="mt-4 flex flex-wrap gap-1.5">
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Viz/NewTek TriCaster</li>
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Viz/NewTek 3Play</li>
-                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Viz/Newtek NC</li>
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Panasonic Kairos</li>
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">StudioCoast vMix</li>
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Blackmagic Design ATEM</li>
@@ -131,7 +121,7 @@
               <img src="/images/tech-protocol.jpg" alt="IP映像伝送を抽象化したビジュアル" width="1536" height="1024" loading="lazy" decoding="async" class="aspect-[16/9] h-40 w-full object-cover" />
               <div class="p-5">
                 <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">プロトコル</h3>
-                <p class="mt-2 text-sm leading-relaxed text-zinc-400">LAN のプレビュー、遠隔、配信の出口。ソース発見とセッションを自分たちで書ける層を厚くしている。</p>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">映像伝送層の開発やプロトコル研究もコミュニティ内で行っています。</p>
                 <ul class="mt-4 flex flex-wrap gap-1.5">
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">NDI</li>
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">OMT</li>
@@ -139,24 +129,20 @@
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">WebRTC</li>
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">WHIP</li>
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">RTMP</li>
-                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Websocket</li>
-                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">HTTP/HTTPS</li>
-                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">TCP/UDP</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">WebSocket</li>
                 </ul>
               </div>
             </article>
             <article class="media-frame">
               <img src="/images/tech-lang.jpg" alt="開発ワークステーション" width="1536" height="1024" loading="lazy" decoding="async" class="aspect-[16/9] h-40 w-full object-cover" />
               <div class="p-5">
-                <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">プログラミング言語</h3>
-                <p class="mt-2 text-sm leading-relaxed text-zinc-400">デスクトップは Rust と Tauri。基板まわりは組込み。画面と配信周辺は TypeScript。コーデックでは SIMD も使う。</p>
+                <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">言語</h3>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">組み込み環境からデスクトップアプリまで、レイヤーは多岐に渡ります。</p>
                 <ul class="mt-4 flex flex-wrap gap-1.5">
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Rust</li>
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Go</li>
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">TypeScript/JavaScript</li>
                   <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">C#</li>
-                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Zig</li>
-                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Swift</li>
                 </ul>
               </div>
             </article>
@@ -164,15 +150,15 @@
           <dl class="mt-5 grid gap-3 sm:grid-cols-3">
             <div class="lab-card px-4 py-3">
               <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">Control</dt>
-              <dd class="mt-1 text-sm text-zinc-300">ATEM / vMix / OBS の外部制御と同期</dd>
+              <dd class="mt-1 text-sm text-zinc-300">TriCaster / ATEM / vMix / OBS などの放送機材の制御と同期</dd>
             </div>
             <div class="lab-card px-4 py-3">
               <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">Transport</dt>
-              <dd class="mt-1 text-sm text-zinc-300">NDI・OMT・SRT を中心とした IP 映像</dd>
+              <dd class="mt-1 text-sm text-zinc-300">NDI・OMT・SRT を中心とした IP 映像転送の研究</dd>
             </div>
             <div class="lab-card px-4 py-3">
               <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">Hardware</dt>
-              <dd class="mt-1 text-sm text-zinc-300">RP2040 ファームウェアから専用パネルまで</dd>
+              <dd class="mt-1 text-sm text-zinc-300">Raspberry Pi Picoファームウェアから専用パネルまで</dd>
             </div>
           </dl>
         </div>
@@ -184,7 +170,7 @@
             <h2 id="marquee-heading" class="lab-kicker text-center">Partners</h2>
             <p class="lab-title text-center">採用プロダクション</p>
             <p class="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-zinc-400 md:text-base">
-              ツールを使ってもらっている先の一部です。大会中継、スタジオ、学校の実習など。
+              ツールを採用頂いている会社様の一部です。大会中継、スタジオ、学校の実習など多岐に渡ります。
             </p>
             <div class="mt-8 grid gap-4 md:grid-cols-2">
               <figure class="media-frame relative">
@@ -246,9 +232,9 @@
               <div class="lab-card p-5 lg:col-span-1">
                 <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">使われている場所</h3>
                 <ul class="mt-3 space-y-2 text-sm text-zinc-400">
-                  <li>大会中継と会場内の PGM</li>
-                  <li>スタジオ収録、中継車</li>
-                  <li>学校の実習</li>
+                  <li>esportsイベントのオンライン配信、海外イベントの中継や会場内スイッチングのサポートなど</li>
+                  <li>スタジオ収録、中継車、リモートプロダクション</li>
+                  <li>専門学校の実習室や授業での使用など</li>
                 </ul>
               </div>
               <div class="lg:col-span-2">
@@ -291,13 +277,14 @@
                 />
                 <div class="min-w-0 flex-1">
                   <p class="text-xl font-semibold text-white">Flowing</p>
-                  <p class="mt-0.5 text-sm text-zinc-400">河村柊吾</p>
+                  <p class="mt-0.5 text-sm text-zinc-400">Shugo Kawamura</p>
                   <p class="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-cyan-400/90">Founder / Engineer</p>
                   <p class="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
                     <a href="https://github.com/FlowingSPDG" class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded" target="_blank" rel="noopener noreferrer">GitHub</a>
                     <a href="https://x.com/FlowingSPDG" class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded" target="_blank" rel="noopener noreferrer">X</a>
+                    <a href="https://twitch.tv/flowingspdg" class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded" target="_blank" rel="noopener noreferrer">twitch.tv/flowingspdg</a>
                   </p>
-                  <p class="mt-4 text-sm leading-relaxed text-zinc-400">プログラマー。デスクトップアプリの開発・プロダクト開発の主導を行う。vmix-utility や bi-kanpe などの主要ツールの開発を担当。</p>
+                  <p class="mt-4 text-sm leading-relaxed text-zinc-400">プログラマー。デスクトップアプリの開発・プロダクト開発の主導を行う。vmix-utility や OMT Toolsなど主要ツールの開発を担当。</p>
                 </div>
               </div>
             </li>
@@ -331,13 +318,13 @@
         <div class="lab-panel py-20 md:py-16">
           <h2 id="projects-heading" class="lab-kicker">Projects</h2>
           <p class="lab-title">プロダクトとプロジェクト</p>
-          <p class="lab-copy">製品、公開ソフト、ライブラリと試作に分けた。並びは active、development、experimental、research の順。</p>
+          <p class="lab-copy">デスクトップアプリ、ソフトウェア、ライブラリは基本的に全て公開しており、商用利用も可能です。</p>
 
           <div class="mt-10">
             <div class="flex flex-wrap items-end justify-between gap-4">
               <div>
                 <h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan-400/90">製品</h3>
-                <p class="mt-1 text-sm text-zinc-500">手元で切るためのパネル</p>
+                <p class="mt-1 text-sm text-zinc-500">ハードウェアコントロールパネル</p>
               </div>
               <img src="/images/product-hardware.jpg" alt="" width="320" height="80" class="hidden h-16 w-40 rounded-lg border border-white/10 object-cover md:block" loading="lazy" decoding="async" />
             </div>
@@ -349,7 +336,7 @@
                       <h4 class="text-lg font-semibold text-white">Iryx</h4>
                       <span class="status-pill bg-amber-400/15 text-amber-300">development</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">vMix 専用のコントロールパネル。トランジション用とリプレイ用を、いま並行して作っている。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">vMix専用コントロールパネル。現在鋭意開発中。2026年内販売予定。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">vMix</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Hardware</span>
@@ -360,10 +347,10 @@
                 <a href="https://github.com/MikanseiLaboratory" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
                   
                     <div class="flex items-start justify-between gap-3">
-                      <h4 class="text-lg font-semibold text-white">ATEM Micro</h4>
+                      <h4 class="text-lg font-semibold text-white">ATEM Micro Controller</h4>
                       <span class="status-pill bg-amber-400/15 text-amber-300">development</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Blackmagic Design ATEM 向けの小型コントロールパネル。開発中。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Blackmagic Design ATEM向け小型コントロールパネル。現在鋭意開発中。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">ATEM</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Hardware</span>
@@ -375,16 +362,16 @@
 
           <div class="mt-12">
             <h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan-400/90">OSSソフトウェア</h3>
-            <p class="mt-1 text-sm text-zinc-500">現場の卓で使う公開ソフト</p>
+            <p class="mt-1 text-sm text-zinc-500">プロダクション現場や配信スタジオ、中継車などで利用するソフトウェア群です。</p>
             <ul class="mt-4 grid gap-4 md:grid-cols-2">
               <li>
-                <a href="/omt-tools.html" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400">
+                <a href="/projects/omt-tools.html" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400">
                   
                     <div class="flex items-start justify-between gap-3">
                       <h4 class="text-lg font-semibold text-white">OMT Tools</h4>
                       <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Open Media Transport 向けの無料ツール。Studio Monitor と Test Patterns。LAN 上の映像確認用。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Open Media Transport(OMT)向けの無料ツール群。NDI Toolsにインスパイアされたソフトウェア群です。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">OMT</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Windows</span>
@@ -399,7 +386,7 @@
                       <h4 class="text-lg font-semibold text-white">vmix-utility</h4>
                       <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">vMix の接続と操作をまとめるデスクトップアプリ。Shortcut、Blank、Input、List。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">vMixへの接続と操作を包括的に支援するデスクトップアプリ。多くのイベントで採用実績あり。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">vMix</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Tauri</span>
@@ -413,10 +400,10 @@
                       <h4 class="text-lg font-semibold text-white">bi-kanpe</h4>
                       <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">双方向のカンペ。オフライン前提。iOS / Android と Stream Deck から送れる。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">オフライン環境でも使える双方向カンペ。iOS / Android および StreamDeck から送信できます。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Prompt</span>
-                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Stream Deck</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">StreamDeck</span>
                     </p>
                 </a>
               </li>
@@ -427,7 +414,7 @@
                       <h4 class="text-lg font-semibold text-white">ProductionDeck</h4>
                       <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">オープンソースの Stream Deck 互換ファームウェア。Raspberry Pi Pico（RP2040）向け。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">オープンソースのStreamDeck互換ファームウェア。Raspberry Pi Pico(RP2040)、STM32H7シリーズ向け。ハードウェアも近日公開予定。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">RP2040</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Firmware</span>
@@ -441,7 +428,7 @@
                       <h4 class="text-lg font-semibold text-white">obs-sync</h4>
                       <span class="status-pill bg-amber-400/15 text-amber-300">development</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">複数の OBS を同じ進行に揃える。投影用と配信用を分けたいとき、予備系を置きたいときに使う。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">LAN内の複数のOBS-Studioを同じ状態に揃える支援ソフトウェア。投影用と配信用を分けたいときや、予備系を置きたいときに使う。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">OBS</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Sync</span>
@@ -455,7 +442,7 @@
                       <h4 class="text-lg font-semibold text-white">ATEM-UI</h4>
                       <span class="status-pill bg-amber-400/15 text-amber-300">development</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">ATEM Software Control のオープンソース代替。Linux を含む、複数 OS から ATEM を操作する。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">ATEM Software Controlのオープンソース代替。Linuxを含む複数OSからATEMの制御・操作が可能</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">ATEM</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Rust</span>
@@ -469,7 +456,7 @@
                       <h4 class="text-lg font-semibold text-white">stream-monitor</h4>
                       <span class="status-pill bg-zinc-400/15 text-zinc-300">experimental</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Twitch の同時接続数とチャット密度を見る実験。配信の山場を後から拾うためのもの。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Twitchの同時接続数とチャット密度を見る実験的BIデスクトップアプリ。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Twitch</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Analytics</span>
@@ -483,7 +470,7 @@
                       <h4 class="text-lg font-semibold text-white">rust-ndi-viewer</h4>
                       <span class="status-pill bg-violet-400/15 text-violet-300">research</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Rust だけで NDI を受信して表示する。CPU と WGPU のフィルタもサンプルとして置いてある。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">RustだけでNDIを受信して表示するPoCデスクトップアプリ。CPUとWGPUのフィルターサンプルコードも配置。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Rust</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">NDI</span>
@@ -505,7 +492,7 @@
                       <h4 class="text-lg font-semibold text-white">vmix-rs</h4>
                       <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">vMix の TCP / HTTP API を叩く Rust ライブラリ。crates.io に出している。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">vMixのTCP / HTTP APIを叩くRustライブラリ。tokio対応。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Rust</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">vMix</span>
@@ -519,7 +506,7 @@
                       <h4 class="text-lg font-semibold text-white">openmediatransport-rs</h4>
                       <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">OMT の Pure Rust 実装。TCP 伝送と DNS-SD 発見。Sender と Receiver がある。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">OMTのRust実装。OMTを利用した独自アプリケーション開発が可能。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">OMT</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Rust</span>
@@ -533,7 +520,7 @@
                       <h4 class="text-lg font-semibold text-white">vmx-rs</h4>
                       <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">VMX1 コーデックの Pure Rust 実装。AVX2 / SSE / NEON / scalar の SIMD 経路がある。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">OMTで利用されるVMX1コーデックのRust実装。SIMDに対応しており、さまざまなCPUプラットフォームでの利用を目指して対応中</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">VMX</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">SIMD</span>
@@ -547,10 +534,10 @@
                       <h4 class="text-lg font-semibold text-white">streamdeck-atem-rs</h4>
                       <span class="status-pill bg-amber-400/15 text-amber-300">development</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Blackmagic Design ATEM 向けのクロスプラットフォーム Stream Deck プラグイン（Rust）。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Blackmagic Design ATEM向けのクロスプラットフォーム多機能StreamDeckプラグイン。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">ATEM</span>
-                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Stream Deck</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">StreamDeck</span>
                     </p>
                 </a>
               </li>
@@ -561,7 +548,7 @@
                       <h4 class="text-lg font-semibold text-white">momaku（網膜）</h4>
                       <span class="status-pill bg-zinc-400/15 text-zinc-300">experimental</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Web ページを NDI で送出するデスクトップアプリ。Vingester にインスパイアされている。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">WebページをNDIで送出するデスクトップアプリ。Vingesterにインスパイアされている。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">NDI</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Tauri</span>
@@ -575,7 +562,7 @@
                       <h4 class="text-lg font-semibold text-white">necromancer</h4>
                       <span class="status-pill bg-violet-400/15 text-violet-300">research</span>
                     </div>
-                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Blackmagic ATEM 制御プロトコルの Pure Rust 再実装。まだ製品としては出していない。</p>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Blackmagic Design ATEM制御プロトコルのRust再実装。</p>
                     <p class="mt-4 flex flex-wrap gap-1.5">
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">ATEM</span>
                       <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Protocol</span>
@@ -587,22 +574,49 @@
         </div>
       </section>
 
+      <section id="support" class="snap-section" aria-labelledby="support-heading">
+        <div class="lab-panel">
+          <h2 id="support-heading" class="lab-kicker">Support</h2>
+          <p class="lab-title">ご支援</p>
+          <p class="lab-copy">
+            未完成成果物研究所はコミュニティです。活動は寄付によって成り立っています。
+          </p>
+          <article class="lab-card mt-8 p-6 md:p-8">
+            <ul class="space-y-3 text-sm leading-relaxed text-zinc-400 md:text-base">
+              <li>オーナー Flowingのtwitch.tvより支援が可能です。</li>
+              <li>Amazon Primeがあれば、追加料金なしで無料で支援できます。</li>
+              <li>自動更新はされません。毎月、必要なときだけ支援が可能です。</li>
+              <li>コミュニティの運営は寄付で成り立っています。ご支援いただけると助かります。</li>
+            </ul>
+            <p class="mt-6">
+              <a
+                href="https://subs.twitch.tv/flowingspdg"
+                class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Twitch で支援する</a
+              >
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section id="contact" class="snap-section snap-contact snap-scrollable" aria-labelledby="contact-heading">
         <div class="lab-panel flex-1 py-20 md:py-12">
           <h2 id="contact-heading" class="lab-kicker">Contact</h2>
           <p class="lab-title">お問い合わせ</p>
-          <p class="lab-copy">バグ報告、使い方、受託の話、どれも受け付ける。内容によって窓口を分けている。返信の速さは、本業の空き次第。</p>
+          <p class="lab-copy">バグ報告、使い方、受託のご相談など、内容に応じて窓口を分けています。</p>
           <div class="mt-8 grid gap-4 lg:grid-cols-3">
             <div class="lab-card p-5 md:p-6">
               <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Discord</h3>
-              <p class="mt-3 text-sm leading-relaxed text-zinc-400">雑談と使い方の質問はここが早い。公開ソフトの話も、ここで拾うことが多い。</p>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400">雑談、使い方の質問、公開ソフトの話題や新規リリースの案内は Discord で受け付けています。</p>
               <div class="mt-4">
                 <social-links></social-links>
               </div>
             </div>
             <div class="lab-card p-5 md:p-6">
               <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">GitHub</h3>
-              <p class="mt-3 text-sm leading-relaxed text-zinc-400">不具合とパッチは、該当リポジトリの Issue / PR へ。組織アカウントは MikanseiLaboratory。</p>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400">不具合報告・修正要望は、該当リポジトリの Issue / PRまで</p>
               <p class="mt-4">
                 <a
                   href="https://github.com/MikanseiLaboratory"
@@ -615,7 +629,7 @@
             </div>
             <div class="lab-card p-5 md:p-6">
               <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">メール</h3>
-              <p class="mt-3 text-sm leading-relaxed text-zinc-400">受託（テロップ・HUD）、Iryx / ATEM Micro の話、Discord に書きにくい内容はメールで。</p>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400">受託（テロップ・HUD）、Iryx / ATEM Micro Controller の大量発注、Discord に書きにくい内容はメールにてお問い合わせください。</p>
               <p class="mt-4">
                 <a
                   href="mailto:ruk1ium@gmail.com"
@@ -629,17 +643,17 @@
             <article class="lab-card p-5">
               <h3 class="text-sm font-semibold text-white">向いている相談</h3>
               <ul class="mt-2 space-y-1.5 text-sm leading-relaxed text-zinc-400">
-                <li>公開ソフトの不具合、導入時の詰まり</li>
-                <li>vMix / ATEM / NDI / OMT まわりの周辺ツール</li>
-                <li>ゲーム API をテロップや HUD に載せる仕事</li>
+                <li>公開ソフトの不具合、導入時の詰まり、使い方の質問など</li>
+                <li>vMix / ATEM / NDI / OMT まわりの周辺ツール・ソフトウェアに関する相談</li>
+                <li>ゲームのAPI情報をグラフィックやテロップに反映する案件</li>
               </ul>
             </article>
             <article class="lab-card p-5">
               <h3 class="text-sm font-semibold text-white">向いていない相談</h3>
               <ul class="mt-2 space-y-1.5 text-sm leading-relaxed text-zinc-400">
-                <li>本業の放送局としての中継請負（研究所では受けない）</li>
-                <li>完成品の大量生産・在庫販売（Iryx はまだ開発中）</li>
-                <li>返信期限つきの緊急サポート契約</li>
+                <li>本業の配信制作チームとしてのイベント制作</li>
+                <li>研究中プロダクトに関する相談</li>
+                <li>その他返信期限つきの緊急サポート契約など、責任が問われる行為</li>
               </ul>
             </article>
           </div>

@@ -7,13 +7,13 @@
     <title>vmix-utility — vMix オペレーション支援 | 未完成成果物研究所</title>
     <meta
       name="description"
-      content="vmix-utility は vMix 接続とオペレーションを最適化するデスクトップアプリです。Shortcut / Blank / Input / List の管理。Windows・macOS・Linux。MIT。"
+      content="vmix-utilityはvMixの管理とオペレーションを支援するデスクトップアプリです。Shortcut / Blank / Input / List の管理が可能です。Windows・macOS・Linuxに対応しています。"
     />
     <link rel="canonical" href="https://mikanseilaboratory.github.io/projects/vmix-utility.html" />
     <meta property="og:title" content="vmix-utility | 未完成成果物研究所" />
     <meta
       property="og:description"
-      content="vMix を採用するプロダクション向けのオペレーション支援ソフトウェア。接続管理、Shortcut 生成、Input / List 管理。"
+      content="vMixを採用するプロダクション向けのオペレーション支援ソフトウェア。接続管理、Shortcut 生成、Input / List 管理。"
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mikanseilaboratory.github.io/projects/vmix-utility.html" />
@@ -26,11 +26,6 @@
     <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
-    <a
-      href="#main"
-      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-zinc-950"
-      >メインコンテンツへスキップ</a
-    >
     <site-header data-current="vmix-utility"></site-header>
 
     <main id="main">
@@ -56,10 +51,10 @@
           <div>
             <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">vmix-utility</p>
             <h1 id="vu-hero" class="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-white md:text-5xl">
-              vMix 接続とオペレーションを最適化する
+              vMixの管理とオペレーションを支援する
             </h1>
             <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
-              vMix を中核にした配信・収録向けのデスクトップアプリ。接続の管理、Shortcut URL の組み立て、Blank 入力の一括作成、Input と List の確認。卓の定型作業の手数を減らすために書いている。
+              vMixを支援する配信・収録向けのデスクトップアプリ。複数台のvMixの管理、Shortcut URLの組み立て、Blank入力の一括作成、InputとListの確認などが可能です。
             </p>
             <div class="mt-10 flex flex-wrap gap-3">
               <a
@@ -74,7 +69,7 @@
                 class="inline-flex items-center justify-center rounded-xl border border-zinc-600 bg-zinc-900/50 px-5 py-3 text-sm font-medium text-zinc-100 transition hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
                 target="_blank"
                 rel="noopener noreferrer"
-                >GitHub リポジトリ</a
+                >GitHub</a
               >
               <a
                 href="#vu-features"
@@ -109,15 +104,15 @@
           <div class="mt-8 grid gap-4 md:grid-cols-3">
             <article class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
               <h3 class="text-lg font-semibold text-white">Tauri</h3>
-              <p class="mt-3 text-sm leading-relaxed text-zinc-400">Rust バックエンドと React フロントエンド。ネイティブ配布物を Windows / macOS / Linux 向けに出しています。</p>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400">Rust/Reactで開発しています。ビルド成果物を Windows / macOS / Linux 向けに出しています。</p>
             </article>
             <article class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
               <h3 class="text-lg font-semibold text-white">vMix API</h3>
-              <p class="mt-3 text-sm leading-relaxed text-zinc-400">HTTP / TCP 経由で接続し、Shortcut や Input 状態を扱います。下回りには vmix-rs も公開しています。</p>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400">HTTP / TCP経由で接続し、vMixの状態をリアルタイムに監視・更新します。</p>
             </article>
             <article class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
               <h3 class="text-lg font-semibold text-white">現場前提</h3>
-              <p class="mt-3 text-sm leading-relaxed text-zinc-400">進行ディレクターとオペレーターが分かれる番組、シーン切替の多い esports、繰り返しフォーマットの配信を想定しています。</p>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400">シーン切替のスピード感が速いesportsイベントや、スライド素材の枚数が多いイベントでの運用を想定しています。</p>
             </article>
           </div>
         </div>
@@ -126,27 +121,27 @@
       <section id="vu-features" class="mx-auto max-w-6xl px-4 py-16 md:py-24" aria-labelledby="vu-features-heading">
         <h2 id="vu-features-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Features</h2>
         <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">含まれる機能</p>
-        <p class="mt-4 max-w-2xl text-zinc-400">README に公開しているモジュールです。接続先を登録したうえで、必要な作業画面へ切り替えます。</p>
+        <p class="mt-4 max-w-2xl text-zinc-400">利用できる機能群です。接続先vMixを登録したうえで、必要な作業画面へ切り替えます。</p>
         <ul class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <li class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
             <h3 class="text-xl font-semibold text-white">Connections</h3>
-            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">vMix ホストを追加・管理します。複数台・予備系を切り替えて使う現場向けです。</p>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">vMixホストを追加・管理します。複数台・予備系を切り替えて使う現場向けです。</p>
           </li>
           <li class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
             <h3 class="text-xl font-semibold text-white">Shortcut Generator</h3>
-            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">Shortcut Function の URL を組み立てます。Stream Deck やブラウザ起点の操作に渡せます。</p>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">Shortcut FunctionのURLを組み立てます。StreamDeckやブラウザ経由でのvMix操作が可能になります。</p>
           </li>
           <li class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
             <h3 class="text-xl font-semibold text-white">Blank Generator</h3>
-            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">Blank / Colours 入力を一括生成します。セットアップ時のプレースホルダ作りを短縮します。</p>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">Blank / Colours 入力を一括生成します。合成シーンを大量に作成する際に仕様します。</p>
           </li>
           <li class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
             <h3 class="text-xl font-semibold text-white">Input Manager</h3>
-            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">Input を閲覧・管理します。本線の入力一覧を、vMix 本体の画面以外からも確認できます。</p>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">Inputを閲覧・管理します。vMix本体の入力監視や、名前の変更を一括で行ったり別PCから実現が可能になります</p>
           </li>
           <li class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
             <h3 class="text-xl font-semibold text-white">List Manager</h3>
-            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">Input List を閲覧・管理します。クリップ順や差し替えが多い番組での確認用です。</p>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">Input Listを閲覧・管理します。素材数や差し替えが多い番組での確認用です。</p>
           </li>
           <li class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
             <h3 class="text-xl font-semibold text-white">Settings / About</h3>
@@ -172,10 +167,9 @@
               />
             </figure>
             <ul class="list-disc space-y-3 pl-5 text-base leading-relaxed text-zinc-400 marker:text-cyan-500/80 md:text-lg">
-              <li>マルチカメラの番組やイベント配信で、進行ディレクターと vMix オペレーターの連携を補助する</li>
-              <li>esports などシーン切替が多い番組で、繰り返し操作やショートカット整理の負荷を下げる</li>
+              <li>シーン数が多くスイッチングが多い番組で、ショートカット整理の負荷を下げる</li>
               <li>社内・学校などで繰り返し使うフォーマット配信に、テンプレート化しやすい運用を載せる</li>
-              <li>Blank 入力や List の準備を、本番前のセットアップ時間にまとめて片付ける</li>
+              <li>Blank入力やListの準備を、本番前のセットアップ時間にまとめて片付ける</li>
             </ul>
           </div>
         </div>
@@ -185,7 +179,7 @@
         <h2 id="vu-download-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Download &amp; links</h2>
         <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">入手方法・関連リンク</p>
         <p class="mt-4 max-w-2xl text-zinc-400">
-          ビルド済みの成果物は GitHub Releases で配布しています。ソースからのビルドはリポジトリを参照してください。
+          ビルド済みの成果物はGitHub Releasesで配布しています。ソースからのビルドはリポジトリを参照してください。
         </p>
         <div class="mt-10 grid gap-6 lg:grid-cols-2">
           <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
@@ -238,7 +232,7 @@
                   class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
                   target="_blank"
                   rel="noopener noreferrer"
-                  >vMix 公式サイト</a
+                  >vMix公式サイト</a
                 >
               </li>
               <li>
@@ -254,7 +248,7 @@
           </div>
         </div>
         <p class="mt-8 text-sm text-zinc-500">
-          vmix-utility は未完成成果物研究所が保守するコミュニティ製ソフトウェアであり、StudioCoast / vMix の公式製品ではありません。
+          vmix-utilityは未完成成果物研究所が保守するコミュニティ製ソフトウェアであり、StudioCoast / vMix の公式製品ではありません。
         </p>
       </section>
 
