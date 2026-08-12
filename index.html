@@ -7,22 +7,18 @@
     <title>未完成成果物研究所 | Mikansei Laboratory</title>
     <meta
       name="description"
-      content="配信プロダクション向けツールおよびハードウェア機材の研究開発を行う技術者コミュニティ。OMT Tools、vMix、ATEM、NDI など現場最適化のためのツール群を開発しています。"
+      content="配信の現場で使うソフトと機材を作っているコミュニティ。OMT Tools、vMix、ATEM、NDI まわり。"
     />
     <meta property="og:title" content="未完成成果物研究所 | Mikansei Laboratory" />
     <meta
       property="og:description"
-      content="配信プロダクション向けツールおよびハードウェア機材の研究開発を行う技術者コミュニティ。"
+      content="配信の現場で使うソフトと機材を作っているコミュニティ。"
     />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ja_JP" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="/src/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
@@ -31,289 +27,625 @@
       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-zinc-950"
       >メインコンテンツへスキップ</a
     >
-    <site-header data-current="home"></site-header>
+
+    <site-header data-current="home" data-variant="cinematic"></site-header>
+
+    <div class="lab-fallback" data-lab-fallback aria-hidden="true"></div>
+    <canvas id="lab-scene" class="lab-scene" aria-hidden="true"></canvas>
 
     <main id="main">
-      <section
-        class="relative overflow-hidden border-b border-zinc-800 bg-gradient-to-b from-zinc-900/80 via-zinc-950 to-zinc-950 px-4 pb-20 pt-16 md:pb-28 md:pt-24"
-        aria-labelledby="hero-heading"
-      >
-        <div
-          class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(34,211,238,0.12),transparent)]"
-          aria-hidden="true"
-        ></div>
-        <div class="relative mx-auto max-w-6xl">
-          <p class="text-xs font-medium uppercase tracking-[0.25em] text-cyan-400/90">Broadcast · Stream · Engineering</p>
-          <h1 id="hero-heading" class="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-5xl lg:text-6xl">
+      <section id="hero" class="snap-section snap-hero relative flex min-h-dvh flex-col justify-end px-5 pb-16 pt-28 md:justify-center md:px-8 md:pb-24 md:pt-24" aria-labelledby="hero-heading">
+        <div class="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-r from-[#050506]/80 via-[#050506]/35 to-transparent md:from-[#050506]/70 md:via-[#050506]/20" aria-hidden="true"></div>
+        <div class="relative z-10 mx-auto w-full max-w-[90rem]">
+          <p class="font-mono text-[11px] font-medium uppercase tracking-[0.32em] text-cyan-400/90">Broadcast · Stream · Engineering</p>
+          <h1 id="hero-heading" class="mt-5 max-w-3xl text-4xl font-semibold leading-[1.12] tracking-tight text-white md:text-6xl lg:text-7xl">
             未完成成果物研究所
           </h1>
-          <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
-            未完成成果物研究所は、配信プロダクション向けツールとハードウェア機材の研究開発を行う技術者コミュニティです。
+          <p class="mt-3 font-mono text-xs uppercase tracking-[0.28em] text-zinc-500 md:text-sm">Mikansei Laboratory</p>
+          <p class="mt-8 max-w-xl text-base leading-relaxed text-zinc-300 md:text-lg">
+            配信の現場で使うソフトと、手元の機材を作っているコミュニティです。
           </p>
           <div class="mt-10 flex flex-wrap gap-3">
             <a
+              href="#projects"
+              class="inline-flex items-center justify-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+              >Projects</a
+            >
+            <a
               href="/omt-tools.html"
-              class="inline-flex items-center justify-center rounded-xl bg-cyan-500 px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+              class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-zinc-100 backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
               >OMT Tools</a
             >
             <a
-              href="/products.html"
-              class="inline-flex items-center justify-center rounded-xl border border-zinc-600 bg-zinc-900/50 px-5 py-3 text-sm font-medium text-zinc-100 transition hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-              >製品を見る</a
+              href="/projects/vmix-utility.html"
+              class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-medium text-zinc-100 backdrop-blur-sm transition hover:border-white/40 hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+              >vmix-utility</a
             >
-            <a
-              href="/partners.html"
-              class="inline-flex items-center justify-center rounded-xl border border-zinc-600 bg-zinc-900/50 px-5 py-3 text-sm font-medium text-zinc-100 transition hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-              >パートナー・採用放送</a
-            >
+          </div>
+        </div>
+        <a
+          href="#about"
+          class="lab-scroll-hint absolute bottom-6 left-1/2 z-10 hidden -translate-x-1/2 text-zinc-500 md:inline-flex"
+          aria-label="続きを読む"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </section>
+
+      <section id="about" class="snap-section" aria-labelledby="about-heading">
+        <div class="lab-panel">
+          <h2 id="about-heading" class="lab-kicker">About</h2>
+          <p class="lab-title">未完成成果物研究所について</p>
+          <div class="lab-copy space-y-4">
+            <p>
+              完成品を売る会社ではない。配信用のツールとハードウェアを、収録の合間に直して、翌日の卓に戻す。名前の「未完成」は、その途中経過を出す、という意味でもある。
+            </p>
+            <p>
+              2026年時点で、メンバーは放送・配信・ITの仕事が本業だ。研究所の作業は空き時間で回している。
+            </p>
+          </div>
+          <div class="mt-8 grid gap-4 md:grid-cols-2">
+            <article class="lab-card p-6 md:p-7">
+              <h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan-400/90">Our approach</h3>
+              <p class="mt-3 text-lg font-semibold text-white">考え方</p>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400 md:text-base">
+                机上の理想だけだと、収録の当日に使えない。今のやり方に合わせるだけでも、手数は減らない。荒くても、明日の番組でボタンを減らせるものを出す。
+              </p>
+            </article>
+            <article class="lab-card p-6 md:p-7">
+              <h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan-400/90">What we do</h3>
+              <p class="mt-3 text-lg font-semibold text-white">やっていること</p>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400 md:text-base">
+                vMix や ATEM の周辺ソフト、専用パネル、Stream Deck と Companion のプラグイン。NDI・OMT・SRT の実装も書く。ゲームの API をテロップや HUD に載せる仕事も受ける。
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="mx-auto max-w-6xl px-4 py-20 md:py-28" aria-labelledby="about-heading">
-        <h2 id="about-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">About</h2>
-        <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">未完成成果物研究所について</p>
-        <div class="mt-8 space-y-6 text-base leading-relaxed text-zinc-400 md:text-lg">
-          <p>
-            未完成成果物研究所 は、配信プロダクション向けツールおよびハードウェア機材の研究開発を行う技術者コミュニティです。
-          </p>
-          <p>
-            「完成」の一歩手前にある、荒削りながらも本質的な課題解決を目的としています。2026年現在、全メンバーが放送・配信・IT業界の第一線で活動するプロフェッショナルであり、本業の傍ら、技術的探求と現場の最適化を目的として参画しています。
-          </p>
+      <section id="technology" class="snap-section snap-scrollable" aria-labelledby="tech-heading">
+        <div class="lab-panel py-20 md:py-16">
+          <h2 id="tech-heading" class="lab-kicker">Technology</h2>
+          <p class="lab-title">技術スタック</p>
+          <p class="lab-copy">本業で触っている機材と、自分たちで書いている伝送・言語の一覧です。</p>
+          <div class="mt-8 grid gap-4 lg:grid-cols-3">
+            <article class="media-frame">
+              <img src="/images/tech-gear.jpg" alt="放送用スイッチャーとコントロールサーフェス" width="1536" height="1024" loading="lazy" decoding="async" class="aspect-[16/9] h-40 w-full object-cover" />
+              <div class="p-5">
+                <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">プロダクション機材</h3>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">スイッチャー、リプレイ、制作ソフト。外部制御の仕様は、ここからツールに落ちる。</p>
+                <ul class="mt-4 flex flex-wrap gap-1.5">
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Viz/NewTek TriCaster</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Viz/NewTek 3Play</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Viz/Newtek NC</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Panasonic Kairos</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">StudioCoast vMix</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Blackmagic Design ATEM</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">OBS-Studio</li>
+                </ul>
+              </div>
+            </article>
+            <article class="media-frame">
+              <img src="/images/tech-protocol.jpg" alt="IP映像伝送を抽象化したビジュアル" width="1536" height="1024" loading="lazy" decoding="async" class="aspect-[16/9] h-40 w-full object-cover" />
+              <div class="p-5">
+                <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">プロトコル</h3>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">LAN のプレビュー、遠隔、配信の出口。ソース発見とセッションを自分たちで書ける層を厚くしている。</p>
+                <ul class="mt-4 flex flex-wrap gap-1.5">
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">NDI</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">OMT</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">SRT</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">WebRTC</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">WHIP</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">RTMP</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Websocket</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">HTTP/HTTPS</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">TCP/UDP</li>
+                </ul>
+              </div>
+            </article>
+            <article class="media-frame">
+              <img src="/images/tech-lang.jpg" alt="開発ワークステーション" width="1536" height="1024" loading="lazy" decoding="async" class="aspect-[16/9] h-40 w-full object-cover" />
+              <div class="p-5">
+                <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">プログラミング言語</h3>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">デスクトップは Rust と Tauri。基板まわりは組込み。画面と配信周辺は TypeScript。コーデックでは SIMD も使う。</p>
+                <ul class="mt-4 flex flex-wrap gap-1.5">
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Rust</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Go</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">TypeScript/JavaScript</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">C#</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Zig</li>
+                  <li class="rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">Swift</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <dl class="mt-5 grid gap-3 sm:grid-cols-3">
+            <div class="lab-card px-4 py-3">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">Control</dt>
+              <dd class="mt-1 text-sm text-zinc-300">ATEM / vMix / OBS の外部制御と同期</dd>
+            </div>
+            <div class="lab-card px-4 py-3">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">Transport</dt>
+              <dd class="mt-1 text-sm text-zinc-300">NDI・OMT・SRT を中心とした IP 映像</dd>
+            </div>
+            <div class="lab-card px-4 py-3">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">Hardware</dt>
+              <dd class="mt-1 text-sm text-zinc-300">RP2040 ファームウェアから専用パネルまで</dd>
+            </div>
+          </dl>
         </div>
       </section>
 
-      <section class="border-t border-zinc-800 bg-zinc-900/20 px-4 py-20 md:py-28" aria-labelledby="approach-heading">
-        <div class="mx-auto max-w-6xl">
-          <h2 id="approach-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Our approach</h2>
-          <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">私たちの考え方</p>
-          <div class="mt-8 space-y-6 text-base leading-relaxed text-zinc-400 md:text-lg">
-            <p>
-              理想論だけでは、良いものは作れません。一方で、現場の現状に安住するだけでは、改善もまた不可能です。
+      <section id="partners" class="snap-section snap-scrollable" aria-labelledby="marquee-heading">
+        <div class="w-full py-16 md:py-12">
+          <div class="mx-auto max-w-6xl px-5 md:px-8">
+            <h2 id="marquee-heading" class="lab-kicker text-center">Partners</h2>
+            <p class="lab-title text-center">採用プロダクション</p>
+            <p class="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-zinc-400 md:text-base">
+              ツールを使ってもらっている先の一部です。大会中継、スタジオ、学校の実習など。
             </p>
-            <p>
-              私たちは理想と現実のあいだを模索し、未完成で粗削りでも、本質的な問題解決につながるものを研究し提供します。
-            </p>
+            <div class="mt-8 grid gap-4 md:grid-cols-2">
+              <figure class="media-frame relative">
+                <img src="/images/partner-arena.jpg" alt="esportsアリーナのステージ照明" width="1536" height="1024" loading="lazy" decoding="async" class="aspect-[16/9] h-44 w-full object-cover md:h-52" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-zinc-950/90 to-transparent px-4 pb-4 pt-10">
+                  <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300">Live / esports</p>
+                  <p class="mt-1 text-sm font-medium text-white">大会中継・会場内映像</p>
+                </figcaption>
+              </figure>
+              <figure class="media-frame relative">
+                <img src="/images/partner-studio.jpg" alt="放送副調のモニターウォール" width="1536" height="1024" loading="lazy" decoding="async" class="aspect-[16/9] h-44 w-full object-cover md:h-52" />
+                <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-zinc-950/90 to-transparent px-4 pb-4 pt-10">
+                  <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300">Studio / gallery</p>
+                  <p class="mt-1 text-sm font-medium text-white">副調・中継車・収録拠点</p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="marquee-mask mt-8 overflow-hidden" role="presentation">
+            <div class="marquee-inner">
+              <ul class="flex items-center gap-3 px-2 md:gap-4" aria-label="採用プロダクション（スクロール）">
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社CyberE</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社CyberZ</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">RAGE esports</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社PinE</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">ミツイケミカル商事</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社プレイブレーン</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社ＪＣＧ</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社サードウェーブ</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">BreakingDown株式会社</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">TECH CHASE Inc.</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社TechnoBlood eSports</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">EastGeekSmash</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">Live on Three</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">FIVESCUP</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">その他各種教育機関</span></li>
+              </ul>
+              <ul class="marquee-duplicate flex items-center gap-3 px-2 md:gap-4" aria-hidden="true">
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社CyberE</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社CyberZ</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">RAGE esports</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社PinE</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">ミツイケミカル商事</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社プレイブレーン</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社ＪＣＧ</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社サードウェーブ</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">BreakingDown株式会社</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">TECH CHASE Inc.</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社TechnoBlood eSports</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">EastGeekSmash</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">Live on Three</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">FIVESCUP</span></li>
+                <li class="shrink-0"><span class="inline-block rounded-full border border-white/10 bg-zinc-900/80 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">その他各種教育機関</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="mx-auto mt-8 max-w-6xl px-5 md:px-8">
+            <div class="grid gap-4 lg:grid-cols-3">
+              <div class="lab-card p-5 lg:col-span-1">
+                <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">使われている場所</h3>
+                <ul class="mt-3 space-y-2 text-sm text-zinc-400">
+                  <li>大会中継と会場内の PGM</li>
+                  <li>スタジオ収録、中継車</li>
+                  <li>学校の実習</li>
+                </ul>
+              </div>
+              <div class="lg:col-span-2">
+                <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">主な採用放送</h3>
+                <ul class="mt-3 flex flex-wrap gap-2">
+                  <li class="rounded-md border border-white/10 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300">VALORANT Champions Tour Japan</li>
+                  <li class="rounded-md border border-white/10 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300">Apex Legends Global Series Japan</li>
+                  <li class="rounded-md border border-white/10 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300">RIOT Games ONE</li>
+                  <li class="rounded-md border border-white/10 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300">League the k4sen</li>
+                  <li class="rounded-md border border-white/10 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300">CS:GO PGL Major Copenhagen 2024</li>
+                  <li class="rounded-md border border-white/10 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300">CS:GO PGL Major Antwerp 2022</li>
+                  <li class="rounded-md border border-white/10 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300">BLAST Premier</li>
+                  <li class="rounded-md border border-white/10 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300">PUBG Mobile Championship</li>
+                  <li class="rounded-md border border-white/10 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300">荒野行動王者決定戦</li>
+                  <li class="rounded-md border border-white/10 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300">プロスピ-A チャンピオンシップ</li>
+                  <li class="rounded-md border border-white/10 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300">ブレイキングダウン</li>
+                  <li class="rounded-md border border-white/10 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300">プロジェクトセカイ Championship 2022 Spring</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="border-y border-zinc-800 bg-zinc-900/25 px-4 py-20 md:py-28" aria-labelledby="what-heading">
-        <div class="mx-auto max-w-6xl">
-          <h2 id="what-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">What we do</h2>
-          <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">取り組み</p>
-          <div class="mt-8 space-y-6 text-base leading-relaxed text-zinc-400 md:text-lg">
-            <p>
-              プロダクションの配信・番組オペレーションの支援をするツール群を開発しています。配信用ソフトのサポートツールや vMix / ATEM
-              の関連ハードウェアの開発、Stream Deck のプラグインや Companion プラグインの開発、NDI / OMT / SRT
-              関連の研究などを主に行なっています。
-            </p>
-            <p>
-              esports タイトルを含むゲームの API をグラフィカルに反映するテロップ・HUD ツールの受託開発も行っています。
-            </p>
-          </div>
+      <section id="members" class="snap-section" aria-labelledby="members-heading">
+        <div class="lab-panel">
+          <h2 id="members-heading" class="lab-kicker">Members</h2>
+          <p class="lab-title">コアメンバー</p>
+          <ul class="mt-8 grid gap-4 md:grid-cols-2">
+            <li class="lab-card p-6 md:p-8">
+              <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
+                <img
+                  src="/images/avatar-flowingspdg.png"
+                  alt="Flowing"
+                  width="128"
+                  height="128"
+                  class="h-20 w-20 shrink-0 rounded-full border border-white/15 object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="min-w-0 flex-1">
+                  <p class="text-xl font-semibold text-white">Flowing</p>
+                  <p class="mt-0.5 text-sm text-zinc-400">河村柊吾</p>
+                  <p class="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-cyan-400/90">Founder / Engineer</p>
+                  <p class="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                    <a href="https://github.com/FlowingSPDG" class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://x.com/FlowingSPDG" class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded" target="_blank" rel="noopener noreferrer">X</a>
+                  </p>
+                  <p class="mt-4 text-sm leading-relaxed text-zinc-400">プログラマー。デスクトップアプリの開発・プロダクト開発の主導を行う。vmix-utility や bi-kanpe などの主要ツールの開発を担当。</p>
+                </div>
+              </div>
+            </li>
+            <li class="lab-card p-6 md:p-8">
+              <div class="flex flex-col gap-4 sm:flex-row sm:gap-6">
+                <img
+                  src="/images/avatar-mizuyoukanao.png"
+                  alt="mizuyoukan"
+                  width="128"
+                  height="128"
+                  class="h-20 w-20 shrink-0 rounded-full border border-white/15 object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div class="min-w-0 flex-1">
+                  <p class="text-xl font-semibold text-white">mizuyoukan</p>
+                  <p class="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-cyan-400/90">Engineer</p>
+                  <p class="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
+                    <a href="https://github.com/mizuyoukanao" class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://x.com/AT12806379" class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded" target="_blank" rel="noopener noreferrer">X</a>
+                  </p>
+                  <p class="mt-4 text-sm leading-relaxed text-zinc-400">ハードウェア担当。回路の設計やパーツ選定、基板や筐体の制作などを行う。Iryx のハードウェア設計を担当。</p>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
 
-      <section
-        class="border-b border-zinc-800 bg-gradient-to-b from-zinc-900/40 to-zinc-950 px-4 py-20 md:py-28"
-        aria-labelledby="omt-tools-spotlight"
-      >
-        <div class="mx-auto max-w-6xl">
-          <h2 id="omt-tools-spotlight" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
-            Featured
-          </h2>
-          <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">OMT Tools</p>
-          <p class="mt-4 max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
-            Open Media Transport（OMT）向けの無料制作ユーティリティです。Studio Monitor・Test Patterns など、NDI Tools
-            にインスパイアされた LAN 映像ワークフロー用ツールを提供しています。
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a
-              href="/omt-tools.html"
-              class="inline-flex items-center justify-center rounded-xl bg-cyan-500 px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
-              >OMT Tools を見る</a
-            >
-            <a
-              href="https://github.com/MikanseiLaboratory/omt-tools/releases"
-              class="inline-flex items-center justify-center rounded-xl border border-zinc-600 bg-zinc-900/50 px-5 py-3 text-sm font-medium text-zinc-100 transition hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-              target="_blank"
-              rel="noopener noreferrer"
-              >ダウンロード</a
-            >
-          </div>
-        </div>
-      </section>
+      <section id="projects" class="snap-section snap-scrollable" aria-labelledby="projects-heading">
+        <div class="lab-panel py-20 md:py-16">
+          <h2 id="projects-heading" class="lab-kicker">Projects</h2>
+          <p class="lab-title">プロダクトとプロジェクト</p>
+          <p class="lab-copy">製品、公開ソフト、ライブラリと試作に分けた。並びは active、development、experimental、research の順。</p>
 
-      <section class="border-b border-zinc-800 py-16 md:py-20" aria-labelledby="marquee-heading">
-        <div class="mx-auto max-w-6xl px-4">
-          <h2 id="marquee-heading" class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
-            採用プロダクション
-          </h2>
-          <p class="mt-2 text-center text-sm text-zinc-400">私たちのツール・サービスを活用いただいている事例（一部）</p>
-        </div>
-        <div class="marquee-mask mt-10 overflow-hidden" role="presentation">
-          <div class="marquee-inner">
-            <ul class="flex items-center gap-3 px-2 md:gap-4" aria-label="採用プロダクション（スクロール）">
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社CyberE</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社CyberZ</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">RAGE esports</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社PinE</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">ミツイケミカル商事</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社プレイブレーン</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社ＪＣＧ</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社サードウェーブ</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">BreakingDown株式会社</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">TECH CHASE Inc.</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社TechnoBlood eSports</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">EastGeekSmash</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">Live on Three</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">FIVESCUP</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">その他各種教育機関</span></li>
+          <div class="mt-10">
+            <div class="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan-400/90">製品</h3>
+                <p class="mt-1 text-sm text-zinc-500">手元で切るためのパネル</p>
+              </div>
+              <img src="/images/product-hardware.jpg" alt="" width="320" height="80" class="hidden h-16 w-40 rounded-lg border border-white/10 object-cover md:block" loading="lazy" decoding="async" />
+            </div>
+            <ul class="mt-4 grid gap-4 md:grid-cols-2">
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/manuals/blob/main/iryx" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">Iryx</h4>
+                      <span class="status-pill bg-amber-400/15 text-amber-300">development</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">vMix 専用のコントロールパネル。トランジション用とリプレイ用を、いま並行して作っている。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">vMix</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Hardware</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MikanseiLaboratory" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">ATEM Micro</h4>
+                      <span class="status-pill bg-amber-400/15 text-amber-300">development</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Blackmagic Design ATEM 向けの小型コントロールパネル。開発中。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">ATEM</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Hardware</span>
+                    </p>
+                </a>
+              </li>
             </ul>
-            <ul class="marquee-duplicate flex items-center gap-3 px-2 md:gap-4" aria-hidden="true">
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社CyberE</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社CyberZ</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">RAGE esports</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社PinE</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">ミツイケミカル商事</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社プレイブレーン</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社ＪＣＧ</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社サードウェーブ</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">BreakingDown株式会社</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">TECH CHASE Inc.</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">株式会社TechnoBlood eSports</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">EastGeekSmash</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">Live on Three</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">FIVESCUP</span></li>
-              <li class="shrink-0"><span class="inline-block rounded-full border border-zinc-700/90 bg-zinc-900/90 px-4 py-2 text-xs font-medium text-zinc-300 md:text-sm">その他各種教育機関</span></li>
+          </div>
+
+          <div class="mt-12">
+            <h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan-400/90">OSSソフトウェア</h3>
+            <p class="mt-1 text-sm text-zinc-500">現場の卓で使う公開ソフト</p>
+            <ul class="mt-4 grid gap-4 md:grid-cols-2">
+              <li>
+                <a href="/omt-tools.html" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">OMT Tools</h4>
+                      <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Open Media Transport 向けの無料ツール。Studio Monitor と Test Patterns。LAN 上の映像確認用。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">OMT</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Windows</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">macOS</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="/projects/vmix-utility.html" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">vmix-utility</h4>
+                      <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">vMix の接続と操作をまとめるデスクトップアプリ。Shortcut、Blank、Input、List。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">vMix</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Tauri</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/bi-kanpe" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">bi-kanpe</h4>
+                      <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">双方向のカンペ。オフライン前提。iOS / Android と Stream Deck から送れる。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Prompt</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Stream Deck</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/productiondeck" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">ProductionDeck</h4>
+                      <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">オープンソースの Stream Deck 互換ファームウェア。Raspberry Pi Pico（RP2040）向け。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">RP2040</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Firmware</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/obs-sync" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">obs-sync</h4>
+                      <span class="status-pill bg-amber-400/15 text-amber-300">development</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">複数の OBS を同じ進行に揃える。投影用と配信用を分けたいとき、予備系を置きたいときに使う。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">OBS</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Sync</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/ATEM-UI" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">ATEM-UI</h4>
+                      <span class="status-pill bg-amber-400/15 text-amber-300">development</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">ATEM Software Control のオープンソース代替。Linux を含む、複数 OS から ATEM を操作する。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">ATEM</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Rust</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/stream-monitor" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">stream-monitor</h4>
+                      <span class="status-pill bg-zinc-400/15 text-zinc-300">experimental</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Twitch の同時接続数とチャット密度を見る実験。配信の山場を後から拾うためのもの。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Twitch</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Analytics</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/rust-ndi-viewer" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">rust-ndi-viewer</h4>
+                      <span class="status-pill bg-violet-400/15 text-violet-300">research</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Rust だけで NDI を受信して表示する。CPU と WGPU のフィルタもサンプルとして置いてある。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Rust</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">NDI</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">WGPU</span>
+                    </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-12">
+            <h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan-400/90">ライブラリや試作品</h3>
+            <p class="mt-1 text-sm text-zinc-500">プロトコル実装、クレート、プラグイン、試作</p>
+            <ul class="mt-4 grid gap-4 md:grid-cols-2">
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/vmix-rs" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">vmix-rs</h4>
+                      <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">vMix の TCP / HTTP API を叩く Rust ライブラリ。crates.io に出している。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Rust</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">vMix</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/openmediatransport-rs" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">openmediatransport-rs</h4>
+                      <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">OMT の Pure Rust 実装。TCP 伝送と DNS-SD 発見。Sender と Receiver がある。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">OMT</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Rust</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/vmx-rs" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">vmx-rs</h4>
+                      <span class="status-pill bg-cyan-400/15 text-cyan-300">active</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">VMX1 コーデックの Pure Rust 実装。AVX2 / SSE / NEON / scalar の SIMD 経路がある。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">VMX</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">SIMD</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/streamdeck-atem-rs" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">streamdeck-atem-rs</h4>
+                      <span class="status-pill bg-amber-400/15 text-amber-300">development</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Blackmagic Design ATEM 向けのクロスプラットフォーム Stream Deck プラグイン（Rust）。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">ATEM</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Stream Deck</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/momaku" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">momaku（網膜）</h4>
+                      <span class="status-pill bg-zinc-400/15 text-zinc-300">experimental</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Web ページを NDI で送出するデスクトップアプリ。Vingester にインスパイアされている。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">NDI</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Tauri</span>
+                    </p>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/MikanseiLaboratory/necromancer" class="project-card group focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400" target="_blank" rel="noopener noreferrer">
+                  
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="text-lg font-semibold text-white">necromancer</h4>
+                      <span class="status-pill bg-violet-400/15 text-violet-300">research</span>
+                    </div>
+                    <p class="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">Blackmagic ATEM 制御プロトコルの Pure Rust 再実装。まだ製品としては出していない。</p>
+                    <p class="mt-4 flex flex-wrap gap-1.5">
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">ATEM</span>
+                      <span class="rounded-md bg-white/5 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-400">Protocol</span>
+                    </p>
+                </a>
+              </li>
             </ul>
           </div>
         </div>
-        <p class="mt-8 text-center">
-          <a
-            href="/partners.html"
-            class="text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
-            >採用企業・コミュニティ一覧へ</a
-          >
-        </p>
       </section>
 
-      <section class="mx-auto max-w-6xl px-4 py-20 md:py-28" aria-labelledby="cases-heading">
-        <h2 id="cases-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">採用事例</h2>
-        <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">導入・活用のストーリー</p>
-        <p class="mt-4 max-w-2xl text-zinc-400">具体的な事例記事は準備中です。公開まで今しばらくお待ちください。</p>
-        <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-hidden="true">
-          <div class="rounded-2xl border border-dashed border-zinc-700 bg-zinc-900/30 p-8 min-h-[140px]"></div>
-          <div class="rounded-2xl border border-dashed border-zinc-700 bg-zinc-900/30 p-8 min-h-[140px]"></div>
-          <div class="rounded-2xl border border-dashed border-zinc-700 bg-zinc-900/30 p-8 min-h-[140px] sm:col-span-2 lg:col-span-1"></div>
-        </div>
-      </section>
-
-      <section class="border-t border-zinc-800 bg-zinc-900/20 px-4 py-20 md:py-28" aria-labelledby="voices-heading">
-        <div class="mx-auto max-w-6xl">
-          <h2 id="voices-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">ユーザーの声</h2>
-          <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">現場からのフィードバック</p>
-          <p class="mt-4 text-zinc-400">近日、コメント・推薦文を掲載予定です。</p>
-          <div class="mt-10 grid gap-6 md:grid-cols-2">
-            <figure class="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-8 min-h-[160px] flex flex-col justify-center">
-              <blockquote class="text-sm text-zinc-500">掲載準備中</blockquote>
-            </figure>
-            <figure class="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-8 min-h-[160px] flex flex-col justify-center">
-              <blockquote class="text-sm text-zinc-500">掲載準備中</blockquote>
-            </figure>
+      <section id="contact" class="snap-section snap-contact snap-scrollable" aria-labelledby="contact-heading">
+        <div class="lab-panel flex-1 py-20 md:py-12">
+          <h2 id="contact-heading" class="lab-kicker">Contact</h2>
+          <p class="lab-title">お問い合わせ</p>
+          <p class="lab-copy">バグ報告、使い方、受託の話、どれも受け付ける。内容によって窓口を分けている。返信の速さは、本業の空き次第。</p>
+          <div class="mt-8 grid gap-4 lg:grid-cols-3">
+            <div class="lab-card p-5 md:p-6">
+              <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Discord</h3>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400">雑談と使い方の質問はここが早い。公開ソフトの話も、ここで拾うことが多い。</p>
+              <div class="mt-4">
+                <social-links></social-links>
+              </div>
+            </div>
+            <div class="lab-card p-5 md:p-6">
+              <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">GitHub</h3>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400">不具合とパッチは、該当リポジトリの Issue / PR へ。組織アカウントは MikanseiLaboratory。</p>
+              <p class="mt-4">
+                <a
+                  href="https://github.com/MikanseiLaboratory"
+                  class="text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >github.com/MikanseiLaboratory</a
+                >
+              </p>
+            </div>
+            <div class="lab-card p-5 md:p-6">
+              <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">メール</h3>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400">受託（テロップ・HUD）、Iryx / ATEM Micro の話、Discord に書きにくい内容はメールで。</p>
+              <p class="mt-4">
+                <a
+                  href="mailto:ruk1ium@gmail.com"
+                  class="text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded break-all"
+                  >ruk1ium@gmail.com</a
+                >
+              </p>
+            </div>
+          </div>
+          <div class="mt-4 grid gap-4 md:grid-cols-2">
+            <article class="lab-card p-5">
+              <h3 class="text-sm font-semibold text-white">向いている相談</h3>
+              <ul class="mt-2 space-y-1.5 text-sm leading-relaxed text-zinc-400">
+                <li>公開ソフトの不具合、導入時の詰まり</li>
+                <li>vMix / ATEM / NDI / OMT まわりの周辺ツール</li>
+                <li>ゲーム API をテロップや HUD に載せる仕事</li>
+              </ul>
+            </article>
+            <article class="lab-card p-5">
+              <h3 class="text-sm font-semibold text-white">向いていない相談</h3>
+              <ul class="mt-2 space-y-1.5 text-sm leading-relaxed text-zinc-400">
+                <li>本業の放送局としての中継請負（研究所では受けない）</li>
+                <li>完成品の大量生産・在庫販売（Iryx はまだ開発中）</li>
+                <li>返信期限つきの緊急サポート契約</li>
+              </ul>
+            </article>
           </div>
         </div>
-      </section>
-
-      <section class="mx-auto max-w-6xl px-4 py-20 md:py-28" aria-labelledby="explore-heading">
-        <h2 id="explore-heading" class="text-center text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">Explore</h2>
-        <p class="mt-3 text-center text-2xl font-semibold text-white md:text-3xl">コンテンツ一覧</p>
-        <ul class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <li>
-            <a
-              href="/omt-tools.html"
-              class="group flex h-full flex-col rounded-2xl border border-cyan-500/25 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-            >
-              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Product</span>
-              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">OMT Tools</span>
-              <span class="mt-2 text-sm text-zinc-400">Open Media Transport 向け無料ユーティリティ</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/products.html"
-              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-            >
-              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Products</span>
-              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">製品</span>
-              <span class="mt-2 text-sm text-zinc-400">OMT Tools、Iryx、ATEM Micro Control Panel など</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/projects.html"
-              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-            >
-              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Projects</span>
-              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">プロジェクト</span>
-              <span class="mt-2 text-sm text-zinc-400">vmix-utility、bi-kanpe、obs-sync、stream-monitor、ATEM-UI、ProductionDeck</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/research.html"
-              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-            >
-              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Research</span>
-              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">リサーチ</span>
-              <span class="mt-2 text-sm text-zinc-400">rust-ndi-viewer、NDI など</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/members.html"
-              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-            >
-              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Members</span>
-              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">メンバー</span>
-              <span class="mt-2 text-sm text-zinc-400">コアメンバーの紹介</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/partners.html"
-              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-            >
-              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Partners</span>
-              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">パートナー</span>
-              <span class="mt-2 text-sm text-zinc-400">採用企業・主な採用放送</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/technology.html"
-              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-            >
-              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Technology</span>
-              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">技術スタック</span>
-              <span class="mt-2 text-sm text-zinc-400">機材・プロトコル・言語</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="/contact.html"
-              class="group flex h-full flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition hover:border-cyan-500/40 hover:bg-zinc-900/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-            >
-              <span class="text-xs font-medium uppercase tracking-widest text-cyan-400/90">Contact</span>
-              <span class="mt-2 text-lg font-semibold text-white group-hover:text-cyan-200">お問い合わせ</span>
-              <span class="mt-2 text-sm text-zinc-400">Discord・メール</span>
-            </a>
-          </li>
-        </ul>
+        <site-footer></site-footer>
       </section>
     </main>
-
-    <site-footer></site-footer>
   </body>
 </html>

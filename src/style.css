@@ -1,26 +1,138 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+JP:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans JP", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Code", monospace;
 }
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    color-scheme: dark;
+    overscroll-behavior-y: none;
   }
 
-  @media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: no-preference) {
     html {
-      scroll-behavior: auto;
+      scroll-snap-type: y mandatory;
     }
   }
 
   body {
     @apply min-h-screen bg-zinc-950 text-zinc-100 antialiased font-sans;
+    background-color: #050506;
   }
 
   ::selection {
     @apply bg-cyan-500/30 text-white;
+  }
+}
+
+@layer components {
+  .lab-scene,
+  .lab-fallback {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .lab-fallback {
+    background:
+      radial-gradient(ellipse 70% 55% at 72% 48%, rgba(34, 211, 238, 0.16), transparent 58%),
+      radial-gradient(ellipse 50% 40% at 30% 20%, rgba(99, 102, 241, 0.1), transparent 50%),
+      #050506;
+  }
+
+  .snap-section {
+    position: relative;
+    z-index: 10;
+    min-height: 100dvh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    background-color: rgb(5 5 6 / 0.58);
+  }
+
+  .snap-hero {
+    overflow: hidden;
+    background-color: transparent;
+  }
+
+  .snap-contact {
+    justify-content: space-between;
+  }
+
+  .snap-scrollable {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  @media (min-width: 768px) {
+    .snap-section {
+      height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .snap-hero {
+      justify-content: center;
+    }
+
+    .snap-contact {
+      justify-content: space-between;
+      overflow: hidden;
+    }
+
+    .snap-scrollable {
+      overflow-y: auto;
+      justify-content: flex-start;
+    }
+  }
+
+  .lab-panel {
+    @apply relative mx-auto w-full max-w-6xl px-5 py-16 md:px-8 md:py-0;
+  }
+
+  .lab-kicker {
+    @apply font-mono text-[11px] font-medium uppercase tracking-[0.28em] text-cyan-400/90;
+  }
+
+  .lab-title {
+    @apply mt-3 text-2xl font-semibold tracking-tight text-white md:text-3xl;
+  }
+
+  .lab-copy {
+    @apply mt-4 max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg;
+  }
+
+  .lab-card {
+    @apply rounded-2xl border border-white/10 bg-zinc-900/70;
+  }
+
+  .project-card {
+    @apply flex h-full flex-col rounded-2xl border border-white/10 bg-zinc-950/75 p-6 transition md:p-7;
+  }
+
+  .project-card:hover {
+    border-color: color-mix(in oklab, var(--color-cyan-400) 35%, transparent);
+    background-color: color-mix(in oklab, var(--color-zinc-900) 80%, transparent);
+  }
+
+  .status-pill {
+    @apply inline-flex items-center rounded-full px-2 py-0.5 font-mono text-[10px] font-medium uppercase tracking-[0.14em];
+  }
+
+  .media-frame {
+    @apply overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/70;
+  }
+
+  .media-frame img {
+    @apply h-full w-full object-cover;
   }
 }
 
@@ -56,6 +168,22 @@
   }
 }
 
+@keyframes lab-scroll-hint {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.45;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+.lab-scroll-hint {
+  animation: lab-scroll-hint 2.2s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-inner {
     animation: none;
@@ -71,5 +199,9 @@
 
   .marquee-duplicate {
     display: none;
+  }
+
+  .lab-scroll-hint {
+    animation: none;
   }
 }
