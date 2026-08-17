@@ -181,7 +181,8 @@ customElements.define("site-footer", SiteFooter);
 
 function mountFullpageSnap(): void {
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduced) return;
+  const desktop = window.matchMedia("(min-width: 768px)").matches;
+  if (reduced || !desktop) return;
 
   const sections = [...document.querySelectorAll<HTMLElement>(".snap-section")];
   if (sections.length === 0) return;

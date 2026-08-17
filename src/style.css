@@ -18,6 +18,12 @@
     }
   }
 
+  @media (max-width: 767px) {
+    html {
+      scroll-snap-type: none;
+    }
+  }
+
   body {
     @apply min-h-screen bg-zinc-950 text-zinc-100 antialiased font-sans;
     background-color: #050506;
@@ -68,6 +74,24 @@
   .snap-scrollable {
     overflow-y: auto;
     overscroll-behavior: contain;
+  }
+
+  @media (max-width: 767px) {
+    .snap-section {
+      min-height: auto;
+      scroll-snap-align: none;
+      scroll-snap-stop: normal;
+      background-color: rgb(5 5 6 / 0.72);
+    }
+
+    .snap-hero {
+      min-height: 100dvh;
+    }
+
+    .snap-scrollable {
+      overflow-y: visible;
+      overscroll-behavior: auto;
+    }
   }
 
   @media (min-width: 768px) {
