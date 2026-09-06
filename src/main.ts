@@ -1,8 +1,9 @@
-type PageId = "home" | "omt-tools" | "vmix-utility";
+type PageId = "home" | "eiviz" | "omt-tools" | "vmix-utility";
 
 const PAGE_LINKS: { id: PageId; href: string; label: string }[] = [
   { id: "home", href: "/index.html", label: "ホーム" },
-  { id: "omt-tools", href: "/projects/omt-tools.html", label: "OMT Tools" },
+  { id: "eiviz", href: "/projects/eiviz.html", label: "eiviz" },
+  { id: "omt-tools", href: "/projects/omt-tools.html", label: "OMT Community Tools" },
   { id: "vmix-utility", href: "/projects/vmix-utility.html", label: "vmix-utility" },
 ];
 

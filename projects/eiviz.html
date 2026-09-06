@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>eiviz — 無制限M/Eのソフトウェアスイッチャー | 未完成成果物研究所</title>
+    <meta
+      name="description"
+      content="eiviz（ˈeɪvɪz）は、未完成成果物研究所および河村柊吾/FlowingSPDGが開発・保守するソフトウェアスイッチャーです。PCの性能が許す限りMixing Unit（M/E）を追加できます。WindowsとmacOSに対応。Linuxは実験的です。"
+    />
+    <meta
+      name="keywords"
+      content="eiviz, ソフトウェアスイッチャー, vision mixer, Mixing Unit, M/E, NDI, OMT, vMix, OBS, 未完成成果物研究所"
+    />
+    <link rel="canonical" href="https://mikanseilaboratory.github.io/projects/eiviz.html" />
+    <meta property="og:title" content="eiviz — 無制限M/Eのソフトウェアスイッチャー" />
+    <meta
+      property="og:description"
+      content="映像オペレーターが作ったクロスプラットフォームのソフトウェアスイッチャー。Mixing Unitに上限はなく、NDI / OMTの入出力、vMix HTTP互換APIを備えます。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mikanseilaboratory.github.io/projects/eiviz.html" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:site_name" content="未完成成果物研究所(MikanseiLaboratory)" />
+    <meta property="og:image" content="https://mikanseilaboratory.github.io/images/eiviz-og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="eiviz — 無制限M/Eのソフトウェアスイッチャー" />
+    <meta
+      name="twitter:description"
+      content="未完成成果物研究所が開発するソフトウェアスイッチャー。Windows / macOS対応。ドキュメントと最新リリースへの案内。"
+    />
+    <meta name="twitter:image" content="https://mikanseilaboratory.github.io/images/eiviz-og.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "name": "eiviz",
+            "applicationCategory": "MultimediaApplication",
+            "operatingSystem": "Windows, macOS",
+            "license": "https://polyformproject.org/licenses/shield/1.0.0/",
+            "isAccessibleForFree": true,
+            "description": "クロスプラットフォームのソフトウェアスイッチャー。Mixing Unit（M/E）に上限はなく、NDI / OMTの入出力に対応する。",
+            "url": "https://mikanseilaboratory.github.io/projects/eiviz.html",
+            "downloadUrl": "https://github.com/MikanseiLaboratory/eiviz/releases",
+            "softwareVersion": "0.2.1-alpha.3",
+            "author": {
+              "@type": "Organization",
+              "name": "未完成成果物研究所",
+              "url": "https://mikanseilaboratory.github.io/"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "JPY"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "name": "eiviz",
+            "url": "https://mikanseilaboratory.github.io/projects/eiviz.html",
+            "description": "eivizの紹介ページ。概念、対応環境、ドキュメントとダウンロード。",
+            "inLanguage": "ja",
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": "未完成成果物研究所",
+              "url": "https://mikanseilaboratory.github.io/"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "ホーム",
+                "item": "https://mikanseilaboratory.github.io/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "eiviz",
+                "item": "https://mikanseilaboratory.github.io/projects/eiviz.html"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "本番配信で使えますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "2026年9月現在、プロダクション環境・本番配信での利用は非推奨です。試験環境や、クラッシュしても差し支えない用途でのテストを前提にしてください。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "料金はかかりますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "PolyForm Shield 1.0.0のもと、営利目的を含めて無料で利用できます。有償・無償を問わず、eivizの代わりになる映像スイッチャーを開発・出荷することはできません。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "どのOSに対応していますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Windows 11（x64、外付けGPUでResizable BARが有効であること）と、macOS 14以降のApple Silicon Macです。Linuxは実験的で、現在未実装です。"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+    <site-header data-current="eiviz"></site-header>
+
+    <main id="main">
+      <nav class="mx-auto max-w-6xl px-4 pt-8 text-sm text-zinc-500" aria-label="パンくずリスト">
+        <a
+          href="/index.html"
+          class="rounded text-cyan-400/90 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+          >ホーム</a
+        >
+        <span class="mx-2" aria-hidden="true">/</span>
+        <span class="text-zinc-400">eiviz</span>
+      </nav>
+
+      <section
+        class="relative overflow-hidden border-b border-zinc-800 bg-gradient-to-b from-zinc-900/80 via-zinc-950 to-zinc-950 px-4 pb-16 pt-10 md:pb-24 md:pt-14"
+        aria-labelledby="eiviz-hero"
+      >
+        <div
+          class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(34,211,238,0.12),transparent)]"
+          aria-hidden="true"
+        ></div>
+        <div class="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">eiviz</p>
+            <h1 id="eiviz-hero" class="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-white md:text-5xl">
+              無制限M/Eのソフトウェアスイッチャー
+            </h1>
+            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
+              <strong class="font-medium text-zinc-200">eiviz</strong>（ˈeɪvɪz）は、未完成成果物研究所および河村柊吾/FlowingSPDGが開発・保守するソフトウェアスイッチャーです。PCの性能が許す限りMixing Unit（他スイッチャーのM/E）を追加できます。WindowsとmacOSに対応しています。Linuxは実験的です。
+            </p>
+            <div class="mt-10 flex flex-wrap gap-3">
+              <a
+                href="https://mikanseilaboratory.github.io/eiviz/ja/"
+                class="inline-flex items-center justify-center rounded-xl bg-cyan-500 px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-cyan-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-300"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ドキュメント</a
+              >
+              <a
+                href="https://github.com/MikanseiLaboratory/eiviz/releases"
+                class="inline-flex items-center justify-center rounded-xl border border-zinc-600 bg-zinc-900/50 px-5 py-3 text-sm font-medium text-zinc-100 transition hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+                target="_blank"
+                rel="noopener noreferrer"
+                >ダウンロード（Releases）</a
+              >
+              <a
+                href="https://github.com/MikanseiLaboratory/eiviz"
+                class="inline-flex items-center justify-center rounded-xl border border-zinc-700 bg-transparent px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
+              >
+            </div>
+            <ul class="mt-8 flex flex-wrap gap-2 text-xs text-zinc-500" aria-label="対応環境・ライセンス">
+              <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-zinc-300">Windows 11（x64）</li>
+              <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-zinc-300">macOS 14+（Apple Silicon）</li>
+              <li class="rounded-md border border-amber-500/40 bg-amber-500/10 px-2.5 py-1 text-amber-200">鋭意開発中・本番利用は非推奨</li>
+              <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-zinc-300">PolyForm Shield 1.0.0</li>
+            </ul>
+          </div>
+          <figure class="media-frame bg-zinc-950">
+            <img
+              src="/images/eiviz-og.png"
+              alt="eivizのメイン画面。PreviewとProgram、Inputs、Scenes、音声フェーダーが並ぶ"
+              width="1200"
+              height="630"
+              class="aspect-[16/10] w-full object-contain"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="border-b border-zinc-800 bg-zinc-950 px-4 py-12 md:py-16" aria-labelledby="eiviz-flow-heading">
+        <div class="mx-auto max-w-6xl">
+          <h2 id="eiviz-flow-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Concepts</h2>
+          <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">映像の流れ</p>
+          <p class="mt-4 max-w-2xl text-zinc-400">
+            カメラやファイルなどのソースをInputとして受け、Sceneで重ね、Mixing Unitで切り替えてOutputへ出します。
+          </p>
+          <ol class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <li class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5">
+              <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">01</p>
+              <h3 class="mt-3 text-base font-semibold text-white">Input</h3>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">カラー、静止画、動画、UVC、NDI / OMTなど。他ソフトのInputやカメラ入力に相当します。</p>
+            </li>
+            <li class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5">
+              <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">02</p>
+              <h3 class="mt-3 text-base font-semibold text-white">Scene</h3>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">複数のInputをレイヤーとして重ねた合成です。位置、サイズ、不透明度、重なり順を決めます。</p>
+            </li>
+            <li class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5">
+              <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">03</p>
+              <h3 class="mt-3 text-base font-semibold text-white">Mixing Unit</h3>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">PreviewとProgramで切り替える単位。vMixのMix Input、TriCasterやATEMのM/Eに相当します。数に上限はありません。</p>
+            </li>
+            <li class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5">
+              <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">04</p>
+              <h3 class="mt-3 text-base font-semibold text-white">Output</h3>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">選んだソースをNDI / OMTへ送出します。既定はMixing UnitのProgramです。</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section
+        id="what-is-eiviz"
+        class="border-b border-zinc-800 bg-zinc-900/20 px-4 py-16 md:py-24"
+        aria-labelledby="what-is-eiviz-heading"
+      >
+        <div class="mx-auto max-w-6xl">
+          <h2 id="what-is-eiviz-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
+            About
+          </h2>
+          <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">eivizとは</p>
+          <div class="mt-8 grid gap-10 lg:grid-cols-2">
+            <div class="space-y-5 text-base leading-relaxed text-zinc-400 md:text-lg">
+              <p>
+                映像オペレーターが作った、次世代のプロダクション向けグラフィックオペレーションツール・映像スイッチャーです。eiviz / 映像（eizou）+ visual。
+              </p>
+              <p>
+                既存のツールでは実現が難しかった機能やクロスプラットフォーム対応を、モダンな技術で動く実装として示しています。vMixやOBS Studioの代替を目指してはいません。新しい機能の投入を優先しており、品質やプロダクション向けの安定性でそれらを上回ることは想定していません。
+              </p>
+              <p>
+                2026年9月現在、<strong class="font-medium text-zinc-200">プロダクション環境・本番配信での利用は非推奨</strong>です。試験環境や、クラッシュしても差し支えない用途でのテストを前提にしてください。
+              </p>
+            </div>
+            <div class="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-6 md:p-8">
+              <h3 class="text-sm font-semibold uppercase tracking-widest text-cyan-400/90">要点</h3>
+              <ul class="mt-4 list-disc space-y-3 pl-5 text-sm leading-relaxed text-zinc-400 marker:text-cyan-500/80 md:text-base">
+                <li>Mixing Unit（M/E）はマシン性能が許す限り追加可能</li>
+                <li>Mixer（Rust + wgpu）と、OSごとのUIホストをC ABIで接続</li>
+                <li>WindowsはDirect3D 12、macOSはMetal</li>
+                <li>NDI / OMTの入力と出力、vMix HTTP互換API</li>
+              </ul>
+              <p class="mt-6">
+                <a
+                  href="https://mikanseilaboratory.github.io/eiviz/ja/introduction/about/"
+                  class="inline-flex text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >開発動機と技術選定（ドキュメント） →</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-4 py-16 md:py-24" aria-labelledby="eiviz-features-heading">
+        <h2 id="eiviz-features-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Features</h2>
+        <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">主な機能</p>
+        <p class="mt-4 max-w-2xl text-zinc-400">
+          公式ドキュメントの「各種機能」に沿った一覧です。詳細は各ドキュメントへ進んでください。
+        </p>
+
+        <div class="mt-10 overflow-hidden rounded-2xl border border-zinc-800">
+          <img
+            src="/images/eiviz-scenes.jpg"
+            alt="eivizのScene Editor。レイヤー、ワイヤーフレーム、ライブプレビュー"
+            width="1462"
+            height="789"
+            class="h-48 w-full object-cover object-top md:h-64"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <ul class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <li class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+            <h3 class="text-xl font-semibold text-white">Vision Mixing</h3>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">
+              Mixing UnitごとにPreviewとProgramを持ち、CUT / AUTO / Tバーで切り替えます。OverlayはProgramに最大8本。あるユニットのProgramを別ユニットの入力にもできます。
+            </p>
+            <p class="mt-4">
+              <a
+                href="https://mikanseilaboratory.github.io/eiviz/ja/features/vision-mixing/"
+                class="text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Vision Mixing</a
+              >
+            </p>
+          </li>
+          <li class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+            <h3 class="text-xl font-semibold text-white">入力</h3>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">
+              UVC、NDI / OMT、動画・静止画、Colour。Mixing UnitのPreview / ProgramをMix Inputとして追加し、入れ子のM/Eにもできます。
+            </p>
+            <p class="mt-4">
+              <a
+                href="https://mikanseilaboratory.github.io/eiviz/ja/concepts/inputs/"
+                class="text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Inputs</a
+              >
+            </p>
+          </li>
+          <li class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+            <h3 class="text-xl font-semibold text-white">出力</h3>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">
+              NDIとOMTへの送出を実装済みです。OMTはGPU encodeまたはCPU encodeを選べます。Decklinkは現在実装中です。
+            </p>
+            <p class="mt-4">
+              <a
+                href="https://mikanseilaboratory.github.io/eiviz/ja/features/outputs/ndi-omt/"
+                class="text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                target="_blank"
+                rel="noopener noreferrer"
+                >NDI / OMT</a
+              >
+            </p>
+          </li>
+          <li class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+            <h3 class="text-xl font-semibold text-white">Multiview / Overlay</h3>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">
+              監視用モザイクはセッション単位で、数に上限はありません。OverlayはMixing UnitのProgramに載せるDSKです。
+            </p>
+            <p class="mt-4">
+              <a
+                href="https://mikanseilaboratory.github.io/eiviz/ja/concepts/multiviews/"
+                class="text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Multiviews</a
+              >
+            </p>
+          </li>
+          <li class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+            <h3 class="text-xl font-semibold text-white">音声</h3>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">
+              内部ミックスは48 kHzです。MasterとHeadphoneが固定で、AUXを追加できます。ASIOなどデバイス出力にも対応します。
+            </p>
+            <p class="mt-4">
+              <a
+                href="https://mikanseilaboratory.github.io/eiviz/ja/features/outputs/audio/"
+                class="text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                target="_blank"
+                rel="noopener noreferrer"
+                >音声、ASIOなど</a
+              >
+            </p>
+          </li>
+          <li class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+            <h3 class="text-xl font-semibold text-white">互換API</h3>
+            <p class="mt-4 flex-1 text-sm leading-relaxed text-zinc-400 md:text-base">
+              vMix HTTP API互換を実装しています。既定はポート8088です。TCPとOBS WebSocketは未実装です。互換先との完全な動作は保証しません。
+            </p>
+            <p class="mt-4">
+              <a
+                href="https://mikanseilaboratory.github.io/eiviz/ja/developers/compatibility/"
+                class="text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                target="_blank"
+                rel="noopener noreferrer"
+                >互換API</a
+              >
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="border-y border-zinc-800 bg-zinc-900/20 px-4 py-16 md:py-24" aria-labelledby="eiviz-ui-heading">
+        <div class="mx-auto max-w-6xl">
+          <h2 id="eiviz-ui-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Interface</h2>
+          <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">画面</p>
+          <p class="mt-4 max-w-2xl text-zinc-400">公式ドキュメントに掲載しているスクリーンショットです。</p>
+          <ul class="mt-8 grid gap-6 md:grid-cols-3">
+            <li>
+              <figure class="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40">
+                <img
+                  src="/images/eiviz-inputs.jpg"
+                  alt="Input Select。Colours、Still、Video、OMT、NDI、Video Captureから種類を選ぶ"
+                  width="795"
+                  height="618"
+                  class="aspect-[4/3] w-full object-cover object-top"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption class="px-5 py-4 text-sm text-zinc-400">Inputの追加</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure class="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40">
+                <img
+                  src="/images/eiviz-multiview.jpg"
+                  alt="Multiview tiles。PreviewとProgram、グリッドなど監視レイアウトのプリセット"
+                  width="1066"
+                  height="904"
+                  class="aspect-[4/3] w-full object-cover object-top"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption class="px-5 py-4 text-sm text-zinc-400">Multiviewのタイル配置</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure class="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40">
+                <img
+                  src="/images/eiviz-settings.jpg"
+                  alt="設定ウィンドウ。表示、パフォーマンス、出力、Multiview、音声AUX"
+                  width="807"
+                  height="561"
+                  class="aspect-[4/3] w-full object-cover object-top"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption class="px-5 py-4 text-sm text-zinc-400">設定</figcaption>
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-4 py-16 md:py-24" aria-labelledby="eiviz-stack-heading">
+        <h2 id="eiviz-stack-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Architecture</h2>
+        <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">構成</p>
+        <p class="mt-4 max-w-2xl text-zinc-400">
+          映像合成の本体はMixerに集約し、各OSのUIからC ABIで呼び出します。セッションファイルはMixerが所有するJSONで、OSをまたいでも同じセッションとして開けます。
+        </p>
+        <div class="mt-8 grid gap-4 md:grid-cols-3">
+          <article class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Mixer（コア）</h3>
+            <p class="mt-3 text-sm leading-relaxed text-zinc-400">Rust 1.97、wgpu 30。合成、音声、入出力、セッションを担当します。cdylibとしてビルドします。</p>
+          </article>
+          <article class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">Windows</h3>
+            <p class="mt-3 text-sm leading-relaxed text-zinc-400">.NET 10 / C# 14 / WPF。GPUはDirect3D 12。Resizable BARが有効な外付けGPUを前提にしています。</p>
+          </article>
+          <article class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6">
+            <h3 class="text-lg font-semibold text-white">macOS</h3>
+            <p class="mt-3 text-sm leading-relaxed text-zinc-400">Swift 6 / SwiftUI。描画はMetal。対象はmacOS 14以降のApple Siliconです。実機性能は未検証です。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="border-y border-zinc-800 bg-zinc-900/20 px-4 py-16 md:py-24" aria-labelledby="eiviz-req-heading">
+        <div class="mx-auto max-w-6xl">
+          <h2 id="eiviz-req-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Requirements</h2>
+          <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">システム要件</p>
+          <p class="mt-4 max-w-3xl text-zinc-400">
+            CPUからGPUメモリへ直接書けることを前提にしています。WindowsではResizable BAR（ReBAR）、macOSではApple SiliconのUnified Memoryです。
+          </p>
+          <div class="mt-8 grid gap-6 lg:grid-cols-2">
+            <article class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+              <h3 class="text-lg font-semibold text-white">Windows</h3>
+              <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-zinc-400 marker:text-cyan-500/80 md:text-base">
+                <li>Windows 11（x64）。Windows on ARMは未対応</li>
+                <li>外付けGPUでResizable BARが有効であること。内蔵GPUだけのマシンは対象外</li>
+                <li>推奨: NVIDIA GeForce RTX 3000世代以降、AMD Radeon RX 6000世代以降、Intel Arc Aシリーズ以降</li>
+              </ul>
+            </article>
+            <article class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+              <h3 class="text-lg font-semibold text-white">macOS / Linux</h3>
+              <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-zinc-400 marker:text-cyan-500/80 md:text-base">
+                <li>macOS 14以降のApple Silicon Mac。Intel Mac、外部GPUは対象外</li>
+                <li>開発チームにApple Silicon Macの常用者がいないため、実機での性能は未検証です</li>
+                <li>Linuxは実験的で、現在未実装です</li>
+              </ul>
+            </article>
+          </div>
+          <p class="mt-6">
+            <a
+              href="https://mikanseilaboratory.github.io/eiviz/ja/introduction/requirements/"
+              class="text-sm font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+              target="_blank"
+              rel="noopener noreferrer"
+              >システム要件とサポートするハードウェア →</a
+            >
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="docs"
+        class="mx-auto max-w-6xl px-4 py-16 md:py-24"
+        aria-labelledby="eiviz-docs-heading"
+      >
+        <h2 id="eiviz-docs-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">Documentation</h2>
+        <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">ドキュメント</p>
+        <p class="mt-4 max-w-2xl text-zinc-400">
+          使い方、開発目的、現場での運用は公式ドキュメントにまとめています。日本語と英語があります。
+        </p>
+        <div class="mt-10 grid gap-6 lg:grid-cols-2">
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+            <h3 class="text-lg font-semibold text-white">はじめに</h3>
+            <ul class="mt-5 space-y-3 text-sm md:text-base">
+              <li>
+                <a
+                  href="https://mikanseilaboratory.github.io/eiviz/ja/"
+                  class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >ドキュメントトップ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://mikanseilaboratory.github.io/eiviz/ja/introduction/about/"
+                  class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >eivizについて — 開発動機と技術選定</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://mikanseilaboratory.github.io/eiviz/ja/introduction/requirements/"
+                  class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >システム要件とサポートするハードウェア</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://mikanseilaboratory.github.io/eiviz/ja/introduction/architecture/"
+                  class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >システムアーキテクチャ</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+            <h3 class="text-lg font-semibold text-white">概念・機能・API</h3>
+            <ul class="mt-5 space-y-3 text-sm md:text-base">
+              <li>
+                <a
+                  href="https://mikanseilaboratory.github.io/eiviz/ja/concepts/mixing-unit/"
+                  class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Mixing Unit</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://mikanseilaboratory.github.io/eiviz/ja/features/vision-mixing/"
+                  class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Vision Mixing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://mikanseilaboratory.github.io/eiviz/ja/developers/compatibility/"
+                  class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >互換API（vMix HTTP / OBS WebSocket）</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://mikanseilaboratory.github.io/eiviz/en/"
+                  class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >English documentation</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="download"
+        class="border-t border-zinc-800 bg-zinc-900/25 px-4 py-16 md:py-24"
+        aria-labelledby="eiviz-links-heading"
+      >
+        <div class="mx-auto max-w-6xl">
+          <h2 id="eiviz-links-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">
+            Download &amp; links
+          </h2>
+          <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">入手方法・関連リンク</p>
+          <p class="mt-4 max-w-2xl text-zinc-400">
+            インストーラはGitHub Releasesから入手できます。Windowsはsetup.exe、macOSはpkgです。
+          </p>
+
+          <div class="mt-10 grid gap-6 lg:grid-cols-2">
+            <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+              <h3 class="text-lg font-semibold text-white">eiviz</h3>
+              <ul class="mt-5 space-y-3 text-sm md:text-base">
+                <li>
+                  <a
+                    href="https://github.com/MikanseiLaboratory/eiviz/releases"
+                    class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >ダウンロード — GitHub Releases（最新は v0.2.1-alpha.3）</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/MikanseiLaboratory/eiviz"
+                    class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >ソースコード — MikanseiLaboratory/eiviz</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://mikanseilaboratory.github.io/eiviz/ja/"
+                    class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >公式ドキュメント</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+              <h3 class="text-lg font-semibold text-white">関連</h3>
+              <ul class="mt-5 space-y-3 text-sm md:text-base">
+                <li>
+                  <a
+                    href="/projects/omt-tools.html"
+                    class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                    >OMT Community Tools</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://discord.gg/YUbmg9Hq37"
+                    class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Discord</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/index.html#contact"
+                    class="font-medium text-cyan-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 rounded"
+                    >お問い合わせ</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="mt-8 text-sm text-zinc-500">
+            eivizは特定の企業の製品ではありません。メインメンテナとコミュニティのサポートにより開発・運営されています。ライセンスは
+            <a
+              href="https://github.com/MikanseiLaboratory/eiviz/blob/main/LICENSE"
+              class="rounded text-cyan-400/90 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+              target="_blank"
+              rel="noopener noreferrer"
+              >PolyForm Shield 1.0.0</a
+            >
+            です。
+          </p>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-4 py-16 md:py-24" aria-labelledby="eiviz-faq-heading">
+        <h2 id="eiviz-faq-heading" class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">FAQ</h2>
+        <p class="mt-3 text-2xl font-semibold text-white md:text-3xl">よくある質問</p>
+        <dl class="mt-10 max-w-3xl space-y-8">
+          <div>
+            <dt class="text-lg font-semibold text-white">本番配信で使えますか？</dt>
+            <dd class="mt-3 text-base leading-relaxed text-zinc-400">
+              いいえ。2026年9月現在、プロダクション環境・本番配信での利用は非推奨です。試験環境や、クラッシュしても差し支えない用途でのテストを前提にしてください。
+            </dd>
+          </div>
+          <div>
+            <dt class="text-lg font-semibold text-white">料金はかかりますか？</dt>
+            <dd class="mt-3 text-base leading-relaxed text-zinc-400">
+              PolyForm Shield 1.0.0のもと、営利目的を含めて無料で利用できます。有償・無償を問わず、eivizの代わりになる映像スイッチャーを開発・出荷してはいけません。
+            </dd>
+          </div>
+          <div>
+            <dt class="text-lg font-semibold text-white">vMixやOBSの代わりになりますか？</dt>
+            <dd class="mt-3 text-base leading-relaxed text-zinc-400">
+              代替を目指していません。既存ソフトウェア向けの資産を活かすため、vMix HTTP互換APIなど一部の互換を備えていますが、完全な互換は保証しません。
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <div class="mx-auto max-w-6xl px-4 pb-16">
+        <p>
+          <a
+            href="/index.html#projects"
+            class="rounded text-sm font-medium text-zinc-400 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+            >← プロジェクト一覧へ</a
+          >
+        </p>
+      </div>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>
