@@ -283,6 +283,7 @@ class SiteFooter extends HTMLElement {
               <p class="mt-4 max-w-sm text-sm leading-relaxed text-zinc-400">
                 vMix・ATEM・OMT・NDI・SRT 周辺のツールとハードウェアを開発する技術者コミュニティです。
               </p>
+              <p class="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">Unfinished, but functional.</p>
               <div class="mt-5">
                 ${socialIconNav("公式の GitHub、X、Discord（フッター）")}
               </div>

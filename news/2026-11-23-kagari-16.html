@@ -60,7 +60,8 @@
                 "url": "https://mikanseilaboratory.github.io/logo.png"
               }
             },
-            "mainEntityOfPage": "https://mikanseilaboratory.github.io/news/2026-11-23-kagari-16.html"
+            "mainEntityOfPage": "https://mikanseilaboratory.github.io/news/2026-11-23-kagari-16.html",
+            "sameAs": "https://note.com/hiiraginil/n/na3fb779a8f4f"
           },
           {
             "@type": "BreadcrumbList",
@@ -136,21 +137,29 @@
 
                 <h2>Iryx：評価試験機2セットを実運用で</h2>
                 <p>
-                  Iryxは、vMixのTCP APIに直接つなぐ物理コントロールパネルです。画面のボタンをマウスで追わずに、トランジションやリプレイをキーとTバーで操作できます。
+                  Iryxは、vMixのTCP APIに直接つなぐ物理コントロールパネルです。画面のボタンをマウスで追わずに、トランジションをキーで操作できます。RP2040をベースに、ShortcutやActivatorsの設定なしで動く点が特徴です。
                 </p>
                 <p>
-                  今回は開発中の評価試験機を2セットお貸ししました。実際の配信で使っていただき、1セットはEast Geek Smashのサブ配信、もう1セットは無明遊者の配信に入っています。評価機は開発者と合意した企業・個人に限定して頒布しており、現場のネットワークやvMixのバージョンに合わせて設定を調整しています。
+                  今回は開発中の評価試験機を2セットお貸ししました。1セットはEast Geek Smashのサブ配信、もう1セットは無明遊者の配信です。当初は貸し出しの予定はなく、FlowingがDay1に観戦と手伝いで持ち込んだIryxを、現地で試してもらう形になりました。突然の依頼を快諾いただいた無明遊者の7IRO / なないろ様に感謝します。
                 </p>
                 <p>
-                  実運用で出た操作感の違いは、キー割り当てとLEDの挙動に反映します。販売は2026年内を予定しており、時期と価格が決まり次第あらためてお知らせします。
+                  現場では、押し心地の良さ、設定なしで即運用できること、右手専用のトランジション操作が好評でした。Custom1〜4はStinger1〜4、Transition1〜4、Overlay1〜4などを割り当てられ、AutoはFade以外にも変更できます。USB接続から5〜10秒で反応し、操作方法の説明なしでも運用できたといいます。
+                </p>
+                <p>
+                  評価機は開発者と合意した企業・個人に限定して頒布しています。実運用で出た要望は、TC-01 / SW-01 / RP-00の次の版に反映します。販売は2026年内を予定しており、時期と価格が決まり次第あらためてお知らせします。
                 </p>
 
-                <h2>eiviz：ハイライト用vMixのリプレイ系統として</h2>
+                <h2>eiviz：ハイライト用vMixの横で、リプレイを試験評価</h2>
                 <p>
                   eivizは、Mixing Unit（M/E）の数に上限を設けないソフトウェアスイッチャーです。WindowsとmacOSで動作し、NDIとOMTの入出力、vMix HTTP互換APIを備えています。
                 </p>
                 <p>
-                  East Geek Smashのメイン配信では、ハイライト用vMixのリプレイ系統としてeiviz Enterprise版を採用いただきました。ハイライトの再生を別系統に分けることで、メインのスイッチングを止めずにリプレイを扱えます。
+                  East Geek Smashのメイン配信では、ハイライト用vMixの横にeivizを置き、OMTの映像を使ったリプレイ作成を試験評価しました。実際のリプレイはvMixで行い、eivizは別系統での評価です。MacBook M4 16GBでリプレイとOMTの送受信まで安定して動いた一方、リプレイ周りの挙動、UIの分かりづらさ、ショートカット非対応、録画再開時の不具合など課題も見つかりました。
+                </p>
+                <p>
+                  今回のビルドは
+                  <a href="https://github.com/MikanseiLaboratory/eiviz/releases/tag/v0.5.0-kagaribi16.1" target="_blank" rel="noopener noreferrer">v0.5.0-kagaribi16.1</a>
+                  としてGitHubで公開しています。
                 </p>
 
                 <h2>vmix-utilityとStream Deckプラグイン</h2>
@@ -168,11 +177,10 @@
 
                 <div class="callout not-prose mt-10">
                   <p>
-                    この記事はXのポストをもとにまとめたものです。noteでも同じ内容を公開しています。
+                    この記事は、note「篝火#16で開発中機材の試験運用をしました」をもとにまとめたものです。開発の経緯と現場の詳細はnoteで読めます。
                   </p>
                   <div class="mt-4 flex flex-wrap gap-3">
-                    <!-- note記事のURLが決まったら href を記事URLへ差し替える -->
-                    <a class="btn btn--ghost" href="https://note.com/hiiraginil" target="_blank" rel="noopener noreferrer">noteで読む</a>
+                    <a class="btn btn--ghost" href="https://note.com/hiiraginil/n/na3fb779a8f4f" target="_blank" rel="noopener noreferrer">noteで全文を読む</a>
                     <a class="btn btn--quiet px-0" href="https://x.com/MikanseiDev" target="_blank" rel="noopener noreferrer">X（@MikanseiDev）</a>
                   </div>
                 </div>
