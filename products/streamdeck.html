@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>Stream Deck プラグイン | vMix・ATEM・OBS を物理キーで操作 | 未完成成果物研究所</title>
+    <meta
+      name="description"
+      content="vMix、ATEM、OBS WebSocket、Roland V-160HD/V-60HD、Panasonic KAIROS、HyperDeck、任意のHTTP APIを操作するStream Deckプラグイン。MIT / Apache-2.0で公開し、プラグインSDKも提供しています。"
+    />
+    <link rel="canonical" href="https://mikanseilaboratory.github.io/products/streamdeck.html" />
+    <meta property="og:title" content="Stream Deck プラグイン | vMix・ATEM・OBS を物理キーで操作" />
+    <meta
+      property="og:description"
+      content="配信機材をStream Deckから直接操作する8つのプラグイン。vMix、ATEM、OBS、Roland、KAIROS、HyperDeck、HTTP。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mikanseilaboratory.github.io/products/streamdeck.html" />
+    <meta property="og:site_name" content="未完成成果物研究所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://mikanseilaboratory.github.io/images/tech-gear.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Stream Deck プラグイン | vMix・ATEM・OBS を物理キーで操作" />
+    <meta name="twitter:description" content="配信機材をStream Deckから直接操作する8つのプラグイン。" />
+    <meta name="twitter:image" content="https://mikanseilaboratory.github.io/images/tech-gear.jpg" />
+    <meta name="theme-color" content="#07080b" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="alternate" type="application/rss+xml" title="未完成成果物研究所 ニュース" href="/news/feed.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "ItemList",
+            "name": "Stream Deck プラグイン",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "item": { "@type": "SoftwareApplication", "name": "vMix Plugin for Stream Deck", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, macOS", "isAccessibleForFree": true, "downloadUrl": "https://github.com/MikanseiLaboratory/streamdeck-studiocoast-vmix/releases/latest" } },
+              { "@type": "ListItem", "position": 2, "item": { "@type": "SoftwareApplication", "name": "ATEM Plugin for Stream Deck", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, macOS", "isAccessibleForFree": true, "downloadUrl": "https://github.com/MikanseiLaboratory/streamdeck-bmd-atem/releases/latest" } },
+              { "@type": "ListItem", "position": 3, "item": { "@type": "SoftwareApplication", "name": "OBS WebSocket Plugin for Stream Deck", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, macOS", "isAccessibleForFree": true, "downloadUrl": "https://github.com/MikanseiLaboratory/streamdeck-obs-websocket/releases/latest" } },
+              { "@type": "ListItem", "position": 4, "item": { "@type": "SoftwareApplication", "name": "Roland V-160HD Plugin for Stream Deck", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, macOS", "isAccessibleForFree": true, "downloadUrl": "https://github.com/MikanseiLaboratory/streamdeck-roland-v160hd/releases/latest" } },
+              { "@type": "ListItem", "position": 5, "item": { "@type": "SoftwareApplication", "name": "Roland V-60HD Plugin for Stream Deck", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, macOS", "isAccessibleForFree": true, "downloadUrl": "https://github.com/MikanseiLaboratory/streamdeck-roland-v60hd/releases/latest" } },
+              { "@type": "ListItem", "position": 6, "item": { "@type": "SoftwareApplication", "name": "Panasonic KAIROS Plugin for Stream Deck", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, macOS", "isAccessibleForFree": true, "downloadUrl": "https://github.com/MikanseiLaboratory/streamdeck-panasonic-kairos/releases/latest" } },
+              { "@type": "ListItem", "position": 7, "item": { "@type": "SoftwareApplication", "name": "HyperDeck Plugin for Stream Deck", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, macOS", "isAccessibleForFree": true, "downloadUrl": "https://github.com/MikanseiLaboratory/streamdeck-bmd-hyperdeck/releases/latest" } },
+              { "@type": "ListItem", "position": 8, "item": { "@type": "SoftwareApplication", "name": "Advanced HTTP Client for Stream Deck", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows, macOS", "isAccessibleForFree": true, "downloadUrl": "https://github.com/MikanseiLaboratory/streamdeck-advanced-http/releases/latest" } }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "これらのプラグインは各社の公式製品ですか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "いいえ。vMix、ATEM、Roland、Panasonic KAIROS、HyperDeck向けのプラグインは非公式です。各社のサポート対象外となる場合があります。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "複数台の機材を1つのプロファイルから操作できますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "vMix、OBS、ATEMのプラグインは名前付きのインスタンスを複数登録できます。ATEMはグループを作り、1つのキーから複数台へ同時に送ることもできます。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "接続できないときはどこを見ればいいですか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "vMixはTCP APIが有効になっているか（Settings → Web Controller、ポート8099）を確認してください。プラグイン側のログはWindowsなら %APPDATA%\\Elgato\\StreamDeck\\logs、macOSなら ~/Library/Logs/ElgatoStreamDeck に出力されます。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "ライセンスは何ですか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "vMix、OBS、ATEM、Roland、KAIROS、HyperDeckのプラグインはMITまたはApache-2.0です。Advanced HTTP ClientはリポジトリのLICENSEを確認してください。"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mikanseilaboratory.github.io/" },
+              { "@type": "ListItem", "position": 2, "name": "プロダクト", "item": "https://mikanseilaboratory.github.io/products/" },
+              { "@type": "ListItem", "position": 3, "name": "Stream Deck プラグイン", "item": "https://mikanseilaboratory.github.io/products/streamdeck.html" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+
+    <site-header data-current="products"></site-header>
+
+    <main id="main" class="page-main">
+      <div class="shell">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="/">ホーム</a>
+          <span aria-hidden="true">/</span>
+          <a href="/products/">プロダクト</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Stream Deck プラグイン</span>
+        </nav>
+      </div>
+
+      <section class="page-hero" aria-labelledby="sd-heading">
+        <div class="shell page-hero__grid">
+          <div>
+            <div class="flex flex-wrap items-center gap-3">
+              <p class="eyebrow">Elgato Stream Deck plugins</p>
+              <span class="status-pill status-pill--active">8 plugins</span>
+            </div>
+            <h1 id="sd-heading" class="display display--page mt-4">配信機材を、キーひとつで。</h1>
+            <p class="lede">
+              vMix、ATEM、OBS、Roland、KAIROS、HyperDeckをStream Deckから直接操作するプラグインです。機材ごとに別のアプリを開かず、手元のキーとダイヤルに操作を集めます。
+            </p>
+            <div class="cta-row">
+              <a class="btn btn--primary" href="#plugins">プラグイン一覧</a>
+              <a class="btn btn--ghost" href="https://github.com/MikanseiLaboratory?q=streamdeck&amp;type=all" target="_blank" rel="noopener noreferrer">GitHubで見る</a>
+            </div>
+            <ul class="chips">
+              <li class="chip">Stream Deck 6.4以降</li>
+              <li class="chip">Windows / macOS</li>
+              <li class="chip">MIT / Apache-2.0</li>
+              <li class="chip chip--warm">篝火#16 採用</li>
+            </ul>
+          </div>
+
+          <div class="card p-6 md:p-8">
+            <div class="key-grid" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <p class="mt-4 text-center font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+              dev.mikanseilaboratory.vmix
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="sd-why">
+        <div class="shell">
+          <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p class="eyebrow">Why</p>
+              <h2 id="sd-why" class="section-title">スイッチャーの画面を、もう見失わない。</h2>
+              <p class="section-lede">
+                Stream Deckはキーの画像を差し替えられるため、入力名やTallyをそのまま表示できます。プラグインは機材のAPIから状態を取り、押す前と押した後で表示を変えます。
+              </p>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <article class="card card--pad">
+                <h3 class="card-title">状態を反映する</h3>
+                <p class="card-text">ATEMのProgram / Previewは、プラグイン内の状態ではなく実機のバス状態でキーの色を変えます。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">複数台をまとめる</h3>
+                <p class="card-text">vMix、OBS、ATEMは名前付きで複数台を登録できます。予備系やサブ配信の操作も同じプロファイルに載せられます。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">切断しても戻る</h3>
+                <p class="card-text">接続が切れたときはバックオフしながら再接続します。現場でWi-FiやLANが瞬断しても、手動で入れ直す必要を減らします。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">ダイヤルにも対応</h3>
+                <p class="card-text">Stream Deck + のダイヤルを使うアクションを用意しています。回転と押し込みに別の操作を割り当てられます。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="plugins" class="section section--tight" aria-labelledby="sd-plugins">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Plugins</p>
+            <h2 id="sd-plugins" class="section-title">8つのプラグイン</h2>
+            <p class="section-lede">いずれもGitHub Releasesから<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">.streamDeckPlugin</code>をダウンロードし、ダブルクリックでインストールできます。</p>
+          </div>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-2">
+            <article class="card card--pad">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="card-title">vMix</h3>
+                  <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">streamdeck-studiocoast-vmix</p>
+                </div>
+                <span class="status-pill status-pill--active">v0.2.1</span>
+              </div>
+              <p class="card-text">
+                複数台のvMixを名前付きで登録し、InputとMixの一覧を実機から取得してキーに割り当てます。vMixのTCP API（Web Controller、既定ポート8099）を使います。
+              </p>
+              <ul class="mt-4 space-y-1.5 text-xs text-zinc-500">
+                <li>vMix（TCP API有効） / Stream Deck 6.4以降</li>
+                <li>Windows 10以降 / macOS 10.15以降</li>
+                <li>MIT License または Apache-2.0</li>
+              </ul>
+              <div class="mt-5 flex flex-wrap gap-4">
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-studiocoast-vmix/releases/latest" target="_blank" rel="noopener noreferrer">ダウンロード</a>
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-studiocoast-vmix" target="_blank" rel="noopener noreferrer">ソース</a>
+              </div>
+            </article>
+
+            <article class="card card--pad">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="card-title">ATEM</h3>
+                  <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">streamdeck-bmd-atem</p>
+                </div>
+                <span class="status-pill status-pill--active">v0.4.0</span>
+              </div>
+              <p class="card-text">
+                Cut、Auto、Program、Preview、Cut to Black、Fade to Black、AUX、DSK、Media Playerをキーに割り当てます。Program / Previewキーは実機のバス状態に合わせて色が変わります。
+              </p>
+              <ul class="mt-4 space-y-1.5 text-xs text-zinc-500">
+                <li>複数台のスイッチャーとグループに対応</li>
+                <li>切断時は1秒→2秒→4秒…（上限30秒）で再接続</li>
+                <li>Apache-2.0</li>
+              </ul>
+              <div class="mt-5 flex flex-wrap gap-4">
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-bmd-atem/releases/latest" target="_blank" rel="noopener noreferrer">ダウンロード</a>
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-bmd-atem" target="_blank" rel="noopener noreferrer">ソース</a>
+              </div>
+            </article>
+
+            <article class="card card--pad">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="card-title">OBS WebSocket</h3>
+                  <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">streamdeck-obs-websocket</p>
+                </div>
+                <span class="status-pill status-pill--active">v0.1.1</span>
+              </div>
+              <p class="card-text">
+                複数のOBS Studioを名前付きで登録し、シーン切り替えや配信操作をキーに載せます。OBS 30.2以降に同梱されるobs-websocket 5.5を使います。
+              </p>
+              <ul class="mt-4 space-y-1.5 text-xs text-zinc-500">
+                <li>OBS Studio 30.2以降 / Stream Deck 6.4以降</li>
+                <li>MIT License または Apache-2.0</li>
+              </ul>
+              <div class="mt-5 flex flex-wrap gap-4">
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-obs-websocket/releases/latest" target="_blank" rel="noopener noreferrer">ダウンロード</a>
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-obs-websocket" target="_blank" rel="noopener noreferrer">ソース</a>
+              </div>
+            </article>
+
+            <article class="card card--pad">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="card-title">Roland V-160HD</h3>
+                  <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">streamdeck-roland-v160hd</p>
+                </div>
+                <span class="status-pill status-pill--active">v0.1.0</span>
+              </div>
+              <p class="card-text">
+                LAN（TCP 8023）経由でV-160HDを操作します。Select PGM / PRVはTally Checkでキーを点灯でき、HDMIとSDIの入力を対象にOff / PRV / PGM / PRV&amp;PGMを選べます。
+              </p>
+              <ul class="mt-4 space-y-1.5 text-xs text-zinc-500">
+                <li>Roland V-160HD（非公式）</li>
+                <li>同じIPとパスワードのキーはTCP接続を共有</li>
+              </ul>
+              <div class="mt-5 flex flex-wrap gap-4">
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-roland-v160hd/releases/latest" target="_blank" rel="noopener noreferrer">ダウンロード</a>
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-roland-v160hd" target="_blank" rel="noopener noreferrer">ソース</a>
+              </div>
+            </article>
+
+            <article class="card card--pad">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="card-title">Roland V-60HD</h3>
+                  <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">streamdeck-roland-v60hd</p>
+                </div>
+                <span class="status-pill status-pill--active">v0.1.0</span>
+              </div>
+              <p class="card-text">V-160HDと同じ操作系で、Roland V-60HDをLANから操作します。Tally Checkによるキーの点灯にも対応しています。</p>
+              <ul class="mt-4 space-y-1.5 text-xs text-zinc-500">
+                <li>Roland V-60HD（非公式）</li>
+                <li>TCP 8023</li>
+              </ul>
+              <div class="mt-5 flex flex-wrap gap-4">
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-roland-v60hd/releases/latest" target="_blank" rel="noopener noreferrer">ダウンロード</a>
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-roland-v60hd" target="_blank" rel="noopener noreferrer">ソース</a>
+              </div>
+            </article>
+
+            <article class="card card--pad">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="card-title">Panasonic KAIROS</h3>
+                  <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">streamdeck-panasonic-kairos</p>
+                </div>
+                <span class="status-pill status-pill--active">v0.1.0</span>
+              </div>
+              <p class="card-text">
+                KAIROSのREST APIに接続し、Play Macro、Recall Snapshot、Scene Action、Cut / Auto、AUX Source、Layer Source、Multiviewer Presetを割り当てます。
+              </p>
+              <ul class="mt-4 space-y-1.5 text-xs text-zinc-500">
+                <li>既定の接続先 192.168.10.10:1234 / ユーザー名 Kairos</li>
+                <li>Layer SourceはsourceAで赤、sourceBで緑に点灯</li>
+                <li>非公式</li>
+              </ul>
+              <div class="mt-5 flex flex-wrap gap-4">
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-panasonic-kairos/releases/latest" target="_blank" rel="noopener noreferrer">ダウンロード</a>
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-panasonic-kairos" target="_blank" rel="noopener noreferrer">ソース</a>
+              </div>
+            </article>
+
+            <article class="card card--pad">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="card-title">HyperDeck</h3>
+                  <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">streamdeck-bmd-hyperdeck</p>
+                </div>
+                <span class="status-pill status-pill--active">v0.2.0</span>
+              </div>
+              <p class="card-text">
+                Blackmagic Design HyperDeckを操作するプラグインです。収録・再生のトランスポート操作をStream Deckに載せられます。
+              </p>
+              <ul class="mt-4 space-y-1.5 text-xs text-zinc-500">
+                <li>Blackmagic Design HyperDeck（非公式）</li>
+                <li>詳細な対応機種はリポジトリを参照</li>
+              </ul>
+              <div class="mt-5 flex flex-wrap gap-4">
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-bmd-hyperdeck/releases/latest" target="_blank" rel="noopener noreferrer">ダウンロード</a>
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-bmd-hyperdeck" target="_blank" rel="noopener noreferrer">ソース</a>
+              </div>
+            </article>
+
+            <article class="card card--pad">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h3 class="card-title">Advanced HTTP Client</h3>
+                  <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">streamdeck-advanced-http</p>
+                </div>
+                <span class="status-pill status-pill--active">v0.4.0</span>
+              </div>
+              <p class="card-text">
+                ボタンとダイヤルから任意のHTTPリクエストを送ります。GET / POST / PUT / DELETE / PATCHなどに対応し、押下時と解放時で別のURLを指定できます。
+              </p>
+              <ul class="mt-4 space-y-1.5 text-xs text-zinc-500">
+                <li>Basic認証 / Authorizationヘッダー / リクエスト本文</li>
+                <li>Stream Deck 6.9以降 / Windows 10以降 / macOS 10.11以降</li>
+              </ul>
+              <div class="mt-5 flex flex-wrap gap-4">
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-advanced-http/releases/latest" target="_blank" rel="noopener noreferrer">ダウンロード</a>
+                <a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-advanced-http" target="_blank" rel="noopener noreferrer">ソース</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="sd-install">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Install</p>
+            <h2 id="sd-install" class="section-title">インストールは3ステップ</h2>
+          </div>
+          <ol class="mt-8 grid gap-4 md:grid-cols-3">
+            <li class="card card--pad">
+              <p class="font-mono text-[11px] text-cyan-400/90">01</p>
+              <h3 class="mt-2 card-title">ダウンロード</h3>
+              <p class="card-text">各プラグインのReleasesから<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">.streamDeckPlugin</code>を取得します。</p>
+            </li>
+            <li class="card card--pad">
+              <p class="font-mono text-[11px] text-cyan-400/90">02</p>
+              <h3 class="mt-2 card-title">ダブルクリック</h3>
+              <p class="card-text">Stream Deckソフトウェアの確認ダイアログでインストールします。アクション一覧にプラグイン名が表示されます。</p>
+            </li>
+            <li class="card card--pad">
+              <p class="font-mono text-[11px] text-cyan-400/90">03</p>
+              <h3 class="mt-2 card-title">接続先を設定</h3>
+              <p class="card-text">キーにアクションを置き、Property Inspectorで接続先と入力名を選びます。vMixはTCP APIを有効にしてください。</p>
+            </li>
+          </ol>
+
+          <div class="callout mt-6">
+            <p>
+              vMixの場合: <strong>Settings → Web Controller</strong> でTCP APIを有効にします。既定の<code class="rounded bg-black/30 px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">127.0.0.1:8099</code>は最初から登録されています。別PCのvMixはIPアドレスで追加してください。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="sd-sdk">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">SDK</p>
+            <h2 id="sd-sdk" class="section-title">プラグインを作るための土台も公開しています。</h2>
+            <p class="section-lede">プラグイン本体と同じリポジトリで、SDKとProperty Inspectorの部品を保守しています。</p>
+          </div>
+          <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <a class="card card--link card--pad" href="https://github.com/MikanseiLaboratory/StreamDeckPluginRust" target="_blank" rel="noopener noreferrer">
+              <h3 class="card-title">StreamDeckPluginRust</h3>
+              <p class="card-text">Rust向けSDK。アクション登録、ディスパッチ、ログ、マニフェスト検査をまとめています。Apache-2.0。</p>
+            </a>
+            <a class="card card--link card--pad" href="https://github.com/MikanseiLaboratory/StreamDeckPluginSharp" target="_blank" rel="noopener noreferrer">
+              <h3 class="card-title">StreamDeckPluginSharp</h3>
+              <p class="card-text">.NET 8向けSDK。プロトコルv2.0、非同期ハンドラ、DI、Property Inspector連携。Apache-2.0。</p>
+            </a>
+            <a class="card card--link card--pad" href="https://github.com/MikanseiLaboratory/streamdeck-pi-client" target="_blank" rel="noopener noreferrer">
+              <h3 class="card-title">streamdeck-pi-client</h3>
+              <p class="card-text">React向けのProperty Inspectorバインディング。設定型とフォームを同期します。</p>
+            </a>
+            <a class="card card--link card--pad" href="https://github.com/MikanseiLaboratory/productiondeck" target="_blank" rel="noopener noreferrer">
+              <h3 class="card-title">ProductionDeck</h3>
+              <p class="card-text">RP2040 / STM32H7向けのオープンソースStream Deck互換ファームウェア。</p>
+            </a>
+            <a class="card card--link card--pad" href="https://github.com/MikanseiLaboratory/integratedeck" target="_blank" rel="noopener noreferrer">
+              <h3 class="card-title">Integratedeck</h3>
+              <p class="card-text">Companionと公式プラグインの両方を扱うStream Deckデスクトップアプリ。</p>
+            </a>
+            <a class="card card--link card--pad" href="https://github.com/MikanseiLaboratory?q=streamdeck&amp;type=all" target="_blank" rel="noopener noreferrer">
+              <h3 class="card-title">すべてのリポジトリ</h3>
+              <p class="card-text">Stream Deck関連のリポジトリをGitHubで一覧できます。</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="sd-faq">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="sd-faq" class="section-title">よくある質問</h2>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>各社の公式製品ですか？</summary>
+              <p>いいえ。vMix、ATEM、Roland、Panasonic KAIROS、HyperDeck向けのプラグインは非公式です。各社のサポート対象外となる場合があります。</p>
+            </details>
+            <details>
+              <summary>複数台の機材を1つのプロファイルから操作できますか？</summary>
+              <p>vMix、OBS、ATEMのプラグインは名前付きのインスタンスを複数登録できます。ATEMはグループを作り、1つのキーから複数台へ同時に送ることもできます。</p>
+            </details>
+            <details>
+              <summary>接続できないときはどこを見ればいいですか？</summary>
+              <p>vMixはTCP APIが有効になっているか（Settings → Web Controller、ポート8099）を確認してください。プラグイン側のログはWindowsなら %APPDATA%\Elgato\StreamDeck\logs、macOSなら ~/Library/Logs/ElgatoStreamDeck に出力されます。</p>
+            </details>
+            <details>
+              <summary>ライセンスは何ですか？</summary>
+              <p>vMix、OBS、ATEM、Roland、KAIROS、HyperDeckのプラグインはMITまたはApache-2.0です。Advanced HTTP ClientはリポジトリのLICENSEを確認してください。</p>
+            </details>
+            <details>
+              <summary>不具合はどこに報告すればいいですか？</summary>
+              <p>該当リポジトリのIssueへ、Stream Deckの機種、OS、プラグインのバージョン、接続先の機材と設定を添えて報告してください。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>

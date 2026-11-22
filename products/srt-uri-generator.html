@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>SRT URI Generator — OBS・FFmpeg・vMix向けSRT URI生成 | 未完成成果物研究所</title>
+    <meta
+      name="description"
+      content="SRT URI Generatorは、OBS Studio、FFmpeg、srt-live-transmit、vMix、MediaMTX向けのsrt:// URIをブラウザ内で生成する無料ツールです。latencyの単位変換やパスフレーズ生成に対応し、入力内容は送信も保存もされません。"
+    />
+    <link rel="canonical" href="https://mikanseilaboratory.github.io/products/srt-uri-generator.html" />
+    <meta property="og:title" content="SRT URI Generator — OBS・FFmpeg・vMix向けSRT URI生成" />
+    <meta
+      property="og:description"
+      content="ブラウザ内で完結するSRT URI生成ツール。OBS、FFmpeg、srt-live-transmit、vMix、MediaMTXの各形式に変換します。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mikanseilaboratory.github.io/products/srt-uri-generator.html" />
+    <meta property="og:site_name" content="未完成成果物研究所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://mikanseilaboratory.github.io/images/tech-protocol.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SRT URI Generator — OBS・FFmpeg・vMix向けSRT URI生成" />
+    <meta name="twitter:description" content="ブラウザ内で完結するSRT URI生成ツール。latencyの単位変換も自動です。" />
+    <meta name="twitter:image" content="https://mikanseilaboratory.github.io/images/tech-protocol.jpg" />
+    <meta name="theme-color" content="#07080b" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="alternate" type="application/rss+xml" title="未完成成果物研究所 ニュース" href="/news/feed.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "@id": "https://mikanseilaboratory.github.io/products/srt-uri-generator.html#app",
+            "name": "SRT URI Generator",
+            "url": "https://mikanseilaboratory.github.io/srt-uri-generator/",
+            "description": "OBS Studio、FFmpeg、srt-live-transmit、vMix、MediaMTX向けのSRT URIをブラウザ内で生成するツール。",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "browserRequirements": "JavaScriptを有効にしたモダンブラウザ",
+            "isAccessibleForFree": true,
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+            "author": {
+              "@type": "Organization",
+              "name": "未完成成果物研究所",
+              "url": "https://mikanseilaboratory.github.io/"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "入力したパスフレーズはサーバーに送信されますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "いいえ。処理はすべてブラウザ内で完結し、入力内容は送信も保存もされません。URLにも言語とタブ以外の状態を含めません。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "latencyはミリ秒とマイクロ秒のどちらで入力しますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "入力はミリ秒です。OBS、FFmpeg、MediaMTX向けのURIではマイクロ秒に変換し、srt-live-transmitとvMixではミリ秒のまま出力します。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "vMixのPassphraseはエンコードされますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "vMixのPassphraseとStream IDはエンコードしません。OBS、2024年2月以降のFFmpeg、SRT 1.5以降のsrt-live-transmitはパーセントエンコードをデコードして使います。"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mikanseilaboratory.github.io/" },
+              { "@type": "ListItem", "position": 2, "name": "プロダクト", "item": "https://mikanseilaboratory.github.io/products/" },
+              { "@type": "ListItem", "position": 3, "name": "SRT URI Generator", "item": "https://mikanseilaboratory.github.io/products/srt-uri-generator.html" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+
+    <site-header data-current="products"></site-header>
+
+    <main id="main" class="page-main">
+      <div class="shell">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="/">ホーム</a>
+          <span aria-hidden="true">/</span>
+          <a href="/products/">プロダクト</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">SRT URI Generator</span>
+        </nav>
+      </div>
+
+      <section class="page-hero" aria-labelledby="srt-heading">
+        <div class="shell page-hero__grid">
+          <div>
+            <div class="flex flex-wrap items-center gap-3">
+              <p class="eyebrow">Web tool / SRT</p>
+              <span class="status-pill status-pill--active">free</span>
+            </div>
+            <h1 id="srt-heading" class="display display--page mt-4">SRT URI Generator</h1>
+            <p class="mt-3 text-lg font-medium text-zinc-300">SRTのURIを、手で組み立てない。</p>
+            <p class="lede">
+              host、port、mode、latency、passphrase、pbkeylen、streamidを入力すると、OBS、FFmpeg、srt-live-transmit、vMix、MediaMTXの各形式でSRT
+              URIを出力します。処理はすべてブラウザ内で完結し、入力内容はサーバーに送りません。
+            </p>
+            <div class="cta-row">
+              <a class="btn btn--primary" href="https://mikanseilaboratory.github.io/srt-uri-generator/" target="_blank" rel="noopener noreferrer">ツールを開く</a>
+              <a class="btn btn--ghost" href="https://github.com/MikanseiLaboratory/srt-uri-generator" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+            <ul class="chips">
+              <li class="chip">ブラウザ完結</li>
+              <li class="chip">送信・保存なし</li>
+              <li class="chip">5つの出力形式</li>
+              <li class="chip">日本語 / English</li>
+            </ul>
+          </div>
+
+          <div class="overflow-hidden rounded-3xl border border-white/10 bg-black/50">
+            <div class="flex items-center justify-between border-b border-white/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+              <span>Output / vMix</span>
+              <span class="inline-flex items-center gap-1.5"><span class="status-board__dot"></span>local</span>
+            </div>
+            <div class="space-y-1.5 p-5 font-mono text-[12px] leading-relaxed text-zinc-400 md:text-[13px]">
+              <p><span class="text-zinc-600">Host</span> <span class="text-zinc-200">srt.example.jp</span></p>
+              <p><span class="text-zinc-600">Port</span> <span class="text-zinc-200">6000</span></p>
+              <p><span class="text-zinc-600">Type</span> <span class="text-zinc-200">Caller</span></p>
+              <p><span class="text-zinc-600">Latency</span> <span class="text-zinc-200">2000</span></p>
+              <p><span class="text-zinc-600">Passphrase</span> <span class="text-amber-200">••••••••••••</span></p>
+              <p><span class="text-zinc-600">Key length</span> <span class="text-zinc-200">32</span></p>
+              <p class="break-all pt-2 text-cyan-300">srt://srt.example.jp:6000?mode=caller&amp;latency=2000000&amp;passphrase=…</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="srt-output">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Outputs</p>
+            <h2 id="srt-output" class="section-title">同じ設定を、5つの形式に。</h2>
+            <p class="section-lede">
+              ツールごとにURIの書き方も、latencyの単位も違います。入力は一度で済ませ、コピー先だけを切り替えられるようにしました。
+            </p>
+          </div>
+
+          <div class="table-wrap mt-8">
+            <table class="data-table">
+              <caption class="sr-only">出力タブと用途</caption>
+              <thead>
+                <tr>
+                  <th scope="col">タブ</th>
+                  <th scope="col">出力</th>
+                  <th scope="col">latencyの単位</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row" class="font-medium text-white">OBS</th><td>FFmpegと同じ<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">srt://</code> URI。Media SourceのInputや配信設定のサーバー欄に貼り付け</td><td>マイクロ秒</td></tr>
+                <tr><th scope="row" class="font-medium text-white">FFmpeg</th><td>受信は<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">ffmpeg -i "URI"</code>、送出は<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">-f mpegts "URI"</code></td><td>マイクロ秒（connect_timeoutはミリ秒）</td></tr>
+                <tr><th scope="row" class="font-medium text-white">srt-live-transmit</th><td>libsrtのURI。パラメータ名は<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">SRTO_</code>を除いた形</td><td>ミリ秒</td></tr>
+                <tr><th scope="row" class="font-medium text-white">vMix</th><td>URIではなく、Hostname、Port、Type、Latency、Passphrase、Stream ID、Key lengthの各欄に入れる値</td><td>ミリ秒</td></tr>
+                <tr><th scope="row" class="font-medium text-white">MediaMTX</th><td><code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">mediamtx.yml</code>のSRT設定と、publish / read用のURI</td><td>マイクロ秒</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout mt-6">
+            <p>
+              latencyの入力はすべてミリ秒です。2000msと入力すると、OBSとFFmpegのURIでは<code class="rounded bg-black/30 px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">latency=2000000</code>になります。単位を間違えると遅延や接続失敗の原因になるため、変換はツール側で吸収しています。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="srt-features">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Features</p>
+            <h2 id="srt-features" class="section-title">現場で使うための細かい配慮</h2>
+          </div>
+          <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <article class="card card--pad">
+              <h3 class="card-title">パスフレーズ生成</h3>
+              <p class="card-text">10〜79文字のパスフレーズを生成できます。乱数は<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">crypto.getRandomValues</code>を使います。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">pbkeylenの制御</h3>
+              <p class="card-text">16 / 24 / 32ビットのキー長を選べます。パスフレーズがあるときだけURIに付与します。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">その場で検証</h3>
+              <p class="card-text">host、port、latency、パス名の入力に誤りがあれば、URIを出す前に知らせます。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">URLで状態を指定</h3>
+              <p class="card-text"><code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">?lang=en</code>や<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">?tab=vmix</code>で言語とタブを指定できます。共有やブックマークに便利です。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">キーボードで操作</h3>
+              <p class="card-text">タブは矢印キー、Home、Endで移動できます。現場でマウスに持ち替えずに済みます。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">何も保存しない</h3>
+              <p class="card-text">入力内容は送信も保存もしません。localStorageも使いません。言語とタブだけをURLに載せます。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="srt-notes">
+        <div class="shell">
+          <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p class="eyebrow">Rules</p>
+              <h2 id="srt-notes" class="section-title">入力ルールと、できないこと</h2>
+              <p class="section-lede">
+                ツールはURIの組み立てに特化しています。回線の疎通確認や、機材側の設定変更は行いません。
+              </p>
+            </div>
+            <div class="space-y-4">
+              <article class="card card--pad">
+                <h3 class="card-title">listenerとcaller</h3>
+                <p class="card-text">listenerでhostを空にすると<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">srt://:port?mode=listener</code>になります。callerとrendezvousにはhostが必要です。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">エンコードの違い</h3>
+                <p class="card-text">クエリの値は<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">encodeURIComponent</code>でエンコードします。ただしvMixのPassphraseとStream IDはエンコードしません。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">MediaMTXのパス名</h3>
+                <p class="card-text">使える文字は英数字と<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">_ - . /</code>だけです。先頭の<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">/</code>や<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">.</code>、<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">..</code>のセグメントは使えません。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="srt-how">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">How to use</p>
+            <h2 id="srt-how" class="section-title">使い方</h2>
+          </div>
+          <ol class="mt-8 grid gap-4 md:grid-cols-3">
+            <li class="card card--pad">
+              <p class="font-mono text-[11px] text-cyan-400/90">01</p>
+              <h3 class="mt-2 card-title">接続先を入力</h3>
+              <p class="card-text">hostとportを入れ、caller / listener / rendezvousのどれかを選びます。host:portを貼り付けるとportも埋まります。</p>
+            </li>
+            <li class="card card--pad">
+              <p class="font-mono text-[11px] text-cyan-400/90">02</p>
+              <h3 class="mt-2 card-title">latencyと暗号化を設定</h3>
+              <p class="card-text">latencyはミリ秒で入力します。必要ならパスフレーズとキー長を設定します。</p>
+            </li>
+            <li class="card card--pad">
+              <p class="font-mono text-[11px] text-cyan-400/90">03</p>
+              <h3 class="mt-2 card-title">出力タブからコピー</h3>
+              <p class="card-text">使うソフトのタブを開き、URIまたは各欄の値をコピーします。vMixはURIではなく各欄へ入力します。</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="srt-faq">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="srt-faq" class="section-title">よくある質問</h2>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>入力したパスフレーズはサーバーに送信されますか？</summary>
+              <p>いいえ。処理はすべてブラウザ内で完結し、入力内容は送信も保存もされません。URLにも言語とタブ以外の状態を含めません。</p>
+            </details>
+            <details>
+              <summary>latencyはミリ秒とマイクロ秒のどちらで入力しますか？</summary>
+              <p>入力はミリ秒です。OBS、FFmpeg、MediaMTX向けのURIではマイクロ秒に変換し、srt-live-transmitとvMixではミリ秒のまま出力します。</p>
+            </details>
+            <details>
+              <summary>vMixのPassphraseはエンコードされますか？</summary>
+              <p>vMixのPassphraseとStream IDはエンコードしません。OBS、2024年2月以降のFFmpeg、SRT 1.5以降のsrt-live-transmitはパーセントエンコードをデコードして使います。</p>
+            </details>
+            <details>
+              <summary>接続テストはできますか？</summary>
+              <p>できません。このツールはURIの組み立てだけを行います。疎通確認はOBSやFFmpeg、vMix側で行ってください。</p>
+            </details>
+            <details>
+              <summary>オフラインでも使えますか？</summary>
+              <p>一度ページを読み込めば、処理自体はブラウザ内で完結します。ただしページの再読み込みにはネットワークが必要です。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="srt-related">
+        <div class="shell">
+          <h2 id="srt-related" class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Related</h2>
+          <div class="mt-4 grid gap-4 md:grid-cols-3">
+            <a class="card card--link card--pad" href="/products/vmix-utility.html">
+              <h3 class="card-title">vmix-utility</h3>
+              <p class="card-text">vMixの接続管理とShortcut生成。SRTの受け口をvMixで作るときに。</p>
+            </a>
+            <a class="card card--link card--pad" href="/products/omt-tools.html">
+              <h3 class="card-title">OMT Community Tools</h3>
+              <p class="card-text">LAN内の映像伝送を確認するツール群。SRTと並べて使えます。</p>
+            </a>
+            <a class="card card--link card--pad" href="/products/stagetimer.html">
+              <h3 class="card-title">ステージタイマー</h3>
+              <p class="card-text">収録と配信の進行を共有するタイマー。SRTでリモート接続する現場にも。</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>

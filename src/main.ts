@@ -1,10 +1,40 @@
-type PageId = "home" | "eiviz" | "omt-tools" | "vmix-utility";
+type PageId = "home" | "products" | "news" | "community" | "members" | "contact";
 
-const PAGE_LINKS: { id: PageId; href: string; label: string }[] = [
-  { id: "home", href: "/index.html", label: "ホーム" },
-  { id: "eiviz", href: "/projects/eiviz.html", label: "eiviz" },
-  { id: "omt-tools", href: "/projects/omt-tools.html", label: "OMT Community Tools" },
-  { id: "vmix-utility", href: "/projects/vmix-utility.html", label: "vmix-utility" },
+type NavItem = { id: PageId; href: string; label: string };
+
+const NAV_ITEMS: NavItem[] = [
+  { id: "products", href: "/products/", label: "プロダクト" },
+  { id: "news", href: "/news/", label: "ニュース" },
+  { id: "community", href: "/#community", label: "コミュニティ" },
+  { id: "members", href: "/#members", label: "メンバー" },
+  { id: "contact", href: "/#contact", label: "お問い合わせ" },
+];
+
+const PRODUCT_LINKS: { href: string; label: string }[] = [
+  { href: "/products/iryx.html", label: "Iryx" },
+  { href: "/products/eiviz.html", label: "eiviz" },
+  { href: "/products/streamdeck.html", label: "Stream Deck プラグイン" },
+  { href: "/products/omt-tools.html", label: "OMT Community Tools" },
+  { href: "/products/vmix-utility.html", label: "vmix-utility" },
+  { href: "/products/srt-uri-generator.html", label: "SRT URI Generator" },
+  { href: "/products/stagetimer.html", label: "ステージタイマー" },
+];
+
+const SITE_LINKS: { href: string; label: string }[] = [
+  { href: "/news/", label: "ニュース" },
+  { href: "/#community", label: "利用いただいているコミュニティ" },
+  { href: "/#technology", label: "技術スタック" },
+  { href: "/#members", label: "メンバー" },
+  { href: "/#support", label: "ご支援" },
+  { href: "/#contact", label: "お問い合わせ" },
+];
+
+const RESOURCE_LINKS: { href: string; label: string; external?: boolean }[] = [
+  { href: "https://github.com/MikanseiLaboratory", label: "GitHub Organization", external: true },
+  { href: "https://x.com/MikanseiDev", label: "X（@MikanseiDev）", external: true },
+  { href: "https://discord.gg/YUbmg9Hq37", label: "Discord コミュニティ", external: true },
+  { href: "https://github.com/MikanseiLaboratory/manuals", label: "マニュアル", external: true },
+  { href: "https://subs.twitch.tv/flowingspdg", label: "Twitch で支援", external: true },
 ];
 
 const SITE_GITHUB_HREF = "https://github.com/MikanseiLaboratory";
@@ -24,7 +54,7 @@ const ICON_DISCORD = `<svg class="h-[1.15rem] w-[1.15rem] shrink-0" viewBox="0 0
 </svg>`;
 
 const ICON_CLASS =
-  "inline-flex h-10 w-10 items-center justify-center rounded-full text-zinc-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400";
+  "inline-flex h-9 w-9 items-center justify-center rounded-full text-zinc-400 transition-colors hover:bg-white/10 hover:text-white";
 
 function socialIconNav(ariaLabel: string): string {
   return `
@@ -42,20 +72,27 @@ function socialIconNav(ariaLabel: string): string {
   `;
 }
 
-function pageLinkClass(current: PageId, id: PageId): string {
-  const base =
-    "rounded-lg px-2.5 py-2 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400";
-  if (current === id) {
-    return `${base} bg-cyan-500/15 text-cyan-300`;
-  }
-  return `${base} text-zinc-300 hover:bg-white/10 hover:text-white`;
+function isCurrent(current: PageId, id: PageId): boolean {
+  return current === id;
 }
 
-function buildPageLinks(current: PageId, cinematic: boolean): string {
-  const items = cinematic ? PAGE_LINKS.filter((item) => item.id !== "home") : PAGE_LINKS;
-  return items
-    .map((item) => `<a href="${item.href}" class="${pageLinkClass(current, item.id)}">${item.label}</a>`)
-    .join("");
+function desktopNav(current: PageId): string {
+  return NAV_ITEMS.map(
+    (item) =>
+      `<a href="${item.href}" class="nav-link"${isCurrent(current, item.id) ? ' aria-current="page"' : ""}>${item.label}</a>`,
+  ).join("");
+}
+
+function mobileNav(current: PageId): string {
+  return NAV_ITEMS.map(
+    (item) =>
+      `<a href="${item.href}" class="flex items-center justify-between rounded-xl px-3 py-3 text-base font-medium text-zinc-200 transition-colors hover:bg-white/[0.06] hover:text-white"${
+        isCurrent(current, item.id) ? ' aria-current="page"' : ""
+      }>
+        <span>${item.label}</span>
+        <svg class="h-4 w-4 text-zinc-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>`,
+  ).join("");
 }
 
 class SocialLinks extends HTMLElement {
@@ -66,8 +103,8 @@ class SocialLinks extends HTMLElement {
       (variant === "footer" ? "外部リンク" : "公式の GitHub、X、Discord");
     const linkClass =
       variant === "footer"
-        ? "inline-flex items-center gap-2 rounded text-sm font-medium text-zinc-400 transition-colors hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-        : "inline-flex items-center gap-2 rounded text-sm font-medium text-cyan-400 transition-colors hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400";
+        ? "inline-flex items-center gap-2 rounded text-sm font-medium text-zinc-400 transition-colors hover:text-cyan-300"
+        : "inline-flex items-center gap-2 rounded text-sm font-medium text-cyan-400 transition-colors hover:text-cyan-300";
     this.innerHTML = `
       <nav class="flex flex-wrap gap-x-6 gap-y-2" aria-label="${ariaLabel}">
         <a href="${SITE_GITHUB_HREF}" class="${linkClass}" target="_blank" rel="noopener noreferrer">
@@ -90,13 +127,13 @@ class SocialLinks extends HTMLElement {
 class SiteHeader extends HTMLElement {
   connectedCallback(): void {
     const current = (this.getAttribute("data-current") ?? "home") as PageId;
-    const cinematic = this.getAttribute("data-variant") === "cinematic";
-    const homeHref = cinematic ? "#hero" : "/index.html";
+    const home = current === "home";
+    const homeHref = home ? "#hero" : "/";
 
     this.innerHTML = `
-      <header class="${cinematic ? "pointer-events-none " : ""}fixed top-0 z-50 w-full ${cinematic ? "" : "border-b border-zinc-800/80 bg-zinc-950/90 backdrop-blur-md"}">
-        <div class="pointer-events-auto relative mx-auto flex max-w-[90rem] items-center justify-between gap-4 px-5 py-4 md:px-8 md:py-5">
-          <a href="${homeHref}" class="group flex items-center gap-2.5 rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 md:gap-3">
+      <header class="site-header" data-site-header>
+        <div class="mx-auto flex h-16 w-full max-w-[88rem] items-center justify-between gap-3 px-5 md:h-[4.5rem] md:px-8">
+          <a href="${homeHref}" class="brand">
             <img
               src="/logo.png"
               alt=""
@@ -106,81 +143,172 @@ class SiteHeader extends HTMLElement {
               decoding="async"
             />
             <span class="flex min-w-0 flex-col">
-              <span class="text-sm font-semibold tracking-tight text-white transition-colors group-hover:text-cyan-200">未完成成果物研究所</span>
-              <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-zinc-500">Mikansei Laboratory</span>
+              <span class="text-[13px] font-semibold tracking-tight text-white md:text-sm">未完成成果物研究所</span>
+              <span class="font-mono text-[9px] uppercase tracking-[0.24em] text-zinc-500">Mikansei Laboratory</span>
             </span>
           </a>
-          <button
-            type="button"
-            class="inline-flex items-center justify-center rounded-lg border border-white/15 p-2 text-zinc-200 hover:bg-white/10 md:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
-            aria-expanded="false"
-            aria-controls="site-nav-panel"
-            data-nav-toggle
-            aria-label="メニューを開く"
-          >
-            <svg class="h-5 w-5" data-icon-open viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round"/>
-            </svg>
-            <svg class="hidden h-5 w-5" data-icon-close viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/>
-            </svg>
-          </button>
-          <div
-            id="site-nav-panel"
-            class="absolute left-0 right-0 top-full z-40 flex max-md:hidden flex-col gap-1 border-b border-white/10 bg-zinc-950/95 px-4 py-4 md:static md:z-auto md:flex md:flex-row md:items-center md:gap-1 md:border-0 md:bg-transparent md:p-0"
-            data-nav-panel
-          >
-            <nav class="flex flex-col gap-1 md:flex-row md:items-center" aria-label="主要ページ">
-              ${buildPageLinks(current, cinematic)}
-            </nav>
-            <div class="max-md:mt-3 max-md:border-t max-md:border-white/10 max-md:pt-3 md:ml-1">
+
+          <nav class="hidden items-center gap-0.5 lg:flex" aria-label="メインナビゲーション">
+            ${desktopNav(current)}
+          </nav>
+
+          <div class="flex items-center gap-1.5">
+            <div class="hidden items-center gap-0.5 sm:flex">
               ${socialIconNav("公式の GitHub、X、Discord")}
             </div>
+            <a href="/#contact" class="btn btn--ghost hidden md:inline-flex">お問い合わせ</a>
+            <button
+              type="button"
+              class="icon-link lg:hidden"
+              aria-expanded="false"
+              aria-controls="site-menu"
+              aria-label="メニューを開く"
+              data-menu-toggle
+            >
+              <svg class="h-5 w-5" data-icon-open viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/>
+              </svg>
+              <svg class="hidden h-5 w-5" data-icon-close viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="site-menu"
+          class="site-menu border-t border-white/10 bg-[#07080b]/95 px-5 pb-7 pt-3 backdrop-blur-xl lg:hidden"
+          data-menu
+          data-open="false"
+        >
+          <nav class="flex flex-col" aria-label="メインナビゲーション（モバイル）">
+            ${mobileNav(current)}
+          </nav>
+          <div class="mt-5 flex items-center justify-between border-t border-white/10 pt-5">
+            ${socialIconNav("公式の GitHub、X、Discord（モバイル）")}
+            <a href="/#contact" class="btn btn--primary">お問い合わせ</a>
           </div>
         </div>
       </header>
-      ${cinematic ? "" : `<div class="h-[var(--header-h)] shrink-0" aria-hidden="true" style="--header-h: 4.25rem"></div>`}
+      ${home ? "" : '<div class="h-16 md:h-[4.5rem]" aria-hidden="true"></div>'}
     `;
 
-    const toggle = this.querySelector("[data-nav-toggle]");
-    const panel = this.querySelector("[data-nav-panel]");
-    const iconOpen = this.querySelector("[data-icon-open]");
-    const iconClose = this.querySelector("[data-icon-close]");
-    if (!toggle || !panel || !iconOpen || !iconClose) return;
+    const toggle = this.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+    const menu = this.querySelector<HTMLElement>("[data-menu]");
+    const iconOpen = this.querySelector<SVGElement>("[data-icon-open]");
+    const iconClose = this.querySelector<SVGElement>("[data-icon-close]");
+    if (!toggle || !menu || !iconOpen || !iconClose) return;
 
     const setOpen = (open: boolean): void => {
       toggle.setAttribute("aria-expanded", String(open));
       toggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
-      panel.classList.toggle("max-md:hidden", !open);
+      menu.dataset.open = String(open);
+      open ? menu.removeAttribute("hidden") : menu.setAttribute("hidden", "");
       iconOpen.classList.toggle("hidden", open);
       iconClose.classList.toggle("hidden", !open);
+      document.body.classList.toggle("overflow-hidden", open);
     };
+
+    // 初期状態は閉じる（JS 無効時はメニューを表示しない）
+    setOpen(false);
 
     toggle.addEventListener("click", () => {
       setOpen(toggle.getAttribute("aria-expanded") !== "true");
     });
 
-    panel.querySelectorAll("a").forEach((link) => {
+    menu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        if (window.matchMedia("(max-width: 767px)").matches) setOpen(false);
+        if (window.matchMedia("(max-width: 1023px)").matches) setOpen(false);
       });
     });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    window.matchMedia("(min-width: 1024px)").addEventListener("change", (event) => {
+      if (event.matches) setOpen(false);
+    });
+
+    const header = this.querySelector<HTMLElement>("[data-site-header]");
+    if (!header) return;
+    const onScroll = (): void => {
+      header.classList.toggle("is-scrolled", window.scrollY > 12);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
   }
 }
 
 class SiteFooter extends HTMLElement {
   connectedCallback(): void {
     const year = new Date().getFullYear();
+    const productLinks = PRODUCT_LINKS.map(
+      (link) => `<li><a class="footer-link" href="${link.href}">${link.label}</a></li>`,
+    ).join("");
+    const siteLinks = SITE_LINKS.map(
+      (link) => `<li><a class="footer-link" href="${link.href}">${link.label}</a></li>`,
+    ).join("");
+    const resourceLinks = RESOURCE_LINKS.map((link) =>
+      link.external
+        ? `<li><a class="footer-link" href="${link.href}" target="_blank" rel="noopener noreferrer">${link.label}<span class="sr-only">（新しいタブで開く）</span></a></li>`
+        : `<li><a class="footer-link" href="${link.href}">${link.label}</a></li>`,
+    ).join("");
+
     this.innerHTML = `
-      <footer class="border-t border-white/10 bg-black/50">
-        <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-8 md:flex-row md:items-center md:justify-between">
-          <div>
-            <p class="text-sm font-semibold text-white">未完成成果物研究所</p>
-            <p class="mt-1 font-mono text-[11px] uppercase tracking-[0.18em] text-zinc-500">Broadcast · Stream · Engineering</p>
+      <footer class="site-footer">
+        <div class="shell py-14 md:py-20">
+          <div class="flex flex-col gap-6 border-b border-white/10 pb-10 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p class="eyebrow">Contact</p>
+              <p class="mt-3 max-w-xl text-xl font-semibold tracking-tight text-white md:text-2xl">
+                導入の相談も、不具合の連絡も。現場の言葉でどうぞ。
+              </p>
+            </div>
+            <a class="btn btn--primary" href="/#contact">お問い合わせ</a>
           </div>
-          <div class="flex flex-col items-start gap-3 md:items-end">
-            <social-links data-variant="footer"></social-links>
-            <p class="text-xs text-zinc-500">© ${year} Mikansei Laboratory</p>
+
+          <div class="grid gap-10 pt-10 md:grid-cols-2 lg:grid-cols-[1.4fr_0.6fr_0.6fr_0.7fr]">
+            <div>
+              <a href="/" class="brand">
+                <img src="/logo.png" alt="" width="512" height="512" class="h-9 w-9 object-contain" decoding="async" />
+                <span class="flex flex-col">
+                  <span class="text-sm font-semibold text-white">未完成成果物研究所</span>
+                  <span class="font-mono text-[9px] uppercase tracking-[0.24em] text-zinc-500">Mikansei Laboratory</span>
+                </span>
+              </a>
+              <p class="mt-4 max-w-sm text-sm leading-relaxed text-zinc-400">
+                vMix・ATEM・OMT・NDI・SRT 周辺のツールとハードウェアを開発する技術者コミュニティです。
+              </p>
+              <div class="mt-5">
+                ${socialIconNav("公式の GitHub、X、Discord（フッター）")}
+              </div>
+            </div>
+
+            <div>
+              <h2 class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">Products</h2>
+              <ul class="mt-4 space-y-2.5">${productLinks}</ul>
+            </div>
+
+            <div>
+              <h2 class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">Site</h2>
+              <ul class="mt-4 space-y-2.5">${siteLinks}</ul>
+            </div>
+
+            <div>
+              <h2 class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">Links</h2>
+              <ul class="mt-4 space-y-2.5">${resourceLinks}</ul>
+            </div>
+          </div>
+
+          <div class="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-xs leading-relaxed text-zinc-500 md:flex-row md:items-start md:justify-between">
+            <p>© ${year} 未完成成果物研究所 / Mikansei Laboratory</p>
+            <p class="max-w-2xl md:text-right">
+              vMix、ATEM、Stream Deck、OMT、NDI などは各社の商標または登録商標です。当サイトで配布するツールは各社の公式製品ではありません。
+            </p>
           </div>
         </div>
       </footer>
@@ -192,97 +320,9 @@ customElements.define("social-links", SocialLinks);
 customElements.define("site-header", SiteHeader);
 customElements.define("site-footer", SiteFooter);
 
-function mountFullpageSnap(): void {
-  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const desktop = window.matchMedia("(min-width: 768px)").matches;
-  if (reduced || !desktop) return;
-
-  const sections = [...document.querySelectorAll<HTMLElement>(".snap-section")];
-  if (sections.length === 0) return;
-
-  let locked = false;
-
-  const currentIndex = (): number => {
-    const mid = window.scrollY + window.innerHeight * 0.5;
-    let best = 0;
-    let bestDist = Number.POSITIVE_INFINITY;
-    sections.forEach((section, i) => {
-      const dist = Math.abs(section.offsetTop + section.offsetHeight * 0.5 - mid);
-      if (dist < bestDist) {
-        bestDist = dist;
-        best = i;
-      }
-    });
-    return best;
-  };
-
-  const go = (dir: 1 | -1): void => {
-    if (locked) return;
-    const next = Math.min(sections.length - 1, Math.max(0, currentIndex() + dir));
-    locked = true;
-    sections[next].scrollIntoView({ behavior: "smooth", block: "start" });
-    window.setTimeout(() => {
-      locked = false;
-    }, 720);
-  };
-
-  window.addEventListener(
-    "wheel",
-    (event) => {
-      if (Math.abs(event.deltaY) < 8) return;
-      const section = sections[currentIndex()];
-      if (section?.classList.contains("snap-scrollable")) {
-        const goingDown = event.deltaY > 0;
-        const atTop = section.scrollTop <= 1;
-        const atBottom = section.scrollTop + section.clientHeight >= section.scrollHeight - 2;
-        if ((goingDown && !atBottom) || (!goingDown && !atTop)) {
-          return;
-        }
-      }
-      event.preventDefault();
-      go(event.deltaY > 0 ? 1 : -1);
-    },
-    { passive: false },
-  );
-
-  window.addEventListener(
-    "keydown",
-    (event) => {
-      if (event.defaultPrevented) return;
-      const keys = ["PageDown", "ArrowDown", " ", "PageUp", "ArrowUp"];
-      if (!keys.includes(event.key)) return;
-      const target = event.target;
-      if (target instanceof HTMLElement) {
-        const tag = target.tagName;
-        if (tag === "INPUT" || tag === "TEXTAREA" || target.isContentEditable) return;
-      }
-      event.preventDefault();
-      go(event.key === "PageUp" || event.key === "ArrowUp" ? -1 : 1);
-    },
-    { passive: false },
-  );
-
-  document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const id = link.getAttribute("href");
-      if (!id || id === "#") return;
-      const target = document.querySelector<HTMLElement>(id);
-      if (!target) return;
-      event.preventDefault();
-      locked = true;
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-      window.setTimeout(() => {
-        locked = false;
-      }, 720);
-    });
-  });
-}
-
 const sceneCanvas = document.querySelector<HTMLCanvasElement>("#lab-scene");
 if (sceneCanvas) {
   void import("./scene").then(({ mountLabScene }) => {
     mountLabScene(sceneCanvas);
   });
 }
-
-mountFullpageSnap();

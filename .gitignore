@@ -45,3 +45,7 @@ coverage/
 
 # Misc
 *.orig
+
+# Local screenshot artifacts
+.shots/
+

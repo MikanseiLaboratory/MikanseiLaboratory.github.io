@@ -40,10 +40,17 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: resolve(root, "index.html"),
-        projectEiviz: resolve(root, "projects/eiviz.html"),
-        projectOmtTools: resolve(root, "projects/omt-tools.html"),
-        projectVmixUtility: resolve(root, "projects/vmix-utility.html"),
+        home: resolve(root, "index.html"),
+        productsIndex: resolve(root, "products/index.html"),
+        productIryx: resolve(root, "products/iryx.html"),
+        productEiviz: resolve(root, "products/eiviz.html"),
+        productOmtTools: resolve(root, "products/omt-tools.html"),
+        productVmixUtility: resolve(root, "products/vmix-utility.html"),
+        productStreamDeck: resolve(root, "products/streamdeck.html"),
+        productSrtUriGenerator: resolve(root, "products/srt-uri-generator.html"),
+        productStageTimer: resolve(root, "products/stagetimer.html"),
+        newsIndex: resolve(root, "news/index.html"),
+        newsKagari16: resolve(root, "news/2026-11-23-kagari-16.html"),
       },
     },
   },

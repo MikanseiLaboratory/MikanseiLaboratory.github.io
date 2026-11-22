@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>vmix-utility — vMixの管理とオペレーション支援 | 未完成成果物研究所</title>
+    <meta
+      name="description"
+      content="vmix-utilityは、vMixの接続管理、Shortcut URLの生成、Blank入力の一括作成、InputとListの管理をまとめたデスクトップアプリです。Windows / macOS / Linuxに対応し、MITライセンスで公開しています。"
+    />
+    <link rel="canonical" href="https://mikanseilaboratory.github.io/products/vmix-utility.html" />
+    <meta property="og:title" content="vmix-utility — vMixの管理とオペレーション支援" />
+    <meta
+      property="og:description"
+      content="vMixの接続管理、Shortcut生成、InputとListの管理をまとめたデスクトップアプリ。Windows / macOS / Linux対応、MITライセンス。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mikanseilaboratory.github.io/products/vmix-utility.html" />
+    <meta property="og:site_name" content="未完成成果物研究所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://mikanseilaboratory.github.io/images/vmix-hero.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="vmix-utility — vMixの管理とオペレーション支援" />
+    <meta name="twitter:description" content="vMixの接続管理、Shortcut生成、InputとListの管理。Windows / macOS / Linux対応のMITライセンスツール。" />
+    <meta name="twitter:image" content="https://mikanseilaboratory.github.io/images/vmix-hero.jpg" />
+    <meta name="theme-color" content="#07080b" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="alternate" type="application/rss+xml" title="未完成成果物研究所 ニュース" href="/news/feed.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://mikanseilaboratory.github.io/products/vmix-utility.html#app",
+            "name": "vmix-utility",
+            "applicationCategory": "MultimediaApplication",
+            "operatingSystem": "Windows, macOS, Linux",
+            "license": "https://opensource.org/licenses/MIT",
+            "isAccessibleForFree": true,
+            "description": "vMixの接続管理、Shortcut URLの生成、Blank入力の一括作成、InputとListの管理を行うデスクトップアプリ。",
+            "url": "https://mikanseilaboratory.github.io/products/vmix-utility.html",
+            "downloadUrl": "https://github.com/MikanseiLaboratory/vmix-utility/releases/latest",
+            "author": {
+              "@type": "Organization",
+              "name": "未完成成果物研究所",
+              "url": "https://mikanseilaboratory.github.io/"
+            },
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "対応OSは？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Windows（.msi）、macOS（.dmg、Intel / Apple Silicon）、Linux（.AppImage）向けにビルドした成果物を配布しています。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "vMixのどのバージョンでも使えますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "vMixのHTTP / TCP APIを使います。APIが有効なvMixであれば利用できますが、バージョンによって一部のShortcutや項目が異なる場合があります。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "複数台のvMixを管理できますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "はい。接続先を複数登録し、本番系と予備系を切り替えて使えます。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "ライセンスは？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "MITライセンスです。商用利用もできます。"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mikanseilaboratory.github.io/" },
+              { "@type": "ListItem", "position": 2, "name": "プロダクト", "item": "https://mikanseilaboratory.github.io/products/" },
+              { "@type": "ListItem", "position": 3, "name": "vmix-utility", "item": "https://mikanseilaboratory.github.io/products/vmix-utility.html" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+
+    <site-header data-current="products"></site-header>
+
+    <main id="main" class="page-main">
+      <div class="shell">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="/">ホーム</a>
+          <span aria-hidden="true">/</span>
+          <a href="/products/">プロダクト</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">vmix-utility</span>
+        </nav>
+      </div>
+
+      <section class="page-hero" aria-labelledby="vu-heading">
+        <div class="shell page-hero__grid">
+          <div>
+            <div class="flex flex-wrap items-center gap-3">
+              <p class="eyebrow">Desktop app / vMix</p>
+              <span class="status-pill status-pill--active">active</span>
+            </div>
+            <h1 id="vu-heading" class="display display--page mt-4">vMixの管理とオペレーションを、<br />ひとつの画面に。</h1>
+            <p class="lede">
+              vmix-utilityは、vMixの接続管理、Shortcut URLの生成、Blank入力の一括作成、InputとListの確認をまとめたデスクトップアプリです。本番前の準備と、別PCからの操作を短くします。
+            </p>
+            <div class="cta-row">
+              <a class="btn btn--primary" href="https://github.com/MikanseiLaboratory/vmix-utility/releases/latest" target="_blank" rel="noopener noreferrer">ダウンロード</a>
+              <a class="btn btn--ghost" href="https://github.com/MikanseiLaboratory/vmix-utility" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+            <ul class="chips">
+              <li class="chip">Windows / macOS / Linux</li>
+              <li class="chip">MIT License</li>
+              <li class="chip">Tauri (Rust + React)</li>
+              <li class="chip chip--warm">篝火#16 採用</li>
+            </ul>
+          </div>
+          <figure class="page-hero__media">
+            <img
+              src="/images/vmix-hero.jpg"
+              alt="複数モニターとライブ制作卓を備えた配信環境"
+              width="1536"
+              height="1024"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="vu-features">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Features</p>
+            <h2 id="vu-features" class="section-title">本番前の準備を、まとめて片付ける。</h2>
+            <p class="section-lede">接続先を登録したら、あとは必要な画面を切り替えるだけです。vMix本体のHTTP / TCP APIを使います。</p>
+          </div>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <article class="card card--pad">
+              <h3 class="card-title">Connections</h3>
+              <p class="card-text">vMixホストを追加・管理します。複数台の切り替えや、予備系の確認に。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">Shortcut Generator</h3>
+              <p class="card-text">Shortcut FunctionのURLを組み立てます。StreamDeckやブラウザからvMixを操作するときに。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">Blank Generator</h3>
+              <p class="card-text">Blank / Colours入力を一括生成します。合成用のシーンを大量に作るときの作業を減らします。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">Input Manager</h3>
+              <p class="card-text">Inputを一覧・管理します。名前の変更や状態の確認を、vMix本体とは別のPCから行えます。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">List Manager</h3>
+              <p class="card-text">Input Listを確認・管理します。素材の差し替えが多い番組での確認用です。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">Settings / About</h3>
+              <p class="card-text">設定、リポジトリ、ライセンス、Discord、支援の案内をまとめています。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="vu-field">
+        <div class="shell">
+          <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+            <div>
+              <p class="eyebrow">Field</p>
+              <h2 id="vu-field" class="section-title">篝火#16の配信現場でも。</h2>
+              <p class="section-lede">
+                2026年11月に開催された「篝火#16」で、vmix-utilityを採用いただきました。配信現場でのvMixの準備と、オペレーターの操作を支えるツールとして使われています。
+              </p>
+              <p class="mt-4 text-sm leading-relaxed text-zinc-400">
+                シーン数が多くスイッチングが多い番組では、Shortcutの整理とInput名の確認に時間を取られます。vmix-utilityは、その確認作業を本番前と本番中に分けて行えるようにします。
+              </p>
+              <a class="link-arrow mt-6" href="/news/2026-11-23-kagari-16.html">篝火#16での採用記事を読む</a>
+            </div>
+            <ul class="space-y-3">
+              <li class="card card--pad">
+                <h3 class="text-sm font-semibold text-white">シーン切替の多い番組</h3>
+                <p class="mt-1 text-sm leading-relaxed text-zinc-400">Shortcutを整理し、StreamDeckやブラウザからの操作を組みやすくします。</p>
+              </li>
+              <li class="card card--pad">
+                <h3 class="text-sm font-semibold text-white">定型フォーマットの配信</h3>
+                <p class="mt-1 text-sm leading-relaxed text-zinc-400">Blank入力をまとめて作り、毎回のセットアップを短くします。</p>
+              </li>
+              <li class="card card--pad">
+                <h3 class="text-sm font-semibold text-white">別PCからの確認</h3>
+                <p class="mt-1 text-sm leading-relaxed text-zinc-400">InputとListの状態を、vMix本体とは別のマシンから確認できます。</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="vu-download">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Download</p>
+            <h2 id="vu-download" class="section-title">入手方法</h2>
+            <p class="section-lede">ビルド済みの成果物をGitHub Releasesで配布しています。ソースからのビルドもできます。</p>
+          </div>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-3">
+            <a class="card card--link card--pad" href="https://github.com/MikanseiLaboratory/vmix-utility/releases/latest" target="_blank" rel="noopener noreferrer">
+              <h3 class="card-title">Windows</h3>
+              <p class="card-text">.msiインストーラー。Windows 10以降。</p>
+              <span class="link-arrow mt-4">最新リリース</span>
+            </a>
+            <a class="card card--link card--pad" href="https://github.com/MikanseiLaboratory/vmix-utility/releases/latest" target="_blank" rel="noopener noreferrer">
+              <h3 class="card-title">macOS</h3>
+              <p class="card-text">.dmg。IntelとApple Siliconの両方。</p>
+              <span class="link-arrow mt-4">最新リリース</span>
+            </a>
+            <a class="card card--link card--pad" href="https://github.com/MikanseiLaboratory/vmix-utility/releases/latest" target="_blank" rel="noopener noreferrer">
+              <h3 class="card-title">Linux</h3>
+              <p class="card-text">.AppImage。</p>
+              <span class="link-arrow mt-4">最新リリース</span>
+            </a>
+          </div>
+
+          <p class="mt-5 text-sm leading-relaxed text-zinc-500">
+            vmix-utilityは未完成成果物研究所が保守するコミュニティ製ソフトウェアであり、StudioCoast / vMixの公式製品ではありません。
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="vu-faq">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="vu-faq" class="section-title">よくある質問</h2>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>対応OSは？</summary>
+              <p>Windows（.msi）、macOS（.dmg、Intel / Apple Silicon）、Linux（.AppImage）向けにビルドした成果物を配布しています。</p>
+            </details>
+            <details>
+              <summary>vMixのどのバージョンでも使えますか？</summary>
+              <p>vMixのHTTP / TCP APIを使います。APIが有効なvMixであれば利用できますが、バージョンによって一部のShortcutや項目が異なる場合があります。</p>
+            </details>
+            <details>
+              <summary>複数台のvMixを管理できますか？</summary>
+              <p>はい。接続先を複数登録し、本番系と予備系を切り替えて使えます。</p>
+            </details>
+            <details>
+              <summary>ライセンスは？</summary>
+              <p>MITライセンスです。商用利用もできます。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="vu-related">
+        <div class="shell">
+          <h2 id="vu-related" class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Related</h2>
+          <div class="mt-4 grid gap-4 md:grid-cols-3">
+            <a class="card card--link card--pad" href="/products/streamdeck.html">
+              <h3 class="card-title">Stream Deck プラグイン</h3>
+              <p class="card-text">vMixをStream Deckから直接操作するプラグイン。</p>
+            </a>
+            <a class="card card--link card--pad" href="https://github.com/MikanseiLaboratory/vmix-rs" target="_blank" rel="noopener noreferrer">
+              <h3 class="card-title">vmix-rs</h3>
+              <p class="card-text">vMixのHTTP / TCP APIを扱うRustライブラリ。vmix-utilityの土台のひとつです。</p>
+            </a>
+            <a class="card card--link card--pad" href="/products/iryx.html">
+              <h3 class="card-title">Iryx</h3>
+              <p class="card-text">vMix向けのハードウェアコントロールパネル。2026年内販売予定。</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>

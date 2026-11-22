@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>Iryx — vMix専用ハードウェアコントロールパネル | 未完成成果物研究所</title>
+    <meta
+      name="description"
+      content="Iryx（イリクス）は、vMixのトランジションとリプレイに特化したハードウェアコントロールパネルです。TC-00 / SW-01 / RP-00の3モデル、LANとUSB-Cに対応。篝火#16で評価機2セットを運用いただき、2026年内の販売を予定しています。"
+    />
+    <link rel="canonical" href="https://mikanseilaboratory.github.io/products/iryx.html" />
+    <meta property="og:title" content="Iryx — vMix専用ハードウェアコントロールパネル" />
+    <meta
+      property="og:description"
+      content="vMixのトランジションとリプレイを物理キーで操作するIryx。TC-00 / SW-01 / RP-00の3モデル。2026年内販売予定。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mikanseilaboratory.github.io/products/iryx.html" />
+    <meta property="og:site_name" content="未完成成果物研究所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://mikanseilaboratory.github.io/images/product-hardware.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Iryx — vMix専用ハードウェアコントロールパネル" />
+    <meta name="twitter:description" content="vMixのトランジションとリプレイに特化したハードウェアコントロールパネル。2026年内販売予定。" />
+    <meta name="twitter:image" content="https://mikanseilaboratory.github.io/images/product-hardware.jpg" />
+    <meta name="theme-color" content="#07080b" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="alternate" type="application/rss+xml" title="未完成成果物研究所 ニュース" href="/news/feed.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Product",
+            "@id": "https://mikanseilaboratory.github.io/products/iryx.html#product",
+            "name": "Iryx",
+            "alternateName": "イリクス",
+            "description": "vMixのトランジションとリプレイに特化したハードウェアコントロールパネル。TC-00、SW-01、RP-00の3モデル。",
+            "image": "https://mikanseilaboratory.github.io/images/product-hardware.jpg",
+            "url": "https://mikanseilaboratory.github.io/products/iryx.html",
+            "category": "Broadcast control surface",
+            "brand": { "@type": "Brand", "name": "未完成成果物研究所" },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "未完成成果物研究所",
+              "url": "https://mikanseilaboratory.github.io/"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Iryxはいつ購入できますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "2026年内の販売を予定しています。販売時期、価格、販売方法が確定したらニュースとXでお知らせします。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "評価機を借りることはできますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "評価機は開発者と合意した企業・個人に限定して頒布しています。現場での評価を希望する場合は、メールで用途と環境をお知らせください。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "ATEMは操作できますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "SW-01はATEMモードを備えており、UDP 9910経由でCut、Auto、Previewを操作できます。ATEMモードは有線LAN搭載モデルでのみ利用できます。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "対応しているvMixのバージョンは？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "vMix 29以降に対応しています。v28以前では、Stinger 5〜8、OverlayInput 5〜8、Mixの選択の一部が動作しない場合があります。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "転売や譲渡はできますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "できません。Iryxは評価用の試作機を含め、転売・譲渡を禁止しています。"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mikanseilaboratory.github.io/" },
+              { "@type": "ListItem", "position": 2, "name": "プロダクト", "item": "https://mikanseilaboratory.github.io/products/" },
+              { "@type": "ListItem", "position": 3, "name": "Iryx", "item": "https://mikanseilaboratory.github.io/products/iryx.html" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+
+    <site-header data-current="products"></site-header>
+
+    <main id="main" class="page-main">
+      <div class="shell">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="/">ホーム</a>
+          <span aria-hidden="true">/</span>
+          <a href="/products/">プロダクト</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Iryx</span>
+        </nav>
+      </div>
+
+      <section class="page-hero" aria-labelledby="iryx-heading">
+        <div class="shell page-hero__grid">
+          <div>
+            <div class="flex flex-wrap items-center gap-3">
+              <p class="eyebrow">Hardware / vMix control surface</p>
+              <span class="status-pill status-pill--dev">development</span>
+            </div>
+            <h1 id="iryx-heading" class="display display--page mt-4">Iryx</h1>
+            <p class="mt-3 text-lg font-medium text-zinc-300">vMixの操作を、手のひらに。</p>
+            <p class="lede">
+              Iryxは、vMixのトランジションとリプレイに特化したハードウェアコントロールパネルです。画面のボタンをマウスで追う代わりに、物理キーとTバーで操作します。vMixのTCP
+              APIに直接つなぎ、キーのLEDに現在の状態を返します。
+            </p>
+            <div class="cta-row">
+              <a class="btn btn--primary" href="mailto:ruk1ium@gmail.com?subject=Iryx%E3%81%AE%E5%B0%8E%E5%85%A5%E3%83%BB%E8%A9%95%E4%BE%A1%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">導入・評価の相談</a>
+              <a class="btn btn--ghost" href="https://github.com/MikanseiLaboratory/manuals/tree/main/iryx" target="_blank" rel="noopener noreferrer">マニュアル</a>
+            </div>
+            <ul class="chips">
+              <li class="chip chip--warm">2026年内 販売予定</li>
+              <li class="chip">LAN / USB-C</li>
+              <li class="chip">vMix 29以降</li>
+              <li class="chip">ATEMモード（SW-01）</li>
+            </ul>
+          </div>
+          <figure class="page-hero__media">
+            <img
+              src="/images/product-hardware.jpg"
+              alt="Iryxの試作機。4つの画面、フェーダー、Tバー、ジョグを備えたコントロールパネル"
+              width="1536"
+              height="1024"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-what">
+        <div class="shell">
+          <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p class="eyebrow">What it is</p>
+              <h2 id="iryx-what" class="section-title">スイッチャーの操作を、<br class="hidden lg:block" />画面から切り離す。</h2>
+              <p class="section-lede">
+                ライブ中のオペレーターは、確認する画面が多く、マウスのポインタを探す時間が思った以上にあります。Iryxは、よく使う操作を物理キーに固定し、視線を画面に残したまま操作できるようにします。
+              </p>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <article class="card card--pad">
+                <h3 class="card-title">Transition</h3>
+                <p class="card-text">Cut、Auto、Tバー、Stinger、Overlay。vMixのトランジションをキーとフェーダーに割り当てます。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">Replay</h3>
+                <p class="card-text">RP-00はリプレイ専用。Angleの切り替え、Channel選択、ジョグとTバーで再生位置を操作します。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">Tally</h3>
+                <p class="card-text">vMixから受け取った状態をLEDに反映します。ProgramとPreviewの取り違えを減らします。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">Direct API</h3>
+                <p class="card-text">キーボードエミュレーションではなく、vMixのTCP APIを直接叩きます。vMix側の設定に依存しません。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-models">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Models</p>
+            <h2 id="iryx-models" class="section-title">用途で選べる3モデル</h2>
+            <p class="section-lede">いずれもUSB-C給電で、有線LAN搭載モデルとUSB専用モデルがあります。ATEMモードは有線LAN搭載モデルのみです。</p>
+          </div>
+
+          <div class="table-wrap mt-8">
+            <table class="data-table">
+              <caption class="sr-only">Iryxのモデル比較</caption>
+              <thead>
+                <tr>
+                  <th scope="col">モデル</th>
+                  <th scope="col">用途</th>
+                  <th scope="col">接続</th>
+                  <th scope="col">主な操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="font-medium text-white">Transition Control TC-00</th>
+                  <td>vMixのトランジション制御</td>
+                  <td>LAN / USB</td>
+                  <td>Cut、Auto、Tバー、Stinger、Overlay、Mix選択</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="font-medium text-white">Transition Control SW-01</th>
+                  <td>vMix / ATEMのトランジション制御</td>
+                  <td>LAN / USB（ATEMはLANのみ）</td>
+                  <td>TC-00の操作に加え、ATEMモードでCut / Auto / Preview</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="font-medium text-white">Replay RP-00</th>
+                  <td>vMixのリプレイ操作</td>
+                  <td>LAN / USB</td>
+                  <td>Angle切り替え、Channel選択、ジョグ、Tバー</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-4 grid gap-4 md:grid-cols-2">
+            <article class="card card--pad">
+              <h3 class="card-title">USB接続</h3>
+              <p class="card-text">
+                USB CDC-NCMのイーサネットアダプターとして認識され、本機に<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">172.31.x.1</code>が割り当てられます。ドライバのインストールは不要です。
+              </p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">LAN接続</h3>
+              <p class="card-text">
+                有線LAN搭載モデルは、DHCPでも固定IPでも運用できます。DHCPがない環境では約30秒後に<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">192.168.1.100/24</code>へフォールバックします。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-field">
+        <div class="shell">
+          <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+            <div>
+              <p class="eyebrow">Field test</p>
+              <h2 id="iryx-field" class="section-title">篝火#16で、2セットを実運用。</h2>
+              <p class="section-lede">
+                2026年11月21日・22日に開催された「篝火#16」で、Iryxの評価試験機2セットを運用いただきました。1セットはEast Geek Smashのサブ配信、もう1セットは無明遊者の配信で使われています。
+              </p>
+              <p class="mt-4 text-sm leading-relaxed text-zinc-400">
+                評価機は、開発者と合意した企業・個人に限定して頒布しています。現場のネットワークやvMixのバージョン、オペレーターの操作に合わせて、キー割り当てとLEDの挙動を調整しています。
+              </p>
+              <a class="link-arrow mt-6" href="/news/2026-11-23-kagari-16.html">篝火#16での採用記事を読む</a>
+            </div>
+
+            <div class="grid gap-3">
+              <article class="card card--pad">
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">East Geek Smash</p>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">篝火#16のサブ配信で評価試験機を1セット運用。</p>
+              </article>
+              <article class="card card--pad">
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">無明遊者</p>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">篝火#16の配信で評価試験機を1セット運用。</p>
+              </article>
+              <article class="card card--pad">
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">篝火</p>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">大型オフライン大会の配信環境で、2セットの評価試験を実施。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-buy">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Availability</p>
+            <h2 id="iryx-buy" class="section-title">2026年内の販売に向けて準備しています。</h2>
+            <p class="section-lede">
+              販売時期、価格、販売方法は確定していません。決まり次第、ニュースとXでお知らせします。評価機の貸し出しは、用途と環境が合う場合に限り対応します。
+            </p>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn--primary" href="mailto:ruk1ium@gmail.com?subject=Iryx%E3%81%AE%E5%B0%8E%E5%85%A5%E3%83%BB%E8%A9%95%E4%BE%A1%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">導入・評価の相談</a>
+            <a class="btn btn--ghost" href="https://x.com/MikanseiDev" target="_blank" rel="noopener noreferrer">Xで続報を受け取る</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-faq">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="iryx-faq" class="section-title">よくある質問</h2>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>Iryxはいつ購入できますか？</summary>
+              <p>2026年内の販売を予定しています。販売時期、価格、販売方法が確定したら、ニュースとXでお知らせします。</p>
+            </details>
+            <details>
+              <summary>評価機を借りることはできますか？</summary>
+              <p>評価機は開発者と合意した企業・個人に限定して頒布しています。現場での評価を希望する場合は、メールで用途と環境をお知らせください。</p>
+            </details>
+            <details>
+              <summary>ATEMは操作できますか？</summary>
+              <p>SW-01はATEMモードを備えており、UDP 9910経由でCut、Auto、Previewを操作できます。ATEMモードは有線LAN搭載モデルでのみ利用できます。</p>
+            </details>
+            <details>
+              <summary>対応しているvMixのバージョンは？</summary>
+              <p>vMix 29以降に対応しています。v28以前では、Stinger 5〜8、OverlayInput 5〜8、Mixの選択の一部が動作しない場合があります。</p>
+            </details>
+            <details>
+              <summary>転売や譲渡はできますか？</summary>
+              <p>できません。Iryxは評価用の試作機を含め、転売・譲渡を禁止しています。</p>
+            </details>
+            <details>
+              <summary>保証はありますか？</summary>
+              <p>開発中の試作機のため、市販品と同等の保護機能を備えていない場合があります。通常の製品保証はありません。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-related">
+        <div class="shell">
+          <h2 id="iryx-related" class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Related</h2>
+          <div class="mt-4 grid gap-4 md:grid-cols-3">
+            <a class="card card--link card--pad" href="/products/vmix-utility.html">
+              <h3 class="card-title">vmix-utility</h3>
+              <p class="card-text">vMixの接続管理やShortcut生成をまとめたデスクトップアプリ。</p>
+            </a>
+            <a class="card card--link card--pad" href="/products/streamdeck.html">
+              <h3 class="card-title">Stream Deck プラグイン</h3>
+              <p class="card-text">vMixをStream Deckから操作するプラグイン。Iryxと同じTCP APIを使います。</p>
+            </a>
+            <a class="card card--link card--pad" href="/products/eiviz.html">
+              <h3 class="card-title">eiviz</h3>
+              <p class="card-text">無制限M/Eのソフトウェアスイッチャー。リプレイ系統としても使えます。</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>
