@@ -1,13 +1,13 @@
-type PageId = "home" | "products" | "news" | "community" | "members" | "contact";
+type PageId = "home" | "products" | "news" | "partners" | "members" | "contact";
 
 type NavItem = { id: PageId; href: string; label: string };
 
 const NAV_ITEMS: NavItem[] = [
   { id: "products", href: "/products/", label: "プロダクト" },
   { id: "news", href: "/news/", label: "ニュース" },
-  { id: "community", href: "/#community", label: "コミュニティ" },
-  { id: "members", href: "/#members", label: "メンバー" },
-  { id: "contact", href: "/#contact", label: "お問い合わせ" },
+  { id: "partners", href: "/#partners", label: "採用プロダクション" },
+  { id: "members", href: "/members/", label: "メンバー" },
+  { id: "contact", href: "/contact/", label: "お問い合わせ" },
 ];
 
 const PRODUCT_LINKS: { href: string; label: string }[] = [
@@ -22,11 +22,11 @@ const PRODUCT_LINKS: { href: string; label: string }[] = [
 
 const SITE_LINKS: { href: string; label: string }[] = [
   { href: "/news/", label: "ニュース" },
-  { href: "/#community", label: "利用いただいているコミュニティ" },
+  { href: "/#partners", label: "採用プロダクション" },
   { href: "/#technology", label: "技術スタック" },
-  { href: "/#members", label: "メンバー" },
+  { href: "/members/", label: "メンバー" },
   { href: "/#support", label: "ご支援" },
-  { href: "/#contact", label: "お問い合わせ" },
+  { href: "/contact/", label: "お問い合わせ" },
 ];
 
 const RESOURCE_LINKS: { href: string; label: string; external?: boolean }[] = [
@@ -156,7 +156,7 @@ class SiteHeader extends HTMLElement {
             <div class="hidden items-center gap-0.5 sm:flex">
               ${socialIconNav("公式の GitHub、X、Discord")}
             </div>
-            <a href="/#contact" class="btn btn--ghost hidden md:inline-flex">お問い合わせ</a>
+            <a href="/contact/" class="btn btn--ghost hidden md:inline-flex">お問い合わせ</a>
             <button
               type="button"
               class="icon-link lg:hidden"
@@ -186,7 +186,7 @@ class SiteHeader extends HTMLElement {
           </nav>
           <div class="mt-5 flex items-center justify-between border-t border-white/10 pt-5">
             ${socialIconNav("公式の GitHub、X、Discord（モバイル）")}
-            <a href="/#contact" class="btn btn--primary">お問い合わせ</a>
+            <a href="/contact/" class="btn btn--primary">お問い合わせ</a>
           </div>
         </div>
       </header>
@@ -264,11 +264,8 @@ class SiteFooter extends HTMLElement {
           <div class="flex flex-col gap-6 border-b border-white/10 pb-10 md:flex-row md:items-end md:justify-between">
             <div>
               <p class="eyebrow">Contact</p>
-              <p class="mt-3 max-w-xl text-xl font-semibold tracking-tight text-white md:text-2xl">
-                導入の相談も、不具合の連絡も。現場の言葉でどうぞ。
-              </p>
             </div>
-            <a class="btn btn--primary" href="/#contact">お問い合わせ</a>
+            <a class="btn btn--primary" href="/contact/">お問い合わせ</a>
           </div>
 
           <div class="grid gap-10 pt-10 md:grid-cols-2 lg:grid-cols-[1.4fr_0.6fr_0.6fr_0.7fr]">
@@ -281,9 +278,8 @@ class SiteFooter extends HTMLElement {
                 </span>
               </a>
               <p class="mt-4 max-w-sm text-sm leading-relaxed text-zinc-400">
-                vMix・ATEM・OMT・NDI・SRT 周辺のツールとハードウェアを開発する技術者コミュニティです。
+                配信プロダクション向けツールおよびハードウェア機材の研究開発を行う技術者コミュニティです。
               </p>
-              <p class="mt-4 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">Unfinished, but functional.</p>
               <div class="mt-5">
                 ${socialIconNav("公式の GitHub、X、Discord（フッター）")}
               </div>

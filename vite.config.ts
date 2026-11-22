@@ -1,4 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
+import { newsPlugin } from "./news-plugin";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Plugin } from "vite";
@@ -36,7 +37,7 @@ function cssBeforeAppScript(): Plugin {
 
 export default defineConfig({
   base: "/",
-  plugins: [tailwindcss(), cssBeforeAppScript()],
+  plugins: [tailwindcss(), cssBeforeAppScript(), newsPlugin(root)],
   build: {
     rollupOptions: {
       input: {
@@ -49,8 +50,9 @@ export default defineConfig({
         productStreamDeck: resolve(root, "products/streamdeck.html"),
         productSrtUriGenerator: resolve(root, "products/srt-uri-generator.html"),
         productStageTimer: resolve(root, "products/stagetimer.html"),
+        membersIndex: resolve(root, "members/index.html"),
+        contactIndex: resolve(root, "contact/index.html"),
         newsIndex: resolve(root, "news/index.html"),
-        newsKagari16: resolve(root, "news/2026-11-23-kagari-16.html"),
       },
     },
   },

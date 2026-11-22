@@ -121,7 +121,7 @@
               <span class="status-pill status-pill--active">free</span>
             </div>
             <h1 id="srt-heading" class="display display--page mt-4">SRT URI Generator</h1>
-            <p class="mt-3 text-lg font-medium text-zinc-300">SRTのURIを、手で組み立てない。</p>
+            <p class="mt-3 text-lg font-medium text-zinc-300">SRT URIをブラウザ内で生成するツール</p>
             <p class="lede">
               host、port、mode、latency、passphrase、pbkeylen、streamidを入力すると、OBS、FFmpeg、srt-live-transmit、vMix、MediaMTXの各形式でSRT
               URIを出力します。処理はすべてブラウザ内で完結し、入力内容はサーバーに送りません。
@@ -160,9 +160,9 @@
         <div class="shell">
           <div class="section-head">
             <p class="eyebrow">Outputs</p>
-            <h2 id="srt-output" class="section-title">同じ設定を、5つの形式に。</h2>
+            <h2 id="srt-output" class="section-title">出力形式</h2>
             <p class="section-lede">
-              ツールごとにURIの書き方も、latencyの単位も違います。入力は一度で済ませ、コピー先だけを切り替えられるようにしました。
+              ツールごとにURIの書き方とlatencyの単位が異なります。入力は一度だけ行い、出力先のタブを切り替えます。
             </p>
           </div>
 
@@ -188,7 +188,7 @@
 
           <div class="callout mt-6">
             <p>
-              latencyの入力はすべてミリ秒です。2000msと入力すると、OBSとFFmpegのURIでは<code class="rounded bg-black/30 px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">latency=2000000</code>になります。単位を間違えると遅延や接続失敗の原因になるため、変換はツール側で吸収しています。
+              latencyの入力はすべてミリ秒です。2000msと入力すると、OBSとFFmpegのURIでは<code class="rounded bg-black/30 px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">latency=2000000</code>になります。単位の誤りは遅延や接続失敗の原因になります。そのため変換はツールが行います。
             </p>
           </div>
         </div>
@@ -198,7 +198,7 @@
         <div class="shell">
           <div class="section-head">
             <p class="eyebrow">Features</p>
-            <h2 id="srt-features" class="section-title">現場で使うための細かい配慮</h2>
+            <h2 id="srt-features" class="section-title">入力と検証</h2>
           </div>
           <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <article class="card card--pad">
@@ -210,16 +210,16 @@
               <p class="card-text">16 / 24 / 32ビットのキー長を選べます。パスフレーズがあるときだけURIに付与します。</p>
             </article>
             <article class="card card--pad">
-              <h3 class="card-title">その場で検証</h3>
+              <h3 class="card-title">入力の検証</h3>
               <p class="card-text">host、port、latency、パス名の入力に誤りがあれば、URIを出す前に知らせます。</p>
             </article>
             <article class="card card--pad">
               <h3 class="card-title">URLで状態を指定</h3>
-              <p class="card-text"><code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">?lang=en</code>や<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">?tab=vmix</code>で言語とタブを指定できます。共有やブックマークに便利です。</p>
+              <p class="card-text"><code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">?lang=en</code>や<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">?tab=vmix</code>で言語とタブを指定できます。共有やブックマークに使えます。</p>
             </article>
             <article class="card card--pad">
               <h3 class="card-title">キーボードで操作</h3>
-              <p class="card-text">タブは矢印キー、Home、Endで移動できます。現場でマウスに持ち替えずに済みます。</p>
+              <p class="card-text">タブは矢印キー、Home、Endで移動できます。マウスを使わずに操作できます。</p>
             </article>
             <article class="card card--pad">
               <h3 class="card-title">何も保存しない</h3>
@@ -234,9 +234,9 @@
           <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <p class="eyebrow">Rules</p>
-              <h2 id="srt-notes" class="section-title">入力ルールと、できないこと</h2>
+              <h2 id="srt-notes" class="section-title">制限事項</h2>
               <p class="section-lede">
-                ツールはURIの組み立てに特化しています。回線の疎通確認や、機材側の設定変更は行いません。
+                ツールはURIの組み立てだけを行います。回線の疎通確認や、機材側の設定変更は行いません。
               </p>
             </div>
             <div class="space-y-4">
@@ -316,19 +316,19 @@
 
       <section class="section section--tight" aria-labelledby="srt-related">
         <div class="shell">
-          <h2 id="srt-related" class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Related</h2>
+          <h2 id="srt-related" class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">関連</h2>
           <div class="mt-4 grid gap-4 md:grid-cols-3">
             <a class="card card--link card--pad" href="/products/vmix-utility.html">
               <h3 class="card-title">vmix-utility</h3>
-              <p class="card-text">vMixの接続管理とShortcut生成。SRTの受け口をvMixで作るときに。</p>
+              <p class="card-text">vMixの接続管理とShortcut生成を行うツールです。SRTの受け口をvMixで作るときに使います。</p>
             </a>
             <a class="card card--link card--pad" href="/products/omt-tools.html">
               <h3 class="card-title">OMT Community Tools</h3>
-              <p class="card-text">LAN内の映像伝送を確認するツール群。SRTと並べて使えます。</p>
+              <p class="card-text">LAN内の映像伝送を確認するツール群です。SRTと並べて使えます。</p>
             </a>
             <a class="card card--link card--pad" href="/products/stagetimer.html">
               <h3 class="card-title">ステージタイマー</h3>
-              <p class="card-text">収録と配信の進行を共有するタイマー。SRTでリモート接続する現場にも。</p>
+              <p class="card-text">収録と配信の進行を共有するタイマーです。SRTでリモート接続する現場にも使えます。</p>
             </a>
           </div>
         </div>

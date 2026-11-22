@@ -93,9 +93,9 @@
       <section class="page-hero" aria-labelledby="products-heading">
         <div class="shell">
           <p class="eyebrow">Products</p>
-          <h1 id="products-heading" class="display display--page mt-4">現場の道具を、ひとつの場所に。</h1>
+          <h1 id="products-heading" class="display display--page mt-4">プロダクトとプロジェクト</h1>
           <p class="lede">
-            ハードウェアからWebツールまで、配信現場の「あったらいいのに」を形にしています。商用プロダクトとオープンソースが混在していますが、どれも現場で使われて初めて完成するという前提は同じです。
+            デスクトップアプリ、ソフトウェア、ライブラリは基本的に全て公開しており、商用利用も可能です。
           </p>
           <ul class="chips">
             <li class="chip chip--accent">7 products</li>
@@ -112,7 +112,7 @@
           <div class="section-head">
             <p class="eyebrow">Hardware</p>
             <h2 id="hardware-heading" class="section-title">製品</h2>
-            <p class="section-lede">試作と評価を重ねてから販売する方針です。評価機の貸し出しや導入相談はメールで受け付けています。</p>
+            <p class="section-lede">コミュニティ内で研究開発・販売されている製品です。</p>
           </div>
 
           <a
@@ -126,7 +126,7 @@
               </div>
               <h3 class="mt-4 text-2xl font-semibold tracking-tight text-white">Iryx</h3>
               <p class="mt-3 max-w-xl text-sm leading-relaxed text-zinc-400 md:text-base">
-                vMixのTCP APIを直接操作するハードウェアコントロールパネル。RP2040を搭載し、Shortcutの設定なしで動きます。TC-01 / SW-01 / RP-00を開発中で、2026年内の販売を予定しています。
+                vMix専用コントロールパネル。現在鋭意開発中。2026年内販売予定。
               </p>
               <ul class="chips">
                 <li class="chip">TC-01 / SW-01</li>
@@ -181,7 +181,7 @@
                   <h3 class="card-title">eiviz</h3>
                   <span class="status-pill status-pill--active">active</span>
                 </div>
-                <p class="card-text">M/Eの数に上限を設けないソフトウェアスイッチャー。WindowsとmacOSに対応します。</p>
+                <p class="card-text">無制限M/Eのソフトウェアスイッチャー。Windows / macOS対応。Linuxは実験的です。</p>
                 <div class="tile__foot"><span class="chip">Software switcher</span><span class="link-arrow">詳細</span></div>
               </div>
             </a>
@@ -209,7 +209,7 @@
                   <h3 class="card-title">OMT Community Tools</h3>
                   <span class="status-pill status-pill--active">active</span>
                 </div>
-                <p class="card-text">OMT（Open Media Transport）向けの制作ユーティリティ群。Studio Monitorなどを含みます。</p>
+                <p class="card-text">Open Media Transport(OMT)向けのコミュニティ製ツール群。NDI Toolsにインスパイアされたソフトウェア群です。</p>
                 <div class="tile__foot"><span class="chip">OMT</span><span class="link-arrow">詳細</span></div>
               </div>
             </a>
@@ -223,7 +223,7 @@
                   <h3 class="card-title">vmix-utility</h3>
                   <span class="status-pill status-pill--active">active</span>
                 </div>
-                <p class="card-text">vMixの接続管理、Shortcut生成、InputとListの管理をまとめたデスクトップアプリ。</p>
+                <p class="card-text">vMixへの接続と操作を包括的に支援するデスクトップアプリ。多くのイベントで採用実績あり。</p>
                 <div class="tile__foot"><span class="chip">MIT License</span><span class="link-arrow">詳細</span></div>
               </div>
             </a>
@@ -240,7 +240,7 @@
                   <h3 class="card-title">SRT URI Generator</h3>
                   <span class="status-pill status-pill--active">web tool</span>
                 </div>
-                <p class="card-text">OBS、FFmpeg、vMix、MediaMTX向けのSRT URIをブラウザ内で生成します。</p>
+                <p class="card-text">OBS、FFmpeg、vMix、MediaMTX向けのSRT URIをブラウザ内で生成するツール。</p>
                 <div class="tile__foot"><span class="chip">ブラウザ完結</span><span class="link-arrow">詳細</span></div>
               </div>
             </a>
@@ -256,7 +256,7 @@
                   <h3 class="card-title">ステージタイマー</h3>
                   <span class="status-pill status-pill--quiet">web tool</span>
                 </div>
-                <p class="card-text">収録と配信の進行用。操作画面と演者モニターが同時に進む共有タイマーです。</p>
+                <p class="card-text">収録と配信の進行用。操作画面と演者モニターが同時に進む共有タイマー。</p>
                 <div class="tile__foot"><span class="chip">インストール不要</span><span class="link-arrow">詳細</span></div>
               </div>
             </a>
@@ -270,52 +270,22 @@
               <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/obs-sync" target="_blank" rel="noopener noreferrer">obs-sync — 複数OBSの同期</a></li>
               <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/ATEM-UI" target="_blank" rel="noopener noreferrer">ATEM-UI — ATEM Software Control代替</a></li>
               <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/mediamtx-monitor" target="_blank" rel="noopener noreferrer">mediamtx-monitor — SRT品質の可視化</a></li>
+              <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/stream-monitor" target="_blank" rel="noopener noreferrer">stream-monitor — Twitchの同時接続数とチャット密度を見る実験的BIデスクトップアプリ</a></li>
+              <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/rust-ndi-viewer" target="_blank" rel="noopener noreferrer">rust-ndi-viewer — RustだけでNDIを受信して表示するPoCデスクトップアプリ</a></li>
               <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/vmix-rs" target="_blank" rel="noopener noreferrer">vmix-rs — vMix APIライブラリ</a></li>
+              <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/omt-obs-plugin" target="_blank" rel="noopener noreferrer">omt-obs-plugin — OBS用OMTプラグイン</a></li>
+              <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/aviutl2-omt-output" target="_blank" rel="noopener noreferrer">aviutl2-omt-output — AviUtl2 OMTライブ出力プラグイン</a></li>
+              <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/openfx-omt-plugin" target="_blank" rel="noopener noreferrer">openfx-omt-plugin — DaVinci Resolve向けOpenFX OMT送出フィルタープラグイン</a></li>
+              <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/aviutl2-network-video-output" target="_blank" rel="noopener noreferrer">aviutl2-network-video-output — AviUtl2 NDIライブ出力プラグイン</a></li>
+              <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/openfx-network-video-plugin" target="_blank" rel="noopener noreferrer">openfx-network-video-plugin — DaVinci Resolve向けOpenFX NDI送出フィルタープラグイン</a></li>
+              <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/streamdeck-atem-rs" target="_blank" rel="noopener noreferrer">streamdeck-atem-rs — ATEM向けクロスプラットフォームStreamDeckプラグイン</a></li>
+              <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/momaku" target="_blank" rel="noopener noreferrer">momaku（網膜） — WebページをNDIで送出するデスクトップアプリ</a></li>
+              <li><a class="link-arrow" href="https://github.com/MikanseiLaboratory/necromancer" target="_blank" rel="noopener noreferrer">necromancer — ATEM制御プロトコルのRust再実装</a></li>
             </ul>
           </div>
         </div>
       </section>
 
-      <section class="section section--tight" aria-labelledby="compare-heading">
-        <div class="shell">
-          <div class="section-head">
-            <p class="eyebrow">Overview</p>
-            <h2 id="compare-heading" class="section-title">提供形態の一覧</h2>
-            <p class="section-lede">対応環境と現在の状態です。ライセンスとダウンロードは各ページから確認できます。</p>
-          </div>
-
-          <div class="table-wrap mt-8">
-            <table class="data-table">
-              <caption class="sr-only">プロダクトの提供形態、対応環境、状態</caption>
-              <thead>
-                <tr>
-                  <th scope="col">プロダクト</th>
-                  <th scope="col">形態</th>
-                  <th scope="col">対応環境</th>
-                  <th scope="col">状態</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><th scope="row" class="font-medium text-white"><a class="link-arrow" href="/products/iryx.html">Iryx</a></th><td>ハードウェア</td><td>vMix 29以降 / ATEM（SW-01）</td><td>開発中・2026年販売予定</td></tr>
-                <tr><th scope="row" class="font-medium text-white"><a class="link-arrow" href="/products/eiviz.html">eiviz</a></th><td>デスクトップ</td><td>Windows / macOS</td><td>公開中</td></tr>
-                <tr><th scope="row" class="font-medium text-white"><a class="link-arrow" href="/products/streamdeck.html">Stream Deck プラグイン</a></th><td>プラグイン</td><td>Stream Deck 6.4以降</td><td>公開中</td></tr>
-                <tr><th scope="row" class="font-medium text-white"><a class="link-arrow" href="/products/omt-tools.html">OMT Community Tools</a></th><td>デスクトップ</td><td>Windows / macOS</td><td>公開中</td></tr>
-                <tr><th scope="row" class="font-medium text-white"><a class="link-arrow" href="/products/vmix-utility.html">vmix-utility</a></th><td>デスクトップ</td><td>Windows / macOS / Linux</td><td>公開中</td></tr>
-                <tr><th scope="row" class="font-medium text-white"><a class="link-arrow" href="/products/srt-uri-generator.html">SRT URI Generator</a></th><td>Web</td><td>モダンブラウザ</td><td>公開中</td></tr>
-                <tr><th scope="row" class="font-medium text-white"><a class="link-arrow" href="/products/stagetimer.html">ステージタイマー</a></th><td>Web</td><td>モダンブラウザ</td><td>公開中</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="callout mt-8">
-            <p>
-              評価機の貸し出し、導入の相談、受託開発のご依頼は
-              <a class="font-medium text-cyan-200 underline decoration-cyan-300/40 underline-offset-4" href="mailto:ruk1ium@gmail.com">ruk1ium@gmail.com</a>
-              まで。Iryxは台数に限りがあるため、時期によってお待ちいただく場合があります。
-            </p>
-          </div>
-        </div>
-      </section>
     </main>
 
     <site-footer></site-footer>

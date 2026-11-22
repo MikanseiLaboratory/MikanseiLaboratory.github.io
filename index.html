@@ -84,66 +84,46 @@
 
     <main id="main" class="page-main">
       <section id="hero" class="hero">
-        <div class="shell hero__grid">
-          <div>
-            <p class="eyebrow">Broadcast · Stream · Engineering</p>
-            <h1 class="display mt-5">配信の現場に、<br />まだ足りない道具を<br class="sm:hidden" />つくる。</h1>
-            <p class="lede">
-              未完成成果物研究所は、vMix・ATEM・OMT・NDI・SRT
-              周辺のツールとハードウェアを開発する技術者コミュニティです。現場で使われて初めて完成するものを、荒削りなまま公開しています。
-            </p>
-            <div class="cta-row">
-              <a class="btn btn--primary" href="/products/">プロダクトを見る</a>
-              <a class="btn btn--ghost" href="/news/">ニュースを読む</a>
-            </div>
-            <dl class="hero__meta">
-              <div>
-                <dt>Repositories</dt>
-                <dd>60+ on GitHub</dd>
-              </div>
-              <div>
-                <dt>Since</dt>
-                <dd>2019</dd>
-              </div>
-              <div>
-                <dt>Iryx</dt>
-                <dd>2026年 販売予定</dd>
-              </div>
-              <div>
-                <dt>篝火#16</dt>
-                <dd>4プロダクト採用</dd>
-              </div>
-            </dl>
+        <div class="shell">
+          <p class="eyebrow">Broadcast · Stream · Engineering</p>
+          <h1 class="display mt-5">未完成成果物研究所</h1>
+          <p class="mt-3 font-mono text-xs uppercase tracking-[0.28em] text-zinc-500 md:text-sm">Mikansei Laboratory</p>
+          <p class="lede">
+            eiviz、OMT Community Tools、vMix、ATEM、NDI
+            など、配信プロダクション向けのツールとハードウェア機材を開発しています。
+          </p>
+          <div class="cta-row">
+            <a class="btn btn--primary" href="#products">Projects</a>
+            <a class="btn btn--ghost" href="/products/eiviz.html">eiviz</a>
+            <a class="btn btn--ghost" href="/products/omt-tools.html">OMT Community Tools</a>
+            <a class="btn btn--ghost" href="/products/vmix-utility.html">vmix-utility</a>
           </div>
+        </div>
+      </section>
 
-          <aside class="status-board" aria-label="プロダクトの現在のステータス">
-            <div class="status-board__bar">
-              <span>Product status</span>
-              <span class="inline-flex items-center gap-2"><span class="status-board__dot"></span>2026.11</span>
+      <section id="about" class="section section--tight" aria-labelledby="about-heading">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">About</p>
+            <h2 id="about-heading" class="section-title">未完成成果物研究所について</h2>
+          </div>
+          <div class="mt-7 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+            <div class="card card--pad">
+              <p class="text-sm leading-relaxed text-zinc-400 md:text-base">
+                未完成成果物研究所は、配信プロダクション向けツールおよびハードウェア機材の研究開発を行う技術者コミュニティです。
+              </p>
+              <p class="mt-4 text-sm leading-relaxed text-zinc-400 md:text-base">
+                「完成」の一歩手前にある、荒削りながらも本質的な課題解決を目的としています。2026年現在、全メンバーが放送・配信・IT業界の第一線で活動するプロフェッショナルであり、本業の傍ら、技術的探求と現場の最適化を目的として参画しています。
+              </p>
             </div>
-            <dl>
-              <div class="status-board__row">
-                <dt>Iryx</dt>
-                <dd>開発中 / 2026年販売予定</dd>
-              </div>
-              <div class="status-board__row">
-                <dt>eiviz</dt>
-                <dd>公開中 / Windows · macOS</dd>
-              </div>
-              <div class="status-board__row">
-                <dt>Stream Deck</dt>
-                <dd>8プラグイン公開</dd>
-              </div>
-              <div class="status-board__row">
-                <dt>OMT</dt>
-                <dd>Community Tools 公開中</dd>
-              </div>
-              <div class="status-board__row">
-                <dt>篝火#16</dt>
-                <dd>Iryx / eiviz / vmix-utility / vMix plugin</dd>
-              </div>
-            </dl>
-          </aside>
+            <article class="card card--pad">
+              <h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-cyan-400/90">What we do</h3>
+              <p class="mt-3 text-lg font-semibold text-white">やっていること</p>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400 md:text-base">
+                vMixやTriCaster、ATEMの周辺ソフトや専用パネル、StreamDeckプラグイン、NDI・OMT・SRT関連のソフトウェアを開発しています。ゲームのAPIと連動したグラフィックシステムやテロップシステムの開発も行っています。
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -187,8 +167,7 @@
           <div class="flex flex-wrap items-end justify-between gap-5">
             <div class="section-head">
               <p class="eyebrow">News</p>
-              <h2 id="news-heading" class="section-title">現場からの報告</h2>
-              <p class="section-lede">採用、アップデート、イベントでの運用など、外に出せる話題をまとめています。</p>
+              <h2 id="news-heading" class="section-title">ニュース</h2>
             </div>
             <a class="link-arrow hidden sm:inline-flex" href="/news/">
               ニュース一覧
@@ -196,40 +175,8 @@
             </a>
           </div>
 
-          <div class="mt-9 grid gap-4 lg:grid-cols-[1.65fr_0.75fr]">
-            <article>
-              <a href="/news/2026-11-23-kagari-16.html" class="card card--link group flex h-full flex-col p-6 md:p-8">
-                <div class="flex flex-wrap items-center gap-3 text-xs text-zinc-500">
-                  <time datetime="2026-11-23">2026.11.23</time>
-                  <span class="chip chip--warm">採用</span>
-                  <span class="chip">篝火#16</span>
-                </div>
-                <h3 class="mt-4 text-xl font-semibold leading-snug tracking-tight text-white md:text-2xl">
-                  篝火#16で、Iryx・eiviz・vmix-utility・Stream Deckプラグインを採用いただきました
-                </h3>
-                <p class="mt-3 max-w-3xl text-sm leading-relaxed text-zinc-400">
-                  スマブラSPの大型大会「篝火#16」で、Iryxの評価試験機2セット、eiviz Enterprise版、vmix-utility、Stream Deckプラグインを採用いただきました。導入先と運用の内容をまとめています。
-                </p>
-                <span class="link-arrow mt-6">
-                  記事を読む
-                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round" /></svg>
-                </span>
-              </a>
-            </article>
-
-            <aside class="card card--pad flex flex-col justify-between" aria-label="更新情報">
-              <div>
-                <p class="eyebrow">Updates</p>
-                <p class="mt-3 text-base font-semibold text-white">更新情報はXとGitHubでも</p>
-                <p class="mt-2 text-sm leading-relaxed text-zinc-400">
-                  リリース、不具合修正、イベントでの採用などはXで随時発信しています。
-                </p>
-              </div>
-              <div class="mt-6 flex flex-wrap gap-2">
-                <a class="btn btn--ghost" href="https://x.com/MikanseiDev" target="_blank" rel="noopener noreferrer">X をフォロー</a>
-                <a class="btn btn--quiet px-0" href="https://github.com/MikanseiLaboratory" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </div>
-            </aside>
+          <div class="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <!-- news:latest -->
           </div>
 
           <a class="link-arrow mt-6 sm:hidden" href="/news/">ニュース一覧を見る</a>
@@ -241,9 +188,9 @@
           <div class="flex flex-wrap items-end justify-between gap-5">
             <div class="section-head">
               <p class="eyebrow">Products</p>
-              <h2 id="products-heading" class="section-title">ハードウェアからOSSまで、現場の道具を。</h2>
+              <h2 id="products-heading" class="section-title">プロダクトとプロジェクト</h2>
               <p class="section-lede">
-                商用プロダクトとオープンソースを行き来しながら、足りない機能を足しています。ソフトウェアの多くはMITライセンスで公開しています。
+                デスクトップアプリ、ソフトウェア、ライブラリは基本的に全て公開しており、商用利用も可能です。
               </p>
             </div>
             <a class="link-arrow hidden sm:inline-flex" href="/products/">
@@ -258,14 +205,13 @@
           >
             <div class="p-7 md:p-10">
               <div class="flex flex-wrap items-center gap-3">
-                <span class="eyebrow">Flagship hardware</span>
+                <span class="eyebrow">製品</span>
                 <span class="status-pill status-pill--dev">development</span>
               </div>
               <h3 class="mt-4 text-2xl font-semibold tracking-tight text-white">Iryx</h3>
-              <p class="mt-1 text-base font-medium text-zinc-300 md:text-lg">vMix専用ハードウェアコントロールパネル</p>
+              <p class="mt-1 text-base font-medium text-zinc-300 md:text-lg">vMix専用コントロールパネル</p>
               <p class="mt-4 max-w-xl text-sm leading-relaxed text-zinc-400 md:text-base">
-                vMixのトランジションを物理キーで操作するコントロールパネルです。RP2040からTCP
-                APIを直接叩き、Shortcutの設定なしで動きます。2026年内の販売を予定しています。
+                現在鋭意開発中。2026年内販売予定。
               </p>
               <ul class="chips">
                 <li class="chip">TC-01 / SW-01</li>
@@ -302,7 +248,7 @@
                   <h3 class="card-title">eiviz</h3>
                   <span class="status-pill status-pill--active">active</span>
                 </div>
-                <p class="card-text">M/Eの数に上限を設けない、クロスプラットフォームのソフトウェアスイッチャー。</p>
+                <p class="card-text">無制限M/Eのソフトウェアスイッチャー。Windows / macOS対応。Linuxは実験的です。</p>
                 <div class="tile__foot">
                   <span class="chip">Windows / macOS</span>
                   <span class="link-arrow">詳細</span>
@@ -319,7 +265,7 @@
                   <h3 class="card-title">Stream Deck プラグイン</h3>
                   <span class="status-pill status-pill--active">8 plugins</span>
                 </div>
-                <p class="card-text">vMix、ATEM、OBS、Roland、KAIROSをStream Deckから直接操作します。</p>
+                <p class="card-text">vMix、ATEM、OBS、Roland、KAIROS、HyperDeckをStream Deckから直接操作するプラグインです。</p>
                 <div class="tile__foot">
                   <span class="chip">Elgato Stream Deck</span>
                   <span class="link-arrow">詳細</span>
@@ -336,7 +282,7 @@
                   <h3 class="card-title">OMT Community Tools</h3>
                   <span class="status-pill status-pill--active">active</span>
                 </div>
-                <p class="card-text">OMT（Open Media Transport）向けの無料ツール群。NDI Toolsに着想を得た構成です。</p>
+                <p class="card-text">Open Media Transport(OMT)向けのコミュニティ製ツール群。NDI Toolsにインスパイアされたソフトウェア群です。</p>
                 <div class="tile__foot">
                   <span class="chip">OMT</span>
                   <span class="link-arrow">詳細</span>
@@ -353,7 +299,7 @@
                   <h3 class="card-title">vmix-utility</h3>
                   <span class="status-pill status-pill--active">active</span>
                 </div>
-                <p class="card-text">vMixの接続管理、Shortcut生成、InputとListの管理をまとめたデスクトップアプリ。</p>
+                <p class="card-text">vMixへの接続と操作を包括的に支援するデスクトップアプリ。多くのイベントで採用実績あり。</p>
                 <div class="tile__foot">
                   <span class="chip">MIT License</span>
                   <span class="link-arrow">詳細</span>
@@ -373,7 +319,7 @@
                   <h3 class="card-title">SRT URI Generator</h3>
                   <span class="status-pill status-pill--active">web tool</span>
                 </div>
-                <p class="card-text">OBS、FFmpeg、vMix、MediaMTX向けのSRT URIをブラウザ内で組み立てます。</p>
+                <p class="card-text">OBS、FFmpeg、srt-live-transmit、vMix、MediaMTX向けのSRT URIをブラウザ内で生成するツールです。</p>
                 <div class="tile__foot">
                   <span class="chip">ブラウザ完結</span>
                   <span class="link-arrow">詳細</span>
@@ -392,7 +338,7 @@
                   <h3 class="card-title">ステージタイマー</h3>
                   <span class="status-pill status-pill--quiet">web tool</span>
                 </div>
-                <p class="card-text">収録と配信の進行用。操作画面と演者モニターが同時に進む共有タイマーです。</p>
+                <p class="card-text">操作画面と演者モニターが同時に進む共有タイマーです。インストールは不要で、URLを開くだけで使えます。</p>
                 <div class="tile__foot">
                   <span class="chip">インストール不要</span>
                   <span class="link-arrow">詳細</span>
@@ -405,67 +351,36 @@
         </div>
       </section>
 
-      <section id="community" class="section section--tight" aria-labelledby="community-heading">
+      <section id="partners" class="section section--tight" aria-labelledby="partners-heading">
         <div class="shell">
-          <div class="section-head">
-            <p class="eyebrow">Community</p>
-            <h2 id="community-heading" class="section-title">利用いただいているコミュニティ</h2>
+          <div class="section-head section-head--center">
+            <p class="eyebrow">Partners</p>
+            <h2 id="partners-heading" class="section-title">採用プロダクション</h2>
             <p class="section-lede">
-              大会運営、配信クルー、配信団体。現場で使っていただいた結果が、次の開発の材料になります。2026年11月時点の一部です。
+              ツールを採用頂いている会社様の一部です。大会中継、スタジオ、学校の実習など多岐に渡ります。
             </p>
           </div>
 
-          <div class="mt-9 grid gap-4 lg:grid-cols-3">
-            <article class="card card--pad flex flex-col">
-              <div class="flex items-start justify-between gap-3">
-                <h3 class="text-xl font-semibold text-white">篝火</h3>
-                <span class="chip chip--warm">大会</span>
-              </div>
-              <p class="mt-3 text-sm leading-relaxed text-zinc-400">
-                『大乱闘スマッシュブラザーズ SPECIAL』の大型オフライン大会を定期開催。篝火#16では、Iryx評価試験機2セット、eiviz Enterprise版、vmix-utility、Stream Deckプラグインを採用いただきました。
-              </p>
-              <a class="link-arrow mt-auto pt-6" href="https://x.com/KAGARIBI_smash" target="_blank" rel="noopener noreferrer">
-                @KAGARIBI_smash
-              </a>
-            </article>
-
-            <article class="card card--pad flex flex-col">
-              <div class="flex items-start justify-between gap-3">
-                <h3 class="text-xl font-semibold text-white">East Geek Smash</h3>
-                <span class="chip">配信クルー</span>
-              </div>
-              <p class="mt-3 text-sm leading-relaxed text-zinc-400">
-                スマブラを中心に、大会の運営と配信を行うクルー。篝火#16のメイン配信では、ハイライト用vMixの横でeivizを使ったリプレイ作成を試験評価。サブ配信ではIryx評価試験機を1セット運用いただきました。
-              </p>
-              <a class="link-arrow mt-auto pt-6" href="https://x.com/EastGeekSmash" target="_blank" rel="noopener noreferrer">
-                @EastGeekSmash
-              </a>
-            </article>
-
-            <article class="card card--pad flex flex-col">
-              <div class="flex items-start justify-between gap-3">
-                <h3 class="text-xl font-semibold text-white">無明遊者</h3>
-                <span class="chip">配信団体</span>
-              </div>
-              <p class="mt-3 text-sm leading-relaxed text-zinc-400">
-                ゲームイベントを中心に配信するイベント配信団体。篝火#16では、Iryx評価試験機を1セット運用いただきました。
-              </p>
-              <a class="link-arrow mt-auto pt-6" href="https://x.com/MumeiYusha" target="_blank" rel="noopener noreferrer">
-                @MumeiYusha
-              </a>
-            </article>
+          <div class="mt-8 grid gap-4 md:grid-cols-2">
+            <figure class="media-frame relative">
+              <img src="/images/partner-arena.jpg" alt="esportsアリーナのステージ照明" width="1536" height="1024" loading="lazy" decoding="async" class="aspect-[16/9] h-44 w-full object-cover md:h-52" />
+              <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-zinc-950/90 to-transparent px-4 pb-4 pt-10">
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300">Live / esports</p>
+                <p class="mt-1 text-sm font-medium text-white">大会中継・会場内映像</p>
+              </figcaption>
+            </figure>
+            <figure class="media-frame relative">
+              <img src="/images/partner-studio.jpg" alt="放送副調のモニターウォール" width="1536" height="1024" loading="lazy" decoding="async" class="aspect-[16/9] h-44 w-full object-cover md:h-52" />
+              <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-zinc-950/90 to-transparent px-4 pb-4 pt-10">
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-cyan-300">Studio / gallery</p>
+                <p class="mt-1 text-sm font-medium text-white">副調・中継車・収録拠点</p>
+              </figcaption>
+            </figure>
           </div>
 
-          <div class="mt-12 rounded-2xl border border-white/10 bg-black/20 px-5 py-6 md:px-8">
-            <div class="flex flex-wrap items-end justify-between gap-4">
-              <div>
-                <h3 class="font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-500">Production</h3>
-                <p class="mt-1 text-sm text-zinc-400">ツールを採用いただいている制作会社・プロダクションの一部です。</p>
-              </div>
-            </div>
-            <div class="marquee-mask mt-5 overflow-hidden" role="presentation">
-              <div class="marquee-inner">
-                <ul class="flex items-center gap-2.5 px-1">
+          <div class="marquee-mask mt-8 overflow-hidden" role="presentation">
+            <div class="marquee-inner">
+              <ul class="flex items-center gap-3 px-2 md:gap-4" aria-label="採用プロダクション（スクロール）">
                   <li class="shrink-0"><span class="chip">株式会社CyberE</span></li>
                   <li class="shrink-0"><span class="chip">株式会社CyberZ</span></li>
                   <li class="shrink-0"><span class="chip">RAGE esports</span></li>
@@ -477,12 +392,12 @@
                   <li class="shrink-0"><span class="chip">BreakingDown株式会社</span></li>
                   <li class="shrink-0"><span class="chip">TECH CHASE Inc.</span></li>
                   <li class="shrink-0"><span class="chip">株式会社TechnoBlood eSports</span></li>
-                  <li class="shrink-0"><span class="chip">East Geek Smash</span></li>
+                  <li class="shrink-0"><span class="chip">EastGeekSmash</span></li>
                   <li class="shrink-0"><span class="chip">Live on Three</span></li>
                   <li class="shrink-0"><span class="chip">FIVESCUP</span></li>
-                  <li class="shrink-0"><span class="chip">教育機関・実習</span></li>
-                </ul>
-                <ul class="marquee-duplicate flex items-center gap-2.5 px-1" aria-hidden="true">
+                  <li class="shrink-0"><span class="chip">その他各種教育機関</span></li>
+              </ul>
+              <ul class="marquee-duplicate flex items-center gap-3 px-2 md:gap-4" aria-hidden="true">
                   <li class="shrink-0"><span class="chip">株式会社CyberE</span></li>
                   <li class="shrink-0"><span class="chip">株式会社CyberZ</span></li>
                   <li class="shrink-0"><span class="chip">RAGE esports</span></li>
@@ -494,16 +409,40 @@
                   <li class="shrink-0"><span class="chip">BreakingDown株式会社</span></li>
                   <li class="shrink-0"><span class="chip">TECH CHASE Inc.</span></li>
                   <li class="shrink-0"><span class="chip">株式会社TechnoBlood eSports</span></li>
-                  <li class="shrink-0"><span class="chip">East Geek Smash</span></li>
+                  <li class="shrink-0"><span class="chip">EastGeekSmash</span></li>
                   <li class="shrink-0"><span class="chip">Live on Three</span></li>
                   <li class="shrink-0"><span class="chip">FIVESCUP</span></li>
-                  <li class="shrink-0"><span class="chip">教育機関・実習</span></li>
-                </ul>
-              </div>
+                  <li class="shrink-0"><span class="chip">その他各種教育機関</span></li>
+              </ul>
             </div>
-            <p class="mt-4 text-xs text-zinc-500">
-              主な採用大会: VALORANT Champions Tour Japan / Apex Legends Global Series Japan / RIOT Games ONE / League the k4sen / PGL Major / BLAST Premier / PUBG Mobile Championship ほか
-            </p>
+          </div>
+
+          <div class="mt-8 grid gap-4 lg:grid-cols-3">
+            <div class="card card--pad">
+              <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">使われている場所</h3>
+              <ul class="mt-3 space-y-2 text-sm text-zinc-400">
+                <li>esportsイベントのオンライン配信、海外イベントの中継や会場内スイッチングのサポートなど</li>
+                <li>スタジオ収録、中継車、リモートプロダクション</li>
+                <li>専門学校の実習室や授業での使用など</li>
+              </ul>
+            </div>
+            <div class="lg:col-span-2">
+              <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">主な採用放送</h3>
+              <ul class="mt-3 flex flex-wrap gap-2">
+                  <li class="chip">VALORANT Champions Tour Japan</li>
+                  <li class="chip">Apex Legends Global Series Japan</li>
+                  <li class="chip">RIOT Games ONE</li>
+                  <li class="chip">League the k4sen</li>
+                  <li class="chip">CS:GO PGL Major Copenhagen 2024</li>
+                  <li class="chip">CS:GO PGL Major Antwerp 2022</li>
+                  <li class="chip">BLAST Premier</li>
+                  <li class="chip">PUBG Mobile Championship</li>
+                  <li class="chip">荒野行動王者決定戦</li>
+                  <li class="chip">プロスピ-A チャンピオンシップ</li>
+                  <li class="chip">ブレイキングダウン</li>
+                  <li class="chip">プロジェクトセカイ Championship 2022 Spring</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
@@ -512,33 +451,27 @@
         <div class="shell">
           <div class="section-head">
             <p class="eyebrow">Technology</p>
-            <h2 id="technology-heading" class="section-title">触っている機材と、選んでいる技術。</h2>
-            <p class="section-lede">本業の現場で扱う機材と、その上で動くツールを支える技術スタックです。</p>
+            <h2 id="technology-heading" class="section-title">技術スタック</h2>
+            <p class="section-lede">本業で触っている機材と、採用している技術スタック・言語の一覧です。</p>
           </div>
 
           <div class="mt-9 grid gap-4 lg:grid-cols-3">
             <article class="card card--pad">
-              <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">Hardware</h3>
-              <p class="mt-3 text-base font-semibold text-white">スイッチャーと制作機材</p>
-              <p class="mt-2 text-sm leading-relaxed text-zinc-400">
-                Viz/NewTek TriCaster、3Play、Panasonic KAIROS、vMix、ATEM、OBS。現場の癖を吸い上げて、操作系を作ります。
-              </p>
+              <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">機材</h3>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">スイッチャー、リプレイや制作ソフトなど。</p>
               <ul class="chips">
-                <li class="chip">TriCaster</li>
-                <li class="chip">3Play</li>
-                <li class="chip">KAIROS</li>
-                <li class="chip">vMix</li>
-                <li class="chip">ATEM</li>
-                <li class="chip">OBS</li>
+                <li class="chip">Viz/NewTek TriCaster</li>
+                <li class="chip">Viz/NewTek 3Play</li>
+                <li class="chip">Panasonic Kairos</li>
+                <li class="chip">StudioCoast vMix</li>
+                <li class="chip">Blackmagic Design ATEM</li>
+                <li class="chip">OBS-Studio</li>
               </ul>
             </article>
 
             <article class="card card--pad">
-              <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">Protocol</h3>
-              <p class="mt-3 text-base font-semibold text-white">IP映像の伝送と制御</p>
-              <p class="mt-2 text-sm leading-relaxed text-zinc-400">
-                NDI、OMT、SRTを中心に、LAN内の映像伝送とリモート伝送を扱います。プロトコル実装そのものも研究対象です。
-              </p>
+              <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">プロトコル</h3>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">映像伝送層の開発やプロトコル研究もコミュニティ内で行っています。</p>
               <ul class="chips">
                 <li class="chip">NDI</li>
                 <li class="chip">OMT</li>
@@ -546,25 +479,36 @@
                 <li class="chip">WebRTC</li>
                 <li class="chip">WHIP</li>
                 <li class="chip">RTMP</li>
+                <li class="chip">WebSocket</li>
               </ul>
             </article>
 
             <article class="card card--pad">
-              <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">Language</h3>
-              <p class="mt-3 text-base font-semibold text-white">組み込みからデスクトップまで</p>
-              <p class="mt-2 text-sm leading-relaxed text-zinc-400">
-                RustとGoを中心に、デスクトップはTauri、組み込みはRP2040・STM32。描画はWGPUやDirect3Dを使います。
-              </p>
+              <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-cyan-400/90">言語</h3>
+              <p class="mt-2 text-sm leading-relaxed text-zinc-400">組み込み環境からデスクトップアプリまで、レイヤーは多岐に渡ります。</p>
               <ul class="chips">
                 <li class="chip">Rust</li>
                 <li class="chip">Go</li>
-                <li class="chip">TypeScript</li>
+                <li class="chip">TypeScript/JavaScript</li>
                 <li class="chip">C#</li>
-                <li class="chip">Tauri</li>
-                <li class="chip">WGPU</li>
               </ul>
             </article>
           </div>
+
+          <dl class="mt-5 grid gap-3 sm:grid-cols-3">
+            <div class="card px-4 py-3">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">Control</dt>
+              <dd class="mt-1 text-sm text-zinc-300">TriCaster / ATEM / vMix / OBS などの放送機材の制御と同期</dd>
+            </div>
+            <div class="card px-4 py-3">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">Transport</dt>
+              <dd class="mt-1 text-sm text-zinc-300">NDI・OMT・SRT を中心とした IP 映像転送の研究</dd>
+            </div>
+            <div class="card px-4 py-3">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500">Hardware</dt>
+              <dd class="mt-1 text-sm text-zinc-300">Raspberry Pi Picoファームウェアから専用パネルまで</dd>
+            </div>
+          </dl>
         </div>
       </section>
 
@@ -573,7 +517,6 @@
           <div class="section-head">
             <p class="eyebrow">Members</p>
             <h2 id="members-heading" class="section-title">コアメンバー</h2>
-            <p class="section-lede">2019年のvmix-utilityから始まった活動を、Flowingとmizuyoukanの2名で進めています。本業の傍らで、現場で使えるものを作っています。</p>
             <a class="link-arrow mt-3" href="https://note.com/hiiraginil/n/nf86624d96c53" target="_blank" rel="noopener noreferrer">設立の経緯を読む</a>
           </div>
 
@@ -592,14 +535,14 @@
                 <div class="min-w-0 flex-1">
                   <p class="text-xl font-semibold text-white">Flowing</p>
                   <p class="mt-0.5 text-sm text-zinc-400">Shugo Kawamura</p>
-                  <p class="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-cyan-400/90">Founder / Engineer</p>
+                  <p class="mt-1 font-mono text-[11px] uppercase tracking-[0.16em] text-cyan-400/90">主宰 / Engineer</p>
                   <p class="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm">
                     <a class="link-arrow" href="https://github.com/FlowingSPDG" target="_blank" rel="noopener noreferrer">GitHub</a>
                     <a class="link-arrow" href="https://x.com/FlowingSPDG" target="_blank" rel="noopener noreferrer">X</a>
-                    <a class="link-arrow" href="https://twitch.tv/flowingspdg" target="_blank" rel="noopener noreferrer">Twitch</a>
+                    <a class="link-arrow" href="https://twitch.tv/flowingspdg" target="_blank" rel="noopener noreferrer">twitch.tv/flowingspdg</a>
                   </p>
                   <p class="mt-4 text-sm leading-relaxed text-zinc-400">
-                    プログラマー。デスクトップアプリとプロダクト開発の主導を担当。vmix-utility、eiviz、OMT Tools、Iryxのファームウェアを開発。
+                    プログラマー。デスクトップアプリの開発・プロダクト開発の主導を行う。eiviz、OMT Community Tools、vmix-utility など主要ツールの開発を担当。
                   </p>
                 </div>
               </div>
@@ -623,7 +566,7 @@
                     <a class="link-arrow" href="https://x.com/AT12806379" target="_blank" rel="noopener noreferrer">X</a>
                   </p>
                   <p class="mt-4 text-sm leading-relaxed text-zinc-400">
-                    ハードウェア担当。回路設計、部品選定、基板と筐体の制作を担当。Iryxのハードウェア設計を手がけています。
+                    ハードウェア担当。回路の設計やパーツ選定、基板や筐体の制作などを行う。Iryx のハードウェア設計を担当。
                   </p>
                 </div>
               </div>
@@ -637,16 +580,17 @@
           <div class="grid gap-6 lg:grid-cols-[1fr_0.85fr] lg:items-center">
             <div>
               <p class="eyebrow">Support</p>
-              <h2 id="support-heading" class="section-title">活動は、現場の支援で成り立っています。</h2>
-              <p class="section-lede">
-                機材の購入、検証機の制作、ドキュメントの整備。Twitchのサブスクリプションで支援いただけます。Amazon Primeなら追加料金なしで利用できます。
-              </p>
+              <h2 id="support-heading" class="section-title">ご支援</h2>
+              <p class="section-lede">未完成成果物研究所はコミュニティです。活動は寄付によって成り立っています。</p>
             </div>
             <div class="card card--pad">
-              <p class="text-sm leading-relaxed text-zinc-400">
-                自動更新はされません。必要なときだけ支援できます。
-              </p>
-              <a class="btn btn--primary mt-5" href="https://subs.twitch.tv/flowingspdg" target="_blank" rel="noopener noreferrer">Twitchで支援する</a>
+              <ul class="space-y-3 text-sm leading-relaxed text-zinc-400">
+                <li>オーナー Flowingのtwitch.tvより支援が可能です。</li>
+                <li>Amazon Primeがあれば、追加料金なしで無料で支援できます。</li>
+                <li>自動更新はされません。毎月、必要なときだけ支援が可能です。</li>
+                <li>コミュニティの運営は寄付で成り立っています。ご支援いただけると助かります。</li>
+              </ul>
+              <a class="btn btn--primary mt-6" href="https://subs.twitch.tv/flowingspdg" target="_blank" rel="noopener noreferrer">Twitch で支援する</a>
             </div>
           </div>
         </div>
@@ -664,7 +608,7 @@
             <div class="card card--pad">
               <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Discord</h3>
               <p class="mt-3 text-sm leading-relaxed text-zinc-400">
-                雑談、使い方の質問、公開ソフトの話題や新規リリースの案内はDiscordで受け付けています。
+                雑談、使い方の質問、公開ソフトの話題や新規リリースの案内は Discord で受け付けています。
               </p>
               <div class="mt-4">
                 <social-links></social-links>
@@ -672,7 +616,7 @@
             </div>
             <div class="card card--pad">
               <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">GitHub</h3>
-              <p class="mt-3 text-sm leading-relaxed text-zinc-400">不具合報告・修正要望は、該当リポジトリのIssue / PRまで。</p>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-400">不具合報告・修正要望は、該当リポジトリの Issue / PRまで</p>
               <p class="mt-4">
                 <a class="link-arrow" href="https://github.com/MikanseiLaboratory" target="_blank" rel="noopener noreferrer">github.com/MikanseiLaboratory</a>
               </p>
@@ -680,7 +624,7 @@
             <div class="card card--pad">
               <h3 class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">メール</h3>
               <p class="mt-3 text-sm leading-relaxed text-zinc-400">
-                受託（テロップ・HUD）、Iryx / ATEM Micro Controllerの大量発注、Discordに書きにくい内容はメールへ。
+                受託（テロップ・HUD）、Iryx / ATEM Micro Controller の大量発注、Discord に書きにくい内容はメールにてお問い合わせください。
               </p>
               <p class="mt-4">
                 <a class="link-arrow break-all" href="mailto:ruk1ium@gmail.com">ruk1ium@gmail.com</a>
@@ -692,8 +636,8 @@
             <article class="card card--pad">
               <h3 class="text-sm font-semibold text-white">向いている相談</h3>
               <ul class="mt-3 space-y-2 text-sm leading-relaxed text-zinc-400">
-                <li>公開ソフトの不具合、導入時の詰まり、使い方の質問</li>
-                <li>vMix / ATEM / NDI / OMT 周辺のツール・ソフトウェアに関する相談</li>
+                <li>公開ソフトの不具合、導入時の詰まり、使い方の質問など</li>
+                <li>vMix / ATEM / NDI / OMT まわりの周辺ツール・ソフトウェアに関する相談</li>
                 <li>ゲームのAPI情報をグラフィックやテロップに反映する案件</li>
               </ul>
             </article>
@@ -702,7 +646,7 @@
               <ul class="mt-3 space-y-2 text-sm leading-relaxed text-zinc-400">
                 <li>本業の配信制作チームとしてのイベント制作</li>
                 <li>研究中プロダクトに関する相談</li>
-                <li>返信期限つきの緊急サポート契約など、責任が問われる行為</li>
+                <li>その他返信期限つきの緊急サポート契約など、責任が問われる行為</li>
               </ul>
             </article>
           </div>

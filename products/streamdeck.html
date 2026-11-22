@@ -125,9 +125,9 @@
               <p class="eyebrow">Elgato Stream Deck plugins</p>
               <span class="status-pill status-pill--active">8 plugins</span>
             </div>
-            <h1 id="sd-heading" class="display display--page mt-4">配信機材を、キーひとつで。</h1>
+            <h1 id="sd-heading" class="display display--page mt-4">Stream Deck プラグイン</h1>
             <p class="lede">
-              vMix、ATEM、OBS、Roland、KAIROS、HyperDeckをStream Deckから直接操作するプラグインです。機材ごとに別のアプリを開かず、手元のキーとダイヤルに操作を集めます。
+              vMix、ATEM、OBS、Roland、KAIROS、HyperDeckを、Stream Deckから直接操作するプラグインです。機材ごとに別のアプリを開く必要はありません。操作はキーとダイヤルに割り当てます。
             </p>
             <div class="cta-row">
               <a class="btn btn--primary" href="#plugins">プラグイン一覧</a>
@@ -158,26 +158,26 @@
           <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <p class="eyebrow">Why</p>
-              <h2 id="sd-why" class="section-title">スイッチャーの画面を、もう見失わない。</h2>
+              <h2 id="sd-why" class="section-title">操作の考え方</h2>
               <p class="section-lede">
-                Stream Deckはキーの画像を差し替えられるため、入力名やTallyをそのまま表示できます。プラグインは機材のAPIから状態を取り、押す前と押した後で表示を変えます。
+                Stream Deckはキーの画像を差し替えられるため、入力名やTallyをそのまま表示できます。プラグインは機材のAPIから状態を取得し、押す前と押した後で表示を変えます。
               </p>
             </div>
             <div class="grid gap-4 sm:grid-cols-2">
               <article class="card card--pad">
-                <h3 class="card-title">状態を反映する</h3>
+                <h3 class="card-title">状態の表示</h3>
                 <p class="card-text">ATEMのProgram / Previewは、プラグイン内の状態ではなく実機のバス状態でキーの色を変えます。</p>
               </article>
               <article class="card card--pad">
-                <h3 class="card-title">複数台をまとめる</h3>
-                <p class="card-text">vMix、OBS、ATEMは名前付きで複数台を登録できます。予備系やサブ配信の操作も同じプロファイルに載せられます。</p>
+                <h3 class="card-title">複数台の登録</h3>
+                <p class="card-text">vMix、OBS、ATEMは名前付きで複数台を登録できます。予備系やサブ配信の機材も同じプロファイルから操作できます。</p>
               </article>
               <article class="card card--pad">
-                <h3 class="card-title">切断しても戻る</h3>
-                <p class="card-text">接続が切れたときはバックオフしながら再接続します。現場でWi-FiやLANが瞬断しても、手動で入れ直す必要を減らします。</p>
+                <h3 class="card-title">再接続</h3>
+                <p class="card-text">接続が切れたときはバックオフしながら再接続します。Wi-FiやLANが短時間切断しても、手動で接続し直す手間を減らせます。</p>
               </article>
               <article class="card card--pad">
-                <h3 class="card-title">ダイヤルにも対応</h3>
+                <h3 class="card-title">ダイヤル操作</h3>
                 <p class="card-text">Stream Deck + のダイヤルを使うアクションを用意しています。回転と押し込みに別の操作を割り当てられます。</p>
               </article>
             </div>
@@ -247,7 +247,7 @@
                 <span class="status-pill status-pill--active">v0.1.1</span>
               </div>
               <p class="card-text">
-                複数のOBS Studioを名前付きで登録し、シーン切り替えや配信操作をキーに載せます。OBS 30.2以降に同梱されるobs-websocket 5.5を使います。
+                複数のOBS Studioを名前付きで登録し、シーン切り替えや配信操作をキーに割り当てます。OBS 30.2以降に同梱されるobs-websocket 5.5を使います。
               </p>
               <ul class="mt-4 space-y-1.5 text-xs text-zinc-500">
                 <li>OBS Studio 30.2以降 / Stream Deck 6.4以降</li>
@@ -370,7 +370,7 @@
         <div class="shell">
           <div class="section-head">
             <p class="eyebrow">Install</p>
-            <h2 id="sd-install" class="section-title">インストールは3ステップ</h2>
+            <h2 id="sd-install" class="section-title">インストール</h2>
           </div>
           <ol class="mt-8 grid gap-4 md:grid-cols-3">
             <li class="card card--pad">
@@ -402,7 +402,7 @@
         <div class="shell">
           <div class="section-head">
             <p class="eyebrow">SDK</p>
-            <h2 id="sd-sdk" class="section-title">プラグインを作るための土台も公開しています。</h2>
+            <h2 id="sd-sdk" class="section-title">開発用ライブラリ</h2>
             <p class="section-lede">プラグイン本体と同じリポジトリで、SDKとProperty Inspectorの部品を保守しています。</p>
           </div>
           <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">

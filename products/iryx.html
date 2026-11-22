@@ -202,10 +202,9 @@
               <span class="status-pill status-pill--dev">development</span>
             </div>
             <h1 id="iryx-heading" class="display display--page mt-4">Iryx</h1>
-            <p class="mt-3 text-lg font-medium text-zinc-300">vMixの操作を、手のひらに。</p>
+            <p class="mt-3 text-lg font-medium text-zinc-300">vMix専用のハードウェアコントロールパネル</p>
             <p class="lede">
-              Iryxは、RP2040をベースにしたvMix専用のIPコントロールパネルです。MIDIやOSCではなく、vMixのTCP
-              APIを直接叩きます。ShortcutやActivatorsの設定、ドライバのインストールなしで、USBケーブルを挿してから5〜10秒でボタンが反応します。
+              Iryxは、RP2040をベースにしたvMix専用のIPコントロールパネルです。MIDIやOSCではなく、vMixのTCP APIを直接呼び出します。ShortcutやActivatorsの設定と、ドライバのインストールは不要です。USBケーブルを接続してから5〜10秒でボタンが反応します。
             </p>
             <div class="cta-row">
               <a class="btn btn--primary" href="mailto:ruk1ium@gmail.com?subject=Iryx%E3%81%AE%E5%B0%8E%E5%85%A5%E3%83%BB%E8%A9%95%E4%BE%A1%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">導入・評価の相談</a>
@@ -239,30 +238,29 @@
           <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
               <p class="eyebrow">Background</p>
-              <h2 id="iryx-why" class="section-title">現場ごとの設定から、解放する。</h2>
+              <h2 id="iryx-why" class="section-title">Iryxについて</h2>
               <p class="section-lede">
-                vMixはShortcutとActivatorsを設定すれば、MIDIコントローラーでもStreamDeckでも自由に操作できます。その自由度は強力ですが、現場ごとにボタンを作り直す必要があり、vMixへの理解も求められます。
+                vMixはShortcutとActivatorsを設定すれば、MIDIコントローラーでもStreamDeckでも自由に操作できます。その自由度は高いですが、現場ごとにボタンを作り直す必要があり、vMixへの理解も求められます。
               </p>
               <p class="mt-4 text-sm leading-relaxed text-zinc-400">
-                Iryxは自由度をあえて捨て、ボタンの機能を固定しました。GPIOの押下を検知してTCP
-                APIのFUNCTIONを直接呼ぶため、プリセットの読み込みも、ボタンへのショートカット割り当ても不要です。
+                Iryxはボタンの機能を固定しています。GPIOの押下を検知してTCP APIのFUNCTIONを直接呼ぶため、プリセットの読み込みも、ボタンへのショートカット割り当ても不要です。
               </p>
             </div>
             <div class="grid gap-4 sm:grid-cols-2">
               <article class="card card--pad">
                 <h3 class="card-title">設定なしで動く</h3>
-                <p class="card-text">vMixのIPと、Custom1〜4の割り当てを決めるだけ。ShortcutやActivatorsの作成は不要です。</p>
+                <p class="card-text">vMixのIPアドレスとCustom1〜4の割り当てを設定します。ShortcutやActivatorsの作成は不要です。</p>
               </article>
               <article class="card card--pad">
-                <h3 class="card-title">右手に集約する</h3>
+                <h3 class="card-title">右手での操作</h3>
                 <p class="card-text">左手のStreamDeckでPreviewを選び、右手のIryxでCut、Fade、Stingerを実行する構成を想定しています。</p>
               </article>
               <article class="card card--pad">
-                <h3 class="card-title">押し心地を優先</h3>
-                <p class="card-text">KailhのCHERRY MX互換ホットスワップソケットを採用。軸を自分で選べます。初期出荷は赤軸です。</p>
+                <h3 class="card-title">キースイッチ</h3>
+                <p class="card-text">KailhのCHERRY MX互換ホットスワップソケットを採用しています。軸を自分で選べます。初期出荷は赤軸です。</p>
               </article>
               <article class="card card--pad">
-                <h3 class="card-title">引き継げる操作</h3>
+                <h3 class="card-title">操作の引き継ぎ</h3>
                 <p class="card-text">ボタン配置と機能が固定されるため、講習と本番で同じ操作感になります。後任への引き継ぎも短くなります。</p>
               </article>
             </div>
@@ -274,7 +272,7 @@
         <div class="shell">
           <div class="section-head">
             <p class="eyebrow">How it works</p>
-            <h2 id="iryx-how" class="section-title">物理キーから、vMixへ直結する。</h2>
+            <h2 id="iryx-how" class="section-title">vMixとの接続</h2>
             <p class="section-lede">間にMIDIやOSCの変換を挟まず、MCUからvMixのTCP APIを直接呼びます。</p>
           </div>
           <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -292,7 +290,7 @@
             </article>
             <article class="card card--pad">
               <h3 class="card-title">Hot-swap</h3>
-              <p class="card-text">キースイッチはCHERRY MX互換のホットスワップ。付属の赤軸から、好みの軸へ交換できます。</p>
+              <p class="card-text">キースイッチはCHERRY MX互換のホットスワップです。付属の赤軸から、好みの軸へ交換できます。</p>
             </article>
           </div>
         </div>
@@ -302,7 +300,7 @@
         <div class="shell">
           <div class="section-head">
             <p class="eyebrow">Lineup</p>
-            <h2 id="iryx-lineup" class="section-title">トランジション、リプレイ、<br class="hidden md:block" />タリー、タイマー。</h2>
+            <h2 id="iryx-lineup" class="section-title">モデルの<br class="hidden md:block" />構成</h2>
             <p class="section-lede">
               Iryxは1台で完結するのではなく、現場の役割ごとにモデルを分けています。TC / SW / RP / TL / TMの5シリーズを開発中です。
             </p>
@@ -405,7 +403,7 @@
           <div class="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
             <div>
               <p class="eyebrow">Prototype</p>
-              <h2 id="iryx-prototype" class="section-title">TC-00は、5台だけ配った評価機。</h2>
+              <h2 id="iryx-prototype" class="section-title">TC-00（評価機）</h2>
               <p class="section-lede">
                 2026年5月、知人のvMixオペレーターにTC-00を5台配りました。筐体は未着手で、基板にスペーサーで足を付けた状態です。本番利用は推奨せず、フィードバックを集めるための頒布でした。
               </p>
@@ -473,7 +471,7 @@
         <div class="shell">
           <div class="section-head">
             <p class="eyebrow">Technology</p>
-            <h2 id="iryx-tech" class="section-title">RP2040の上に、現場の操作を積む。</h2>
+            <h2 id="iryx-tech" class="section-title">ハードウェアとファームウェア</h2>
             <p class="section-lede">ファームウェアはRust（Embassy）、ハードウェアはmizuyoukanが担当しています。</p>
           </div>
           <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -495,10 +493,10 @@
             </article>
             <article class="card card--pad">
               <h3 class="card-title">ハードウェア設計</h3>
-              <p class="card-text">回路設計・基板制作はmizuyoukanが担当。部品選定と仕様策定はFlowingが行っています。</p>
+              <p class="card-text">回路設計・基板制作はmizuyoukanが担当しています。部品選定と仕様策定はFlowingが行っています。</p>
             </article>
             <article class="card card--pad">
-              <h3 class="card-title">RP2354Bを検討</h3>
+              <h3 class="card-title">RP2354Bへの移行検討</h3>
               <p class="card-text">RP-00はTバー、ジョグ、多数のボタンでRP2040のGPIOをすべて使い切ります。次の版ではRP2354Bへの移行も検討しています。</p>
             </article>
           </div>
@@ -510,14 +508,14 @@
           <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
             <div>
               <p class="eyebrow">Field test</p>
-              <h2 id="iryx-field" class="section-title">篝火#16で、2セットを実運用。</h2>
+              <h2 id="iryx-field" class="section-title">篝火#16での運用</h2>
               <p class="section-lede">
                 2026年11月21日・22日に開催された「篝火#16」で、Iryxの評価試験機2セットを運用いただきました。1セットはEast Geek Smashのサブ配信、もう1セットは無明遊者の配信です。
               </p>
               <p class="mt-4 text-sm leading-relaxed text-zinc-400">
                 当初は貸し出しの予定はありませんでした。FlowingがDay1に観戦と手伝いでIryxを持ち込み、現地で試してもらうことになりました。突然の依頼を快諾いただいた無明遊者の7IRO / なないろ様に感謝しています。
               </p>
-              <a class="link-arrow mt-6" href="/news/2026-11-23-kagari-16.html">篝火#16での採用記事を読む</a>
+              <a class="link-arrow mt-6" href="https://note.com/hiiraginil/n/na3fb779a8f4f" target="_blank" rel="noopener noreferrer">篝火#16での試験運用の記録（note）</a>
             </div>
 
             <div class="grid gap-3">
@@ -527,10 +525,10 @@
               </article>
               <article class="card card--pad">
                 <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">無明遊者</p>
-                <p class="mt-2 text-sm leading-relaxed text-zinc-400">篝火#16の配信で評価試験機を1セット運用。押し心地と即応性に手応えをいただきました。</p>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">篝火#16の配信で評価試験機を1セット運用。押し心地と即応性について評価をいただきました。</p>
               </article>
               <article class="card card--pad">
-                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">Next</p>
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">次回の予定</p>
                 <p class="mt-2 text-sm leading-relaxed text-zinc-400">vMixの利用台数が多かったため、次回は追加で持参する予定です。</p>
               </article>
             </div>
@@ -549,7 +547,7 @@
             <a class="card card--link card--pad" href="https://note.com/hiiraginil/n/n17d77bb9683c" target="_blank" rel="noopener noreferrer">
               <time class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500" datetime="2026-04-01">2026.04.01</time>
               <h3 class="mt-2 card-title">vMix専用コンパネを作っている</h3>
-              <p class="card-text">開発の動機、TC-00の立ち位置、リプレイモデルの構想、ファームウェアとハードウェアの話。</p>
+              <p class="card-text">開発の動機、TC-00の立ち位置、リプレイモデルの構想、ファームウェアとハードウェアの設計。</p>
               <span class="link-arrow mt-4">noteで読む</span>
             </a>
             <a class="card card--link card--pad" href="https://note.com/hiiraginil/n/nba3c054e76a5" target="_blank" rel="noopener noreferrer">
@@ -574,7 +572,7 @@
             <div>
               <p class="eyebrow">Availability</p>
               <h2 id="iryx-buy" class="mt-3 text-xl font-semibold tracking-tight text-white md:text-2xl">
-                2026年内の販売に向けて、最終調整中です。
+                販売予定
               </h2>
               <p class="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">
                 TC-01とSW-01はBOOTHでの頒布を予定しています。価格と販売日は確定していません。評価機の貸し出しは、用途と環境が合う場合に限り対応します。
@@ -630,7 +628,7 @@
 
       <section class="section section--tight" aria-labelledby="iryx-related">
         <div class="shell">
-          <h2 id="iryx-related" class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">Related</h2>
+          <h2 id="iryx-related" class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">関連</h2>
           <div class="mt-4 grid gap-4 md:grid-cols-3">
             <a class="card card--link card--pad" href="/products/vmix-utility.html">
               <h3 class="card-title">vmix-utility</h3>

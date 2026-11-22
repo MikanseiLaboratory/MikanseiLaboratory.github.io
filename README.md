@@ -19,8 +19,9 @@ Mikansei Laboratory（未完成成果物研究所）の公式サイトです。
 | `/products/vmix-utility.html` | vmix-utility |
 | `/products/srt-uri-generator.html` | SRT URI Generator |
 | `/products/stagetimer.html` | ステージタイマー |
+| `/members/` | メンバー |
+| `/contact/` | お問い合わせ |
 | `/news/` | ニュース一覧 |
-| `/news/2026-11-23-kagari-16.html` | 篝火#16での採用記事 |
 
 旧 `/projects/*.html` は `/products/*.html` へリダイレクトします。転送用のHTMLは `public/projects/` にあります。
 
@@ -54,6 +55,27 @@ npm run preview
 ```
 
 で `dist/` の内容をローカルで確認できます。
+
+## ニュースを追加するとき
+
+ニュースは `data/news.json` が唯一の情報源です。配列の先頭に 1 件追加するだけで、次の 3 か所に自動で反映されます（`news-plugin.ts`）。
+
+- ホームのニュース欄（全件をカードで表示）
+- `/news/` の一覧と `ItemList` の構造化データ
+- `/news/feed.xml`（RSS）
+
+```json
+{
+  "date": "2026-11-23",
+  "title": "記事タイトル",
+  "summary": "一覧とホームに出す要約",
+  "url": "https://note.com/...",
+  "category": "試験運用",
+  "tags": ["篝火#16"]
+}
+```
+
+`date` の降順で並びます。`npm run dev` 中に保存すると自動でリロードされます。
 
 ## ページを追加するとき
 
