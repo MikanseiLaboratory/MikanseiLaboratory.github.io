@@ -286,7 +286,7 @@ export function mountLabScene(canvas: HTMLCanvasElement): () => void {
     if (!hero) return;
     const rect = hero.getBoundingClientRect();
     const gone = Math.max(0, Math.min(1, -rect.top / Math.max(1, rect.height)));
-    fadeLayer(1 - gone * 0.62);
+    fadeLayer((1 - gone * 0.72) * 0.34);
   };
 
   const resize = (): void => {

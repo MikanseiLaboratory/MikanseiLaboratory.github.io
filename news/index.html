@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>ニュース | 未完成成果物研究所</title>
+    <meta
+      name="description"
+      content="未完成成果物研究所のニュース一覧です。プロダクトの採用事例、アップデート、イベントでの運用報告をまとめています。"
+    />
+    <link rel="canonical" href="https://mikanseilaboratory.github.io/news/" />
+    <meta property="og:title" content="ニュース | 未完成成果物研究所" />
+    <meta property="og:description" content="プロダクトの採用事例、アップデート、イベントでの運用報告。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mikanseilaboratory.github.io/news/" />
+    <meta property="og:site_name" content="未完成成果物研究所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://mikanseilaboratory.github.io/images/partner-arena.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ニュース | 未完成成果物研究所" />
+    <meta name="twitter:description" content="プロダクトの採用事例、アップデート、イベントでの運用報告。" />
+    <meta name="twitter:image" content="https://mikanseilaboratory.github.io/images/partner-arena.jpg" />
+    <meta name="theme-color" content="#07080b" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="alternate" type="application/rss+xml" title="未完成成果物研究所 ニュース" href="/news/feed.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+    <!-- news:jsonld -->
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+
+    <site-header data-current="news"></site-header>
+
+    <main id="main" class="page-main">
+      <div class="shell">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="/">ホーム</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">ニュース</span>
+        </nav>
+      </div>
+
+      <section class="page-hero" aria-labelledby="news-heading">
+        <div class="shell">
+          <p class="eyebrow">News</p>
+          <h1 id="news-heading" class="display display--page mt-4">ニュース</h1>
+          <p class="lede">
+            noteに掲載した記事をまとめています。新しい記事から順に並べています。
+          </p>
+          <ul class="chips">
+            <li class="chip">2026年</li>
+            <li class="chip">note</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section--tight pt-0" aria-labelledby="news-2026">
+        <div class="shell">
+          <div class="grid gap-10 lg:grid-cols-[1fr_18rem] lg:items-start">
+            <div>
+              <h2 id="news-2026" class="font-mono text-[11px] uppercase tracking-[0.22em] text-zinc-500">2026年</h2>
+              <ul class="mt-4 space-y-3">
+                <!-- news:list -->
+              </ul>
+
+              <p class="mt-8 text-sm text-zinc-500">2026年11月時点。新しい記事から順に掲載しています。</p>
+            </div>
+
+            <aside class="space-y-4 lg:sticky lg:top-24">
+              <div class="card card--pad">
+                <h2 class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">購読</h2>
+                <p class="mt-3 text-sm leading-relaxed text-zinc-400">更新情報はXとRSSで受け取れます。</p>
+                <ul class="mt-4 space-y-2 text-sm">
+                  <li><a class="footer-link" href="https://x.com/MikanseiDev" target="_blank" rel="noopener noreferrer">X（@MikanseiDev）</a></li>
+                  <li><a class="footer-link" href="https://github.com/MikanseiLaboratory" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                  <li><a class="footer-link" href="/news/feed.xml">RSSフィード</a></li>
+                </ul>
+              </div>
+              <div class="card card--pad">
+                <h2 class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">プロダクト</h2>
+                <p class="mt-3 text-sm leading-relaxed text-zinc-400">ニュースに出てくるプロダクトの一覧です。</p>
+                <a class="link-arrow mt-4" href="/products/">プロダクトを見る</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>

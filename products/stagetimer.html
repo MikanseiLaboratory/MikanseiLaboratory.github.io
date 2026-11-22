@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>ステージタイマー — 収録と配信の進行を共有する | 未完成成果物研究所</title>
+    <meta
+      name="description"
+      content="ステージタイマーは、収録と配信の進行用に開発した共有タイマーです。操作画面と演者モニターが同じ時計で進み、ブラウザだけで利用できます。インストールは不要です。"
+    />
+    <link rel="canonical" href="https://mikanseilaboratory.github.io/products/stagetimer.html" />
+    <meta property="og:title" content="ステージタイマー — 収録と配信の進行を共有する" />
+    <meta
+      property="og:description"
+      content="操作画面と演者モニターが同時に進む共有タイマー。ブラウザだけで使え、インストールは不要です。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mikanseilaboratory.github.io/products/stagetimer.html" />
+    <meta property="og:site_name" content="未完成成果物研究所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://mikanseilaboratory.github.io/images/partner-studio.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ステージタイマー — 収録と配信の進行を共有する" />
+    <meta name="twitter:description" content="操作画面と演者モニターが同時に進む共有タイマー。ブラウザだけで使えます。" />
+    <meta name="twitter:image" content="https://mikanseilaboratory.github.io/images/partner-studio.jpg" />
+    <meta name="theme-color" content="#07080b" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="alternate" type="application/rss+xml" title="未完成成果物研究所 ニュース" href="/news/feed.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "@id": "https://mikanseilaboratory.github.io/products/stagetimer.html#app",
+            "name": "ステージタイマー",
+            "alternateName": "Stage timer",
+            "url": "https://stage-timer.ruk1ium.workers.dev/",
+            "description": "収録と配信の進行用。操作画面と演者モニターが同時に進む共有タイマー。",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "browserRequirements": "JavaScriptを有効にしたモダンブラウザ",
+            "isAccessibleForFree": true,
+            "inLanguage": "ja",
+            "author": {
+              "@type": "Organization",
+              "name": "未完成成果物研究所",
+              "url": "https://mikanseilaboratory.github.io/"
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "インストールは必要ですか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "不要です。ブラウザでURLを開くだけで利用できます。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "複数の端末で同じタイマーを見られますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "はい。URLを共有すると、操作画面と演者モニターなど複数の端末で同じタイマーを表示できます。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "オフラインでも使えますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "初回の読み込みにはネットワーク接続が必要です。現場のネットワーク環境によっては、事前に接続確認を行ってください。"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mikanseilaboratory.github.io/" },
+              { "@type": "ListItem", "position": 2, "name": "プロダクト", "item": "https://mikanseilaboratory.github.io/products/" },
+              { "@type": "ListItem", "position": 3, "name": "ステージタイマー", "item": "https://mikanseilaboratory.github.io/products/stagetimer.html" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+
+    <site-header data-current="products"></site-header>
+
+    <main id="main" class="page-main">
+      <div class="shell">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="/">ホーム</a>
+          <span aria-hidden="true">/</span>
+          <a href="/products/">プロダクト</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">ステージタイマー</span>
+        </nav>
+      </div>
+
+      <section class="page-hero" aria-labelledby="st-heading">
+        <div class="shell page-hero__grid">
+          <div>
+            <div class="flex flex-wrap items-center gap-3">
+              <p class="eyebrow">Web tool / Stage timer</p>
+              <span class="status-pill status-pill--quiet">web tool</span>
+            </div>
+            <h1 id="st-heading" class="display display--page mt-4">ステージタイマー</h1>
+            <p class="mt-3 text-lg font-medium text-zinc-300">収録と配信の進行を共有するタイマー</p>
+            <p class="lede">
+              操作画面と演者モニターが同時に進む共有タイマーです。進行役は手元のブラウザで操作し、演者は別の画面で残り時間を見ます。インストールは不要です。URLを開くだけで利用できます。
+            </p>
+            <div class="cta-row">
+              <a class="btn btn--primary" href="https://stage-timer.ruk1ium.workers.dev/" target="_blank" rel="noopener noreferrer">ステージタイマーを開く</a>
+              <a class="btn btn--ghost" href="https://x.com/MikanseiDev" target="_blank" rel="noopener noreferrer">更新情報</a>
+            </div>
+            <ul class="chips">
+              <li class="chip">ブラウザのみ</li>
+              <li class="chip">インストール不要</li>
+              <li class="chip">Controller / Stage</li>
+              <li class="chip">共有タイマー</li>
+            </ul>
+          </div>
+
+          <div class="overflow-hidden rounded-3xl border border-white/10 bg-black/40">
+            <div class="flex items-center justify-between border-b border-white/10 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">
+              <span>Controller</span>
+              <span>Stage</span>
+            </div>
+            <div class="grid grid-cols-2 divide-x divide-white/10">
+              <div class="timer-display p-5">
+                <p class="timer-display__label">Remaining</p>
+                <p class="timer-display__value">12:00<span>.</span>00</p>
+                <p class="timer-display__label">Start / Stop</p>
+              </div>
+              <div class="timer-display p-5">
+                <p class="timer-display__label">On stage</p>
+                <p class="timer-display__value">12:00<span>.</span>00</p>
+                <p class="timer-display__label">Full screen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="st-what">
+        <div class="shell">
+          <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p class="eyebrow">What it does</p>
+              <h2 id="st-what" class="section-title">画面構成</h2>
+              <p class="section-lede">
+                1つのタイマーを複数の画面で共有します。進行役が開始・停止・リセットを行うと、演者モニターの残り時間も同じように動きます。
+              </p>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <article class="card card--pad">
+                <h3 class="card-title">操作画面</h3>
+                <p class="card-text">進行役が手元でタイマーを操作します。開始、停止、リセットといった操作を、演者に見せない画面で行えます。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">演者モニター</h3>
+                <p class="card-text">演者や登壇者の前に置く画面です。残り時間を大きく表示し、進行の合図として使えます。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">URLの共有</h3>
+                <p class="card-text">アカウント作成やアプリのインストールは不要です。ブラウザでURLを開くと、同じタイマーに参加できます。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">対応端末</h3>
+                <p class="card-text">PC、タブレット、スマートフォンのブラウザで動きます。会場の予備端末も利用できます。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="st-use">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Use cases</p>
+            <h2 id="st-use" class="section-title">進行例</h2>
+          </div>
+          <div class="mt-8 grid gap-4 md:grid-cols-3">
+            <article class="card card--pad">
+              <h3 class="card-title">収録の進行</h3>
+              <p class="card-text">収録のセッションごとに時間を決め、演者モニターに残り時間を出します。押し込みの判断を共有できます。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">配信の進行</h3>
+              <p class="card-text">配信のコーナー切り替えや、登壇パートの残り時間を進行役と演者で共有します。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">イベントとリハーサル</h3>
+              <p class="card-text">本番前のリハーサルで、実際の進行時間を確認します。会場のモニターをそのまま使えます。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="st-status">
+        <div class="shell">
+          <div class="card card--pad md:flex md:items-center md:justify-between md:gap-8">
+            <div>
+              <p class="eyebrow">Status</p>
+              <h2 id="st-status" class="mt-3 text-xl font-semibold tracking-tight text-white md:text-2xl">
+                開発状況
+              </h2>
+              <p class="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">
+                ステージタイマーは、収録と配信の現場で使いながら改善しているWebアプリです。仕様や提供条件は予告なく変更する場合があります。導入の相談や要望はメールで受け付けています。
+              </p>
+            </div>
+            <a class="btn btn--ghost mt-6 shrink-0 md:mt-0" href="mailto:ruk1ium@gmail.com?subject=%E3%82%B9%E3%83%86%E3%83%BC%E3%82%B8%E3%82%BF%E3%82%A4%E3%83%9E%E3%83%BC%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">お問い合わせ</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="st-faq">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="st-faq" class="section-title">よくある質問</h2>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>インストールは必要ですか？</summary>
+              <p>不要です。ブラウザでURLを開くだけで利用できます。</p>
+            </details>
+            <details>
+              <summary>複数の端末で同じタイマーを見られますか？</summary>
+              <p>はい。URLを共有すると、操作画面と演者モニターなど複数の端末で同じタイマーを表示できます。</p>
+            </details>
+            <details>
+              <summary>オフラインでも使えますか？</summary>
+              <p>初回の読み込みにはネットワーク接続が必要です。現場のネットワーク環境によっては、事前に接続確認を行ってください。</p>
+            </details>
+            <details>
+              <summary>利用条件や料金は？</summary>
+              <p>提供条件は変更する場合があります。導入や継続利用について相談がある場合は、メールでお問い合わせください。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="st-related">
+        <div class="shell">
+          <h2 id="st-related" class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">関連</h2>
+          <div class="mt-4 grid gap-4 md:grid-cols-3">
+            <a class="card card--link card--pad" href="/products/srt-uri-generator.html">
+              <h3 class="card-title">SRT URI Generator</h3>
+              <p class="card-text">SRTでリモート接続するときのURIを組み立てます。</p>
+            </a>
+            <a class="card card--link card--pad" href="/products/vmix-utility.html">
+              <h3 class="card-title">vmix-utility</h3>
+              <p class="card-text">vMixの接続管理とShortcut生成をまとめたデスクトップアプリです。</p>
+            </a>
+            <a class="card card--link card--pad" href="/products/eiviz.html">
+              <h3 class="card-title">eiviz</h3>
+              <p class="card-text">無制限M/Eのソフトウェアスイッチャーです。収録の切り替えに使えます。</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>

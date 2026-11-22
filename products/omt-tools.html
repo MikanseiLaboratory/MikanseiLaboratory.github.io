@@ -13,14 +13,14 @@
       name="keywords"
       content="OMT Community Tools, Open Media Transport, OMT, NDI Tools, Studio Monitor, Test Patterns, Config Manager, Discovery Server, LAN映像伝送, 配信, プロダクション"
     />
-    <link rel="canonical" href="https://mikanseilaboratory.github.io/projects/omt-tools.html" />
+    <link rel="canonical" href="https://mikanseilaboratory.github.io/products/omt-tools.html" />
     <meta property="og:title" content="OMT Community Tools — Open Media Transport(OMT)向け無料ユーティリティ" />
     <meta
       property="og:description"
       content="NDI ToolsにインスパイアされたOMT向け制作ツール群。Studio Monitor・Test PatternsなどをPolyForm Shieldライセンスで提供。OMT(Open Media Transport)の概要と入手方法。"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://mikanseilaboratory.github.io/projects/omt-tools.html" />
+    <meta property="og:url" content="https://mikanseilaboratory.github.io/products/omt-tools.html" />
     <meta property="og:locale" content="ja_JP" />
     <meta property="og:site_name" content="未完成成果物研究所(MikanseiLaboratory)" />
     <meta property="og:image" content="https://mikanseilaboratory.github.io/images/omt-tools-home.png" />
@@ -47,7 +47,7 @@
             "license": "https://polyformproject.org/licenses/shield/1.0.0/",
             "isAccessibleForFree": true,
             "description": "Open Media Transport（OMT）向けの制作ユーティリティ群。Studio Monitor、Test Patterns、Config Manager、Discovery Server を含む。NDI Tools にインスパイアされた LAN 映像ワークフロー用ツール。",
-            "url": "https://mikanseilaboratory.github.io/projects/omt-tools.html",
+            "url": "https://mikanseilaboratory.github.io/products/omt-tools.html",
             "downloadUrl": "https://github.com/MikanseiLaboratory/omt-community-tools/releases",
             "softwareVersion": "0.1.0",
             "author": {
@@ -64,7 +64,7 @@
           {
             "@type": "WebPage",
             "name": "OMT Community Tools",
-            "url": "https://mikanseilaboratory.github.io/projects/omt-tools.html",
+            "url": "https://mikanseilaboratory.github.io/products/omt-tools.html",
             "description": "OMT Community Tools の紹介ページ。Open Media Transport の概要、同梱ツール、ダウンロードと関連リンク。",
             "inLanguage": "ja",
             "isPartOf": {
@@ -90,8 +90,14 @@
               {
                 "@type": "ListItem",
                 "position": 2,
+                "name": "プロダクト",
+                "item": "https://mikanseilaboratory.github.io/products/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
                 "name": "OMT Community Tools",
-                "item": "https://mikanseilaboratory.github.io/projects/omt-tools.html"
+                "item": "https://mikanseilaboratory.github.io/products/omt-tools.html"
               }
             ]
           },
@@ -134,17 +140,23 @@
       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-zinc-950"
       >メインコンテンツへスキップ</a
     >
-    <site-header data-current="omt-tools"></site-header>
+    <site-header data-current="products"></site-header>
 
     <main id="main">
       <nav class="mx-auto max-w-6xl px-4 pt-8 text-sm text-zinc-500" aria-label="パンくずリスト">
         <a
-          href="/index.html"
+          href="/"
           class="rounded text-cyan-400/90 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
           >ホーム</a
         >
         <span class="mx-2" aria-hidden="true">/</span>
-        <span class="text-zinc-400">OMT Community Tools</span>
+        <a
+          href="/products/"
+          class="rounded text-cyan-400/90 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+          >プロダクト</a
+        >
+        <span class="mx-2" aria-hidden="true">/</span>
+        <span class="text-zinc-400" aria-current="page">OMT Community Tools</span>
       </nav>
 
       <!-- Hero -->
@@ -159,8 +171,8 @@
         <div class="relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-400">OMT Community Tools</p>
-            <h1 id="omt-tools-hero" class="mt-3 max-w-3xl text-3xl font-semibold tracking-tight text-white md:text-5xl">
-              Open Media Transport 向けの制作ユーティリティ
+            <h1 id="omt-tools-hero" class="mt-3 max-w-3xl text-2xl font-semibold tracking-tight text-white md:text-5xl">
+              Open Media Transport 向けの<br class="hidden md:block" />制作ユーティリティ
             </h1>
             <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
               プロダクション環境でOMTの利用を推進するための検証用/汎用アプリケーション群です。
@@ -194,7 +206,7 @@
                 >OMTとは？</a
               >
             </div>
-            <ul class="mt-8 flex flex-wrap gap-2 text-xs text-zinc-500" aria-label="対応環境・ライセンス">
+            <ul class="mt-8 flex flex-wrap gap-2 text-xs text-zinc-500">
               <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-zinc-300">Windows（x64 / Arm64）</li>
               <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-zinc-300">macOS（Intel / Apple Silicon）</li>
               <li class="rounded-md border border-zinc-700 bg-zinc-900/50 px-2.5 py-1 text-zinc-300">PolyForm Shield 1.0.0</li>
@@ -514,7 +526,7 @@
             ※ openmediatransport-rs / vmx-rs は未完成成果物研究所によるコミュニティ実装であり、Open Media Transport
             公式製品ではありません。ご質問・フィードバックは
             <a
-              href="/index.html#contact"
+              href="/contact/"
               class="rounded text-cyan-400/90 hover:text-cyan-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
               >お問い合わせ</a
             >

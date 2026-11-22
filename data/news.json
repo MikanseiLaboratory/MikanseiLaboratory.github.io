@@ -1,0 +1,34 @@
+[
+  {
+    "date": "2026-11-23",
+    "title": "篝火#16で開発中機材の試験運用をしました",
+    "summary": "East Geek Smashと無明遊者での評価。現場で出た声と、eivizの試験運用の記録。",
+    "url": "https://note.com/hiiraginil/n/na3fb779a8f4f",
+    "category": "試験運用",
+    "tags": ["篝火#16"]
+  },
+  {
+    "date": "2026-05-04",
+    "title": "Iryxの試作機を配布しました",
+    "summary": "TC-00を5台配布した記録。評価で出たフィードバックと、TC-01 / SW-01 / RP-00への反映。",
+    "url": "https://note.com/hiiraginil/n/nba3c054e76a5",
+    "category": "試作",
+    "tags": ["Iryx"]
+  },
+  {
+    "date": "2026-05-04",
+    "title": "未完成成果物研究所について",
+    "summary": "設立の経緯、活動目的、公開しているプロダクトとメンバー構成について。",
+    "url": "https://note.com/hiiraginil/n/nf86624d96c53",
+    "category": "設立",
+    "tags": []
+  },
+  {
+    "date": "2026-04-01",
+    "title": "vMix専用コンパネを作っている",
+    "summary": "開発の動機、TC-00の立ち位置、リプレイモデルの構想、ファームウェアとハードウェアの設計。",
+    "url": "https://note.com/hiiraginil/n/n17d77bb9683c",
+    "category": "開発",
+    "tags": ["Iryx"]
+  }
+]

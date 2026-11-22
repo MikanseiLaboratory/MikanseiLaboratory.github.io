@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>Iryx — vMix専用ハードウェアコントロールパネル | 未完成成果物研究所</title>
+    <meta
+      name="description"
+      content="Iryx（イリクス）は、RP2040をベースにvMixのTCP APIを直接操作するハードウェアコントロールパネルです。Shortcut・Activatorsの設定やドライバは不要で、USB接続から5〜10秒で操作できます。TC-00の試作を経て、TC-01 / SW-01とRP-00を開発中。2026年内の販売を予定しています。"
+    />
+    <link rel="canonical" href="https://mikanseilaboratory.github.io/products/iryx.html" />
+    <meta property="og:title" content="Iryx — vMix専用ハードウェアコントロールパネル" />
+    <meta
+      property="og:description"
+      content="RP2040とvMix TCP APIで動く物理コントロールパネル。設定不要で接続から5〜10秒。TC-00試作機、TC-01/SW-01、RP-00を開発中。2026年内販売予定。"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mikanseilaboratory.github.io/products/iryx.html" />
+    <meta property="og:site_name" content="未完成成果物研究所" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:image" content="https://mikanseilaboratory.github.io/images/iryx-og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Iryx — vMix専用ハードウェアコントロールパネル" />
+    <meta name="twitter:description" content="RP2040とvMix TCP APIで動く物理コントロールパネル。設定不要、接続から5〜10秒。2026年内販売予定。" />
+    <meta name="twitter:image" content="https://mikanseilaboratory.github.io/images/iryx-og.jpg" />
+    <meta name="theme-color" content="#07080b" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <link rel="alternate" type="application/rss+xml" title="未完成成果物研究所 ニュース" href="/news/feed.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script type="module" src="/src/main.ts"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Product",
+            "@id": "https://mikanseilaboratory.github.io/products/iryx.html#product",
+            "name": "Iryx",
+            "alternateName": "イリクス",
+            "description": "RP2040をベースに、vMixのTCP APIを直接操作するハードウェアコントロールパネル。Shortcut・Activatorsの設定やドライバなしで動作する。",
+            "image": "https://mikanseilaboratory.github.io/images/iryx-og.jpg",
+            "url": "https://mikanseilaboratory.github.io/products/iryx.html",
+            "category": "Broadcast control surface",
+            "brand": { "@type": "Brand", "name": "未完成成果物研究所" },
+            "manufacturer": {
+              "@type": "Organization",
+              "name": "未完成成果物研究所",
+              "url": "https://mikanseilaboratory.github.io/"
+            },
+            "hasVariant": [
+              {
+                "@type": "Product",
+                "name": "Iryx Transition Control TC-00",
+                "description": "9ボタンを備えた試作・評価用モデル。Custom1〜4、Cut、Auto、Shift、Menu、Back。"
+              },
+              {
+                "@type": "Product",
+                "name": "Iryx Transition Control TC-01",
+                "description": "TC-00のフィードバックを反映した筐体付きの正式モデル。USB-Cロックコネクタ。"
+              },
+              {
+                "@type": "Product",
+                "name": "Iryx Transition Control SW-01",
+                "description": "TC-01にStreamDeckモジュールを搭載したモデル。vMixとATEMの両方に対応する。"
+              },
+              {
+                "@type": "Product",
+                "name": "Iryx Replay RP-00",
+                "description": "リプレイ専用モデル。Tバーと回転式ジョグを搭載し、vMixのリプレイAPIを利用する。"
+              }
+            ],
+            "subjectOf": [
+              {
+                "@type": "Article",
+                "name": "vMix専用コンパネを作っている",
+                "url": "https://note.com/hiiraginil/n/n17d77bb9683c",
+                "datePublished": "2026-04-01"
+              },
+              {
+                "@type": "Article",
+                "name": "vMix専用コンパネIryxの試作機を配布しました",
+                "url": "https://note.com/hiiraginil/n/nba3c054e76a5",
+                "datePublished": "2026-05-04"
+              },
+              {
+                "@type": "Article",
+                "name": "篝火#16で開発中機材の試験運用をしました",
+                "url": "https://note.com/hiiraginil/n/na3fb779a8f4f",
+                "datePublished": "2026-11-23"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Iryxはいつ購入できますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "2026年内の販売を目指しています。TC-01とSW-01はBOOTHでの頒布を予定しています。販売時期と価格が確定したら、ニュースとXでお知らせします。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "TC-00とTC-01/SW-01の違いは？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "TC-00は9ボタンの試作・評価機です。TC-01はTC-00のフィードバックを反映した筐体付きの正式モデルで、USB-Cロックコネクタを採用します。SW-01はTC-01にStreamDeckモジュールを搭載し、vMixとATEMの両方を操作できます。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "設定は必要ですか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "vMixのIPアドレスとCustom1〜4の割り当て程度です。ShortcutやActivatorsの作成、ドライバのインストールは不要です。USBで接続してから5〜10秒程度でボタンが反応します。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "StreamDeckは必要ですか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "SW-01はStreamDeckモジュールを内蔵しています。TC-01とRP-00は、左手のStreamDeckでPreviewを選び、右手のIryxでトランジションやリプレイを操作する運用を想定しています。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "ATEMは操作できますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "SW-01はATEMモードを備えており、UDP 9910経由でCut、Auto、Previewを操作できます。ATEMモードは有線LAN搭載モデルでのみ利用できます。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "対応しているvMixのバージョンは？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "vMix 29以降に対応しています。v28以前では、Stinger 5〜8、OverlayInput 5〜8、Mixの選択の一部が動作しない場合があります。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "価格はいくらですか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "正式版の価格は未定です。TC-00は2026年4月時点で9,980円前後を予定していましたが、正式モデルの価格は確定していません。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "転売や譲渡はできますか？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "できません。Iryxは評価用の試作機を含め、転売・譲渡を禁止しています。"
+                }
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://mikanseilaboratory.github.io/" },
+              { "@type": "ListItem", "position": 2, "name": "プロダクト", "item": "https://mikanseilaboratory.github.io/products/" },
+              { "@type": "ListItem", "position": 3, "name": "Iryx", "item": "https://mikanseilaboratory.github.io/products/iryx.html" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-400 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-zinc-950"
+      >メインコンテンツへスキップ</a
+    >
+
+    <site-header data-current="products"></site-header>
+
+    <main id="main" class="page-main">
+      <div class="shell">
+        <nav class="breadcrumb" aria-label="パンくずリスト">
+          <a href="/">ホーム</a>
+          <span aria-hidden="true">/</span>
+          <a href="/products/">プロダクト</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Iryx</span>
+        </nav>
+      </div>
+
+      <section class="page-hero" aria-labelledby="iryx-heading">
+        <div class="shell page-hero__grid">
+          <div>
+            <div class="flex flex-wrap items-center gap-3">
+              <p class="eyebrow">Hardware / vMix control surface</p>
+              <span class="status-pill status-pill--dev">development</span>
+            </div>
+            <h1 id="iryx-heading" class="display display--page mt-4">Iryx</h1>
+            <p class="mt-3 text-lg font-medium text-zinc-300">vMix専用のハードウェアコントロールパネル</p>
+            <p class="lede">
+              Iryxは、RP2040をベースにしたvMix専用のIPコントロールパネルです。MIDIやOSCではなく、vMixのTCP APIを直接呼び出します。ShortcutやActivatorsの設定と、ドライバのインストールは不要です。USBケーブルを接続してから5〜10秒でボタンが反応します。
+            </p>
+            <div class="cta-row">
+              <a class="btn btn--primary" href="mailto:ruk1ium@gmail.com?subject=Iryx%E3%81%AE%E5%B0%8E%E5%85%A5%E3%83%BB%E8%A9%95%E4%BE%A1%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">導入・評価の相談</a>
+              <a class="btn btn--ghost" href="https://github.com/MikanseiLaboratory/manuals/tree/main/iryx" target="_blank" rel="noopener noreferrer">マニュアル</a>
+              <a class="btn btn--quiet px-0" href="#notes">開発記録を読む</a>
+            </div>
+            <ul class="chips">
+              <li class="chip chip--warm">2026年内 販売予定</li>
+              <li class="chip">USB-C / LAN</li>
+              <li class="chip">vMix 29以降</li>
+              <li class="chip">ATEMモード（SW-01）</li>
+            </ul>
+          </div>
+          <figure class="page-hero__media">
+            <img
+              src="/images/iryx-tc00.jpg"
+              alt="Iryx TC-00の試作機。基板に9つのキーと小型ディスプレイを載せ、スペーサーで足を付けている"
+              width="1200"
+              height="900"
+              decoding="async"
+            />
+            <figcaption class="border-t border-white/10 px-5 py-4 text-xs leading-relaxed text-zinc-500">
+              TC-00の試作機。筐体はまだなく、基板にスペーサーで足を付けています。
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-why">
+        <div class="shell">
+          <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p class="eyebrow">Background</p>
+              <h2 id="iryx-why" class="section-title">Iryxについて</h2>
+              <p class="section-lede">
+                vMixはShortcutとActivatorsを設定すれば、MIDIコントローラーでもStreamDeckでも自由に操作できます。その自由度は高いですが、現場ごとにボタンを作り直す必要があり、vMixへの理解も求められます。
+              </p>
+              <p class="mt-4 text-sm leading-relaxed text-zinc-400">
+                Iryxはボタンの機能を固定しています。GPIOの押下を検知してTCP APIのFUNCTIONを直接呼ぶため、プリセットの読み込みも、ボタンへのショートカット割り当ても不要です。
+              </p>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <article class="card card--pad">
+                <h3 class="card-title">設定なしで動く</h3>
+                <p class="card-text">vMixのIPアドレスとCustom1〜4の割り当てを設定します。ShortcutやActivatorsの作成は不要です。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">右手での操作</h3>
+                <p class="card-text">左手のStreamDeckでPreviewを選び、右手のIryxでCut、Fade、Stingerを実行する構成を想定しています。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">キースイッチ</h3>
+                <p class="card-text">KailhのCHERRY MX互換ホットスワップソケットを採用しています。軸を自分で選べます。初期出荷は赤軸です。</p>
+              </article>
+              <article class="card card--pad">
+                <h3 class="card-title">操作の引き継ぎ</h3>
+                <p class="card-text">ボタン配置と機能が固定されるため、講習と本番で同じ操作感になります。後任への引き継ぎも短くなります。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-how">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">How it works</p>
+            <h2 id="iryx-how" class="section-title">vMixとの接続</h2>
+            <p class="section-lede">間にMIDIやOSCの変換を挟まず、MCUからvMixのTCP APIを直接呼びます。</p>
+          </div>
+          <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <article class="card card--pad">
+              <h3 class="card-title">Direct TCP API</h3>
+              <p class="card-text">MIDI / OSCを介さず、vMixのTCP APIへ直接接続します。ボタンごとの機能をファームウェアで固定しています。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">USB CDC-NCM</h3>
+              <p class="card-text">USB接続時はCDC-NCMのネットワークアダプターとして認識され、本機に<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">172.31.x.1</code>が割り当てられます。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">LAN（W5500）</h3>
+              <p class="card-text">有線LAN搭載モデルはWiznet W5500でネットワークに接続します。DHCPでも固定IPでも運用できます。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">Hot-swap</h3>
+              <p class="card-text">キースイッチはCHERRY MX互換のホットスワップです。付属の赤軸から、好みの軸へ交換できます。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-lineup">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Lineup</p>
+            <h2 id="iryx-lineup" class="section-title">モデルの<br class="hidden md:block" />構成</h2>
+            <p class="section-lede">
+              Iryxは1台で完結するのではなく、現場の役割ごとにモデルを分けています。TC / SW / RP / TL / TMの5シリーズを開発中です。
+            </p>
+          </div>
+
+          <div class="table-wrap mt-8">
+            <table class="data-table">
+              <caption class="sr-only">Iryxのモデル一覧</caption>
+              <thead>
+                <tr>
+                  <th scope="col">モデル</th>
+                  <th scope="col">位置づけ</th>
+                  <th scope="col">接続</th>
+                  <th scope="col">状態</th>
+                  <th scope="col">主な特徴</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="font-medium text-white">TC-00</th>
+                  <td>トランジション試作</td>
+                  <td>USB Micro B</td>
+                  <td>試作（5台頒布）</td>
+                  <td>9ボタン。Custom1〜4、Cut、Auto、Shift、Menu、Back</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="font-medium text-white">TC-01</th>
+                  <td>トランジション正式</td>
+                  <td>USB-C（ロック）</td>
+                  <td>開発中・2026年内販売予定</td>
+                  <td>筐体付き。TC-00のフィードバックを反映</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="font-medium text-white">SW-01</th>
+                  <td>トランジション + StreamDeck</td>
+                  <td>USB-C（ロック）</td>
+                  <td>開発中・2026年内販売予定</td>
+                  <td>StreamDeckモジュール内蔵。vMix / ATEMモード</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="font-medium text-white">RP-00</th>
+                  <td>リプレイ専用</td>
+                  <td>USB / LAN</td>
+                  <td>試作・開発中</td>
+                  <td>Tバー、回転式ジョグ、UserScriptボタン</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="font-medium text-white">TL</th>
+                  <td>タリーライト</td>
+                  <td>LAN（PoE検討中）</td>
+                  <td>企画・開発中</td>
+                  <td>LEDマトリックス、ボタンバックライト</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="font-medium text-white">TM</th>
+                  <td>タイマー表示</td>
+                  <td>未定</td>
+                  <td>企画・開発中</td>
+                  <td>進行用のタイマーディスプレイ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-4 grid gap-4 md:grid-cols-2">
+            <figure class="media-frame">
+              <img
+                class="aspect-[16/10] h-auto w-full object-cover"
+                src="/images/iryx-sw01-concept.jpg"
+                alt="Iryx SW-01のコンセプトイメージ。StreamDeckモジュール、ST7789ディスプレイ、Customキー、Cut、Autoを備えた筐体"
+                width="1200"
+                height="780"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="border-t border-white/10 px-5 py-4 text-xs leading-relaxed text-zinc-500">
+                SW-01のコンセプトイメージ（Gemini生成）。実際の製品とは異なります。
+              </figcaption>
+            </figure>
+            <figure class="media-frame">
+              <img
+                class="aspect-[16/10] h-auto w-full object-cover"
+                src="/images/iryx-rp00-concept.jpg"
+                alt="Iryx RP-00のコンセプトイメージ。Tバー、ジョグ、RECボタン、UserScriptボタンを備えたリプレイ用パネル"
+                width="1024"
+                height="723"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="border-t border-white/10 px-5 py-4 text-xs leading-relaxed text-zinc-500">
+                RP-00のコンセプトイメージ（Gemini生成）。Tバーとジョグを備えたリプレイ専用モデルです。
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-prototype">
+        <div class="shell">
+          <div class="grid gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-start">
+            <div>
+              <p class="eyebrow">Prototype</p>
+              <h2 id="iryx-prototype" class="section-title">TC-00（評価機）</h2>
+              <p class="section-lede">
+                2026年5月、知人のvMixオペレーターにTC-00を5台配りました。筐体は未着手で、基板にスペーサーで足を付けた状態です。本番利用は推奨せず、フィードバックを集めるための頒布でした。
+              </p>
+              <p class="mt-4 text-sm leading-relaxed text-zinc-400">
+                本体価格は無料で、希望額の寄付という形にしました。基板データの一部も提供したため、3Dプリンターがあれば筐体を自作できます。
+              </p>
+
+              <h3 class="mt-8 text-sm font-semibold text-white">TC-00のボタン構成</h3>
+              <ul class="mt-3 grid gap-2 text-sm text-zinc-400 sm:grid-cols-2">
+                <li>Custom1〜4（Stinger1〜4、Transition1〜4、Overlay1〜4などを割り当て）</li>
+                <li>Cut / Auto（AutoはFade以外にも変更可能）</li>
+                <li>Shift（同時押しで別の機能）</li>
+                <li>Menu / Back</li>
+              </ul>
+
+              <h3 class="mt-8 text-sm font-semibold text-white">評価で出た声</h3>
+              <ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-zinc-400 marker:text-cyan-500/80">
+                <li>押し心地が良い。赤軸とKailh Box Switch V2 Whiteの2種類を試した。</li>
+                <li>設定なしで即運用できた。USB接続から5〜10秒で反応する。</li>
+                <li>Hold（長押し）モードが欲しい → 正式版で実装予定。</li>
+                <li>内蔵ストレージにvMixのプリセットや確認用データを入れてほしい。</li>
+                <li>左手用モデル、Hall Effect版が欲しい → 検討中。</li>
+              </ul>
+            </div>
+
+            <div class="space-y-4">
+              <article class="card card--pad">
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">Prototype status</p>
+                <dl class="mt-4 space-y-3 text-sm">
+                  <div class="flex items-baseline justify-between gap-4 border-b border-white/10 pb-3">
+                    <dt class="text-zinc-500">頒布数</dt>
+                    <dd class="text-zinc-200">5台</dd>
+                  </div>
+                  <div class="flex items-baseline justify-between gap-4 border-b border-white/10 pb-3">
+                    <dt class="text-zinc-500">筐体</dt>
+                    <dd class="text-zinc-200">未着手（基板＋スペーサー）</dd>
+                  </div>
+                  <div class="flex items-baseline justify-between gap-4 border-b border-white/10 pb-3">
+                    <dt class="text-zinc-500">接続</dt>
+                    <dd class="text-zinc-200">USB Micro B</dd>
+                  </div>
+                  <div class="flex items-baseline justify-between gap-4 border-b border-white/10 pb-3">
+                    <dt class="text-zinc-500">デバウンス</dt>
+                    <dd class="text-zinc-200">16ms（正式版は4ms予定）</dd>
+                  </div>
+                  <div class="flex items-baseline justify-between gap-4">
+                    <dt class="text-zinc-500">参考価格</dt>
+                    <dd class="text-zinc-200">9,980円前後（2026年4月時点）</dd>
+                  </div>
+                </dl>
+              </article>
+
+              <article class="card card--pad">
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">Production</p>
+                <p class="mt-3 text-sm leading-relaxed text-zinc-400">
+                  TC-01とSW-01は筐体・化粧箱付きで、USB-Cのロックコネクタに変更します。SW-01はStreamDeckモジュールを内蔵し、PCにはStreamDeckとIryxの2台として認識されます。頒布はBOOTHを予定しています。
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-tech">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Technology</p>
+            <h2 id="iryx-tech" class="section-title">ハードウェアとファームウェア</h2>
+            <p class="section-lede">ファームウェアはRust（Embassy）、ハードウェアはmizuyoukanが担当しています。</p>
+          </div>
+          <div class="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <article class="card card--pad">
+              <h3 class="card-title">Rust + Embassy</h3>
+              <p class="card-text">RP2040向けのファームウェアはRustで開発しています。TC-00のコードは約10,000行で、大半はディスプレイ描画とUIです。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">vmix-rs</h3>
+              <p class="card-text">vMixへの接続と制御には自作のRustライブラリ<code class="rounded bg-white/[0.07] px-1.5 py-0.5 font-mono text-[0.85em] text-cyan-200">vmix-rs</code>を使っています。デスクトップのvmix-utilityとも資産を共有しています。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">ST7789</h3>
+              <p class="card-text">本体の小型ディスプレイに接続状態、vMixのバージョン、PVW/PGMを表示します。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">USB / LAN</h3>
+              <p class="card-text">USB CDC-NCMとDHCPサーバー、W5500によるTCP通信を実装しています。接続方法は筐体のモデルで選べます。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">ハードウェア設計</h3>
+              <p class="card-text">回路設計・基板制作はmizuyoukanが担当しています。部品選定と仕様策定はFlowingが行っています。</p>
+            </article>
+            <article class="card card--pad">
+              <h3 class="card-title">RP2354Bへの移行検討</h3>
+              <p class="card-text">RP-00はTバー、ジョグ、多数のボタンでRP2040のGPIOをすべて使い切ります。次の版ではRP2354Bへの移行も検討しています。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-field">
+        <div class="shell">
+          <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+            <div>
+              <p class="eyebrow">Field test</p>
+              <h2 id="iryx-field" class="section-title">篝火#16での運用</h2>
+              <p class="section-lede">
+                2026年11月21日・22日に開催された「篝火#16」で、Iryxの評価試験機2セットを運用いただきました。1セットはEast Geek Smashのサブ配信、もう1セットは無明遊者の配信です。
+              </p>
+              <p class="mt-4 text-sm leading-relaxed text-zinc-400">
+                当初は貸し出しの予定はありませんでした。FlowingがDay1に観戦と手伝いでIryxを持ち込み、現地で試してもらうことになりました。突然の依頼を快諾いただいた無明遊者の7IRO / なないろ様に感謝しています。
+              </p>
+              <a class="link-arrow mt-6" href="https://note.com/hiiraginil/n/na3fb779a8f4f" target="_blank" rel="noopener noreferrer">篝火#16での試験運用の記録（note）</a>
+            </div>
+
+            <div class="grid gap-3">
+              <article class="card card--pad">
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">East Geek Smash</p>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">篝火#16のサブ配信で評価試験機を1セット運用。USB接続のみで、説明なしでも操作できたといいます。</p>
+              </article>
+              <article class="card card--pad">
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">無明遊者</p>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">篝火#16の配信で評価試験機を1セット運用。押し心地と即応性について評価をいただきました。</p>
+              </article>
+              <article class="card card--pad">
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">次回の予定</p>
+                <p class="mt-2 text-sm leading-relaxed text-zinc-400">vMixの利用台数が多かったため、次回は追加で持参する予定です。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="notes" class="section section--tight" aria-labelledby="iryx-notes">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Notes</p>
+            <h2 id="iryx-notes" class="section-title">開発記録</h2>
+            <p class="section-lede">仕様の背景、試作機の頒布、現場での評価はnoteに残しています。</p>
+          </div>
+          <div class="mt-8 grid gap-4 md:grid-cols-3">
+            <a class="card card--link card--pad" href="https://note.com/hiiraginil/n/n17d77bb9683c" target="_blank" rel="noopener noreferrer">
+              <time class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500" datetime="2026-04-01">2026.04.01</time>
+              <h3 class="mt-2 card-title">vMix専用コンパネを作っている</h3>
+              <p class="card-text">開発の動機、TC-00の立ち位置、リプレイモデルの構想、ファームウェアとハードウェアの設計。</p>
+              <span class="link-arrow mt-4">noteで読む</span>
+            </a>
+            <a class="card card--link card--pad" href="https://note.com/hiiraginil/n/nba3c054e76a5" target="_blank" rel="noopener noreferrer">
+              <time class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500" datetime="2026-05-04">2026.05.04</time>
+              <h3 class="mt-2 card-title">Iryxの試作機を配布しました</h3>
+              <p class="card-text">TC-00を5台配布した記録。評価で出たフィードバックと、TC-01 / SW-01 / RP-00への反映。</p>
+              <span class="link-arrow mt-4">noteで読む</span>
+            </a>
+            <a class="card card--link card--pad" href="https://note.com/hiiraginil/n/na3fb779a8f4f" target="_blank" rel="noopener noreferrer">
+              <time class="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500" datetime="2026-11-23">2026.11.23</time>
+              <h3 class="mt-2 card-title">篝火#16で開発中機材の試験運用をしました</h3>
+              <p class="card-text">East Geek Smashと無明遊者での評価。現場で出た声と、eivizの試験運用の記録。</p>
+              <span class="link-arrow mt-4">noteで読む</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-buy">
+        <div class="shell">
+          <div class="card card--pad md:flex md:items-center md:justify-between md:gap-8">
+            <div>
+              <p class="eyebrow">Availability</p>
+              <h2 id="iryx-buy" class="mt-3 text-xl font-semibold tracking-tight text-white md:text-2xl">
+                販売予定
+              </h2>
+              <p class="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">
+                TC-01とSW-01はBOOTHでの頒布を予定しています。価格と販売日は確定していません。評価機の貸し出しは、用途と環境が合う場合に限り対応します。
+              </p>
+            </div>
+            <a class="btn btn--primary mt-6 shrink-0 md:mt-0" href="mailto:ruk1ium@gmail.com?subject=Iryx%E3%81%AE%E5%B0%8E%E5%85%A5%E3%83%BB%E8%A9%95%E4%BE%A1%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">導入・評価の相談</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-faq">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">FAQ</p>
+            <h2 id="iryx-faq" class="section-title">よくある質問</h2>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>Iryxはいつ購入できますか？</summary>
+              <p>2026年内の販売を目指しています。TC-01とSW-01はBOOTHでの頒布を予定しています。販売時期と価格が確定したら、ニュースとXでお知らせします。</p>
+            </details>
+            <details>
+              <summary>TC-00とTC-01/SW-01の違いは？</summary>
+              <p>TC-00は9ボタンの試作・評価機です。TC-01はTC-00のフィードバックを反映した筐体付きの正式モデルで、USB-Cロックコネクタを採用します。SW-01はTC-01にStreamDeckモジュールを搭載し、vMixとATEMの両方を操作できます。</p>
+            </details>
+            <details>
+              <summary>設定は必要ですか？</summary>
+              <p>vMixのIPアドレスとCustom1〜4の割り当て程度です。ShortcutやActivatorsの作成、ドライバのインストールは不要です。USBで接続してから5〜10秒程度でボタンが反応します。</p>
+            </details>
+            <details>
+              <summary>StreamDeckは必要ですか？</summary>
+              <p>SW-01はStreamDeckモジュールを内蔵しています。TC-01とRP-00は、左手のStreamDeckでPreviewを選び、右手のIryxでトランジションやリプレイを操作する運用を想定しています。</p>
+            </details>
+            <details>
+              <summary>ATEMは操作できますか？</summary>
+              <p>SW-01はATEMモードを備えており、UDP 9910経由でCut、Auto、Previewを操作できます。ATEMモードは有線LAN搭載モデルでのみ利用できます。</p>
+            </details>
+            <details>
+              <summary>対応しているvMixのバージョンは？</summary>
+              <p>vMix 29以降に対応しています。v28以前では、Stinger 5〜8、OverlayInput 5〜8、Mixの選択の一部が動作しない場合があります。</p>
+            </details>
+            <details>
+              <summary>価格はいくらですか？</summary>
+              <p>正式版の価格は未定です。TC-00は2026年4月時点で9,980円前後を予定していましたが、正式モデルの価格は確定していません。</p>
+            </details>
+            <details>
+              <summary>転売や譲渡はできますか？</summary>
+              <p>できません。Iryxは評価用の試作機を含め、転売・譲渡を禁止しています。</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="iryx-related">
+        <div class="shell">
+          <h2 id="iryx-related" class="font-mono text-[11px] uppercase tracking-[0.2em] text-zinc-500">関連</h2>
+          <div class="mt-4 grid gap-4 md:grid-cols-3">
+            <a class="card card--link card--pad" href="/products/vmix-utility.html">
+              <h3 class="card-title">vmix-utility</h3>
+              <p class="card-text">vMixの接続管理やShortcut生成をまとめたデスクトップアプリ。Iryxと同じTCP APIを使います。</p>
+            </a>
+            <a class="card card--link card--pad" href="/products/streamdeck.html">
+              <h3 class="card-title">Stream Deck プラグイン</h3>
+              <p class="card-text">vMixをStream Deckから操作するプラグイン。Iryxと組み合わせて使えます。</p>
+            </a>
+            <a class="card card--link card--pad" href="/products/eiviz.html">
+              <h3 class="card-title">eiviz</h3>
+              <p class="card-text">無制限M/Eのソフトウェアスイッチャー。篝火#16でリプレイ系統の評価に使われました。</p>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <site-footer></site-footer>
+  </body>
+</html>
