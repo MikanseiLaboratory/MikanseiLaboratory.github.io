@@ -4,7 +4,7 @@ Mikansei Laboratory（未完成成果物研究所）の公式サイトです。
 
 - GitHub 組織: [https://github.com/MikanseiLaboratory](https://github.com/MikanseiLaboratory)
 - 公式 X: [https://x.com/MikanseiDev](https://x.com/MikanseiDev)
-- 公開 URL: [https://mikanseilaboratory.github.io/](https://mikanseilaboratory.github.io/)
+- 公開 URL: [https://mikansei.dev/](https://mikansei.dev/)
 
 ## ページ構成
 

@@ -11,7 +11,7 @@ export type NewsItem = {
   tags?: string[];
 };
 
-const HOST = "https://mikanseilaboratory.github.io";
+const HOST = "https://mikansei.dev";
 
 function escapeHtml(value: string): string {
   return value
